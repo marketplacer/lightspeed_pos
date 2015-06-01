@@ -27,9 +27,14 @@ account = accounts.first
 account.items # This will return the first 100 items from the account
 ```
 
-## Items
+## Account Resources
 
-To work with items, you first need to fetch an account.
+Account resources share a common API. Account resources that are currently supported by this library are:
+
+* Categories
+* Items
+
+To work with account resources, you first need to fetch an account. The examples below are for items, but will also work with other types listed above.
 
 ### List
 
