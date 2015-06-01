@@ -57,4 +57,23 @@ account.items.create({
 })
 ```
 
+### Update
+
+You can update a particular item by calling `update`, passing that item's ID and providing a list of attributes to update:
+
+```ruby
+account.items.update(1, {
+  description: "Onesie"
+})
+```
+
+This method isn't available on items themselves because I couldn't work out how to share the account ID easily there.
+
+### Archive
+
+You can archive a particular item by calling `archive` and passing that item's ID:
+
+```ruby
+account.items.archive(1)
+```
 
