@@ -40,4 +40,26 @@ describe Lightspeed::Categories, configure: true do
       end
     end
   end
+
+  context "updating" do
+    it "with valid information" do
+      VCR.use_cassette("account/categories/update") do
+        category = account.categories.update(1, {
+          name: "Category Two"
+        })
+        expect(category).to be_a(Lightspeed::Category)
+        expect(category.name).to eq("Category Two")
+      end
+    end
+
+    it "missing a name" do
+      VCR.use_cassette("account/categories/update_invalid") do
+        expect do
+          item = account.categories.update(1, {
+            name: ""
+          })
+        end.to raise_error(Lightspeed::Errors::BadRequest, "name cannot be blank.")
+      end
+    end
+  end
 end
