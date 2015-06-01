@@ -3,7 +3,7 @@ require 'lightspeed/items'
 
 module Lightspeed
   class Account < Lightspeed::Base
-    attr_accessor :id
+    attr_accessor :id, :name, :link
 
     def items
       item_proxy

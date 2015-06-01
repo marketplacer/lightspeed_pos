@@ -3,7 +3,10 @@ module Lightspeed
     attr_accessor :id
 
     def initialize(data={})
-      self.id = data[self.class.id_field]
+      self.id = data.delete(self.class.id_field)
+      data.each do |k,v|
+        send("#{k}=", v)
+      end
     end
 
     def inspect
