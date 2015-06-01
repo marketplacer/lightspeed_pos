@@ -2,8 +2,8 @@ require 'lightspeed/item'
 
 module Lightspeed
   class Items
-
     attr_accessor :account_id
+
     def initialize(account_id)
       @account_id = account_id
     end
