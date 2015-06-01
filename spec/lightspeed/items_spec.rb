@@ -49,12 +49,24 @@ describe Lightspeed::Items, configure: true do
     end
   end
 
-  it "can update an existing item" do
-    VCR.use_cassette("account/update_item") do
-      item = account.items.update(1, {
-        description: "Onesie"
-      })
-      expect(item.description).to eq("Onesie")
+  context "updating" do
+    it "with valid information" do
+      VCR.use_cassette("account/update_item") do
+        item = account.items.update(1, {
+          description: "Onesie"
+        })
+        expect(item.description).to eq("Onesie")
+      end
+    end
+
+    it "missing a description" do
+      VCR.use_cassette("account/invalid_update_item") do
+        expect do
+          item = account.items.update(1, {
+            description: ""
+          })
+        end.to raise_error(Lightspeed::Errors::BadRequest, "Item not updated. An Item must have a description.")
+      end
     end
   end
 end
