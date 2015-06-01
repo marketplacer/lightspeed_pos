@@ -51,7 +51,6 @@ module Lightspeed
     data = JSON.parse(response)
     case response.code
     when 401
-      binding.pry
       raise Lightspeed::Errors::Unauthorized.new(data["message"])
     end
   end
