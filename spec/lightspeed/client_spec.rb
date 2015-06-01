@@ -10,4 +10,17 @@ describe Lightspeed::Client, configure: true do
       expect(client.accounts.first.id).to eq("113665")
     end
   end
+
+  context "errors" do
+    it "401" do
+      Lightspeed.configure do |c|
+        c.api_key = 'totally-bogus'
+      end
+
+      client = Lightspeed::Client.new
+      VCR.use_cassette("accounts_401") do
+        expect { client.accounts }.to raise_error(Lightspeed::Errors::Unauthorized, "Invalid username/password or API key.")
+      end
+    end
+  end
 end

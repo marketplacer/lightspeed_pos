@@ -39,8 +39,23 @@ module Lightspeed
   end
 
   def self.request(method, *args)
-    self.send(method, *args)
+    response = self.send(method, *args)
+    if response.code == 200
+      response
+    else
+      handle_error(response)
+    end
+  end
+
+  def self.handle_error(response)
+    data = JSON.parse(response)
+    case response.code
+    when 401
+      binding.pry
+      raise Lightspeed::Errors::Unauthorized.new(data["message"])
+    end
   end
 end
 
 require 'lightspeed/client'
+require 'lightspeed/errors'
