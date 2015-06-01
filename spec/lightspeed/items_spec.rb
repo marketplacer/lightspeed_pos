@@ -26,13 +26,35 @@ describe Lightspeed::Items, configure: true do
     end
   end
 
-  it "can create a new item" do
-    VCR.use_cassette("account/create_item") do
-      item = account.items.create({
+  context "creating" do
+    it "with valid information" do
+      VCR.use_cassette("account/create_item") do
+        item = account.items.create({
+          description: "Onesie"
+        })
+        expect(item).to be_a(Lightspeed::Item)
+        expect(item.id).not_to be_nil
+      end
+    end
+
+    it "missing a description" do
+      VCR.use_cassette("account/create_invalid_item") do
+        expect do
+          item = account.items.create({
+            description: ""
+          })
+        end.to raise_error(Lightspeed::Errors::BadRequest, "Item not created. An Item must have a description.")
+      
+      end
+    end
+  end
+
+  it "can update an existing item" do
+    VCR.use_cassette("account/update_item") do
+      item = account.items.update(1, {
         description: "Onesie"
       })
-      expect(item).to be_a(Lightspeed::Item)
-      expect(item.id).not_to be_nil
+      expect(item.description).to eq("Onesie")
     end
   end
 end

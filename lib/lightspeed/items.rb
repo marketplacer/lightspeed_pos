@@ -23,18 +23,35 @@ module Lightspeed
       Lightspeed::Item.new(response["Item"])
     end
 
+    def update(id, attributes={})
+      response = put(id, body: attributes.to_json)
+      Lightspeed::Item.new(response["Item"])
+    end
+
     private
 
     def get(*args)
-      Lightspeed.request(:get, base_path, *args)
+      Lightspeed.request(:get, collection_path, *args)
     end
 
     def post(*args)
-      Lightspeed.request(:post, base_path, *args)
+      Lightspeed.request(:post, collection_path, *args)
+    end
+
+    def put(id, *args)
+      Lightspeed.request(:put, item_path(id), *args)
     end
 
     def base_path
-      Lightspeed.base_uri + "/Account/#{account_id}/Item.json"
+      Lightspeed.base_uri + "/Account/#{account_id}/Item"
+    end
+
+    def collection_path
+      base_path + ".json"
+    end
+
+    def item_path(id)
+      base_path + "/#{id}.json"
     end
   end
 end
