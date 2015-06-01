@@ -1,5 +1,5 @@
 require 'lightspeed/base'
-require 'lightspeed/item_proxy'
+require 'lightspeed/items'
 
 module Lightspeed
   class Account < Lightspeed::Base
@@ -20,7 +20,7 @@ module Lightspeed
     end
 
     def item_proxy
-      @item_proxy ||= Lightspeed::ItemProxy.new(id)
+      @item_proxy ||= Lightspeed::Items.new(id)
     end
   end
 end

@@ -1,10 +1,6 @@
 require 'spec_helper'
 
-describe Lightspeed::Account do
-  Lightspeed.configure do |c|
-    c.api_key = "test"
-  end
-
+describe Lightspeed::Items, configured: true do
   let(:account) do
     Lightspeed::Account.new.tap do |account|
       account.id = 113665

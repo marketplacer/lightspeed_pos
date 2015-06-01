@@ -8,3 +8,11 @@ VCR.configure do |config|
   config.hook_into :webmock
 end
 
+RSpec.configure do |c|
+  c.before(configured: true) do
+    Lightspeed.configure do |c|
+      c.api_key = "test"
+    end
+  end
+end
+
