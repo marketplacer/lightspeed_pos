@@ -34,8 +34,12 @@ module Lightspeed
   # Converts a thing to an Array unless it is already.
   # Unfortunately necessary because Lightspeed's API may return an object, 
   # or an array of objects.
+  #
+  # The compact is becuase it may return nothing at all.
+  # In the example of fetching categories resource where there are no categories,
+  # response["Category"] will not be present.
   def self.splat(thing)
-    thing.is_a?(Array) ? thing : [thing]
+    (thing.is_a?(Array) ? thing : [thing]).compact
   end
 
   def self.request(method, *args)
