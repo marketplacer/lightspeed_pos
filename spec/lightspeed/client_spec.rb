@@ -1,11 +1,6 @@
 require 'spec_helper'
 
-describe Lightspeed::Client do
-  before do
-    Lightspeed.configure do |c|
-      c.api_key = "test"
-    end
-  end
+describe Lightspeed::Client, configure: true do
 
   it "can fetch accounts" do
     VCR.use_cassette("accounts") do
