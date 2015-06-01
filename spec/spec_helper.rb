@@ -11,7 +11,7 @@ end
 RSpec.configure do |c|
   c.before(configure: true) do
     Lightspeed.configure do |c|
-      c.api_key = "test"
+      c.api_key = ENV['API_KEY'] || "test"
     end
   end
 end
