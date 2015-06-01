@@ -17,6 +17,7 @@ Gem::Specification.new do |spec|
   spec.bindir        = "exe"
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
+  spec.license       = "MIT"
 
   spec.add_dependency "httparty", "0.13.5"
 
