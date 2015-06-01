@@ -1,5 +1,6 @@
 module Lightspeed
   module Errors
-    class Unauthorized < Exception; end
+    class BadRequest < Exception; end # 400
+    class Unauthorized < Exception; end # 401
   end
 end

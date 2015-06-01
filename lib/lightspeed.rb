@@ -49,9 +49,15 @@ module Lightspeed
 
   def self.handle_error(response)
     data = JSON.parse(response)
-    case response.code
+    error = case response.code
+    when 400
+      Lightspeed::Errors::BadRequest
     when 401
-      raise Lightspeed::Errors::Unauthorized.new(data["message"])
+      Lightspeed::Errors::Unauthorized
+    end
+
+    if error
+      raise error.new(data["message"])
     end
   end
 end
