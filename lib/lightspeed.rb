@@ -2,6 +2,9 @@ require 'httparty'
 require 'pry'
 
 module Lightspeed
+  include HTTParty
+  base_uri "https://api.merchantos.com/API/"
+
   # Used to configure Lightspeed.
   #
   # Example:
@@ -17,8 +20,7 @@ module Lightspeed
 
   # Sets an API key to use for both Lightspeed::Client and Lightspeed::Account
   def self.api_key=(key)
-    Lightspeed::Client.basic_auth key, "apikey"
-    Lightspeed::Account.basic_auth key, "apikey"
+    Lightspeed.basic_auth key, "apikey"
   end
 
   # Instantiates a bunch of records from Lightspeed into their proper classes.
@@ -36,9 +38,9 @@ module Lightspeed
     thing.is_a?(Array) ? thing : [thing]
   end
 
+  def self.request(method, *args)
+    self.send(method, *args)
+  end
 end
 
-require 'lightspeed/base'
 require 'lightspeed/client'
-require 'lightspeed/account'
-require 'lightspeed/item'

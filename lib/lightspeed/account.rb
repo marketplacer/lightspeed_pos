@@ -1,15 +1,16 @@
+require 'lightspeed/base'
+require 'lightspeed/item_proxy'
+
 module Lightspeed
   class Account < Lightspeed::Base
     attr_accessor :id
 
     def items
-      response = get("Item.json")
-      items = Lightspeed.instantiate(response["Item"], Lightspeed::Item)
+      item_proxy.all
     end
 
-    def find_item(id)
-      response = get("Item.json", query: { itemID: id })
-      Lightspeed::Item.new(response["Item"])
+    def find_item(item_id)
+      item_proxy.find(item_id)
     end
 
     private
@@ -18,8 +19,8 @@ module Lightspeed
       "accountID"
     end
 
-    def get(path, *args)
-      self.class.get("/Account/#{id}/#{path}", *args)
+    def item_proxy
+      @item_proxy ||= Lightspeed::ItemProxy.new(id)
     end
   end
 end

@@ -1,13 +1,12 @@
+require 'lightspeed/account'
+
 module Lightspeed
   class Client
-    include HTTParty
-
-    base_uri "https://api.merchantos.com/API/"
 
     # Returns a list of accounts that you have access to.
     def accounts
-      response = self.class.get("/Account.json")
-      accounts = Lightspeed.instantiate(response["Account"], Lightspeed::Account)
+      response = Lightspeed.request(:get, "/Account.json")
+      Lightspeed.instantiate(response["Account"], Lightspeed::Account)
     end
   end
 end

@@ -6,11 +6,7 @@ describe Lightspeed do
       c.api_key = 'abc1234'
     end
 
-    expect(Lightspeed::Client.default_options[:basic_auth]).to eq({
-      username: "abc1234", password: "apikey"
-    })
-
-    expect(Lightspeed::Account.default_options[:basic_auth]).to eq({
+    expect(Lightspeed.default_options[:basic_auth]).to eq({
       username: "abc1234", password: "apikey"
     })
   end

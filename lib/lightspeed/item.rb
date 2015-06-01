@@ -1,5 +1,7 @@
+require 'lightspeed/base'
+
 module Lightspeed
-  class Item < Base
+  class Item < Lightspeed::Base
 
     private
 
