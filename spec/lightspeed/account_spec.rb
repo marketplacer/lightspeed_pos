@@ -18,8 +18,15 @@ describe Lightspeed::Account do
       expect(items.count).to eq(2)
 
       item = items.first
-      expect(item).to be_an(Lightspeed::Item)
+      expect(item).to be_a(Lightspeed::Item)
       expect(item.id).to eq("1")
+    end
+  end
+
+  it "can fetch an item by ID" do
+    VCR.use_cassette("account/item") do
+      item = account.find_item(1)
+      expect(item).to be_a(Lightspeed::Item)
     end
   end
 end
