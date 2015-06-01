@@ -5,7 +5,7 @@ require 'lightspeed/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "lightspeed-pos"
-  spec.version       = Lightspeed::Pos::VERSION
+  spec.version       = Lightspeed::VERSION
   spec.authors       = ["Ryan Bigg"]
   spec.email         = ["git@ryanbigg.com"]
 
