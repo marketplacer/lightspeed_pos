@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Lightspeed::Items, configured: true do
+describe Lightspeed::Items, configure: true do
   let(:account) do
     Lightspeed::Account.new.tap do |account|
       account.id = 113665

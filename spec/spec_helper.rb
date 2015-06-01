@@ -9,7 +9,7 @@ VCR.configure do |config|
 end
 
 RSpec.configure do |c|
-  c.before(configured: true) do
+  c.before(configure: true) do
     Lightspeed.configure do |c|
       c.api_key = "test"
     end
