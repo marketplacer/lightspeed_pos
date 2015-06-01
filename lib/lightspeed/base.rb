@@ -4,7 +4,9 @@ module Lightspeed
 
     include HTTParty
 
-    def initialize(data)
+    base_uri "https://api.merchantos.com/API/"
+
+    def initialize(data={})
       self.id = data[self.class.id_field]
     end
 

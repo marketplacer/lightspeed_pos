@@ -41,3 +41,4 @@ end
 require 'lightspeed/base'
 require 'lightspeed/client'
 require 'lightspeed/account'
+require 'lightspeed/item'
