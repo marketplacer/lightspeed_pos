@@ -12,7 +12,7 @@ module Lightspeed
       :defaultVendorID, :itemECommerceID,
 
       # Embedded
-      :ItemShops, :Prices
+      :ItemShops, :Prices, :Note
 
     private
 
