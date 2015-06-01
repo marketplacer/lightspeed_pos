@@ -6,11 +6,7 @@ module Lightspeed
     attr_accessor :id
 
     def items
-      item_proxy.all
-    end
-
-    def find_item(item_id)
-      item_proxy.find(item_id)
+      item_proxy
     end
 
     private

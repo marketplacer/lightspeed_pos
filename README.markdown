@@ -27,4 +27,34 @@ account = accounts.first
 account.items # This will return the first 100 items from the account
 ```
 
+## Items
+
+To work with items, you first need to fetch an account.
+
+### List
+
+You can fetch a list of items with this:
+
+```ruby
+account.items.all
+```
+
+### Show
+
+You can fetch a particular item by its ID by doing this:
+
+```ruby
+account.items.find(1)
+```
+
+### Create
+
+You can create a particular item by calling `create`:
+
+```ruby
+account.items.create({
+  description: "Onesie"
+})
+```
+
 
