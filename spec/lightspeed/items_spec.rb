@@ -44,7 +44,6 @@ describe Lightspeed::Items, configure: true do
             description: ""
           })
         end.to raise_error(Lightspeed::Errors::BadRequest, "Item not created. An Item must have a description.")
-      
       end
     end
   end

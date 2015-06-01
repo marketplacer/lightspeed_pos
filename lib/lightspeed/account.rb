@@ -1,4 +1,5 @@
 require 'lightspeed/base'
+require 'lightspeed/categories'
 require 'lightspeed/items'
 
 module Lightspeed
@@ -9,6 +10,10 @@ module Lightspeed
       item_proxy
     end
 
+    def categories
+      category_proxy
+    end
+
     private
 
     def self.id_field
@@ -17,6 +22,10 @@ module Lightspeed
 
     def item_proxy
       @item_proxy ||= Lightspeed::Items.new(id)
+    end
+
+    def category_proxy
+      @category_proxy ||= Lightspeed::Categories.new(id)
     end
   end
 end
