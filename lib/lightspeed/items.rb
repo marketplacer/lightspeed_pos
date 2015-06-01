@@ -28,6 +28,11 @@ module Lightspeed
       Lightspeed::Item.new(response["Item"])
     end
 
+    def archive(id, attributes={})
+      response = delete(id)
+      Lightspeed::Item.new(response["Item"])
+    end
+
     private
 
     def get(*args)
@@ -40,6 +45,10 @@ module Lightspeed
 
     def put(id, *args)
       Lightspeed.request(:put, item_path(id), *args)
+    end
+
+    def delete(id)
+      Lightspeed.request(:delete, item_path(id))
     end
 
     def base_path

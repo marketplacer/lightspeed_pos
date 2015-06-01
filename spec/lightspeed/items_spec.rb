@@ -69,4 +69,11 @@ describe Lightspeed::Items, configure: true do
       end
     end
   end
+
+  it "can archive an item" do
+    VCR.use_cassette("account/delete_item") do
+      item = account.items.archive(1)
+      expect(item.archived).to eq("true")
+    end
+  end
 end
