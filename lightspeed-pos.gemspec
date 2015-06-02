@@ -11,7 +11,7 @@ Gem::Specification.new do |spec|
 
   spec.summary       = %q{A gem for interacting with Lightspeed's Point of Sale system}
   spec.description   = %q{A gem for interacting with Lightspeed's Point of Sale system}
-  spec.homepage      = "TODO: Put your gem's website or public repo URL here."
+  spec.homepage      = "https://github.com/radar/lightspeed-pos"
 
   spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(spec)/}) }
   spec.bindir        = "exe"
