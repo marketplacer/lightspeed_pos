@@ -78,9 +78,15 @@ account.items.update(1, {
 
 This method isn't available on items themselves because I couldn't work out how to share the account ID easily there.
 
-### Archive
+### Destroy
 
-You can archive a particular item by calling `archive` and passing that item's ID:
+You can destroy a particular item by calling `destroy` and passing that item's ID:
+
+```ruby
+account.items.destroy(1)
+```
+
+For the `Items` resource, this is aliased to `archive`:
 
 ```ruby
 account.items.archive(1)
