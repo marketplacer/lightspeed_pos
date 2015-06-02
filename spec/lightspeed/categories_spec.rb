@@ -62,4 +62,13 @@ describe Lightspeed::Categories, configure: true do
       end
     end
   end
+
+  it "can destroy an item" do
+    VCR.use_cassette("account/categories/destroy") do
+      account.categories.destroy(1)
+      expect do
+        account.categories.find(1)
+      end.to raise_error(Lightspeed::Errors::NotFound, %Q{Could not find a Category by {"categoryID"=>1}})
+    end
+  end
 end

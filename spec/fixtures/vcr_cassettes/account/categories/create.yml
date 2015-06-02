@@ -19,7 +19,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Mon, 01 Jun 2015 23:08:23 GMT
+      - Tue, 02 Jun 2015 00:01:33 GMT
       Server:
       - Apache/2.2.15 (CentOS)
       X-Powered-By:
@@ -33,7 +33,7 @@ http_interactions:
     body:
       encoding: ASCII-8BIT
       string: '{"@attributes":{"count":"1"},"Category":{"categoryID":"1","name":"Category
-        One","nodeDepth":"0","fullPathName":"Category One","leftNode":"1","rightNode":"2","timeStamp":"2015-06-01T06:08:23+00:00","parentID":"0"}}'
+        One","nodeDepth":"0","fullPathName":"Category One","leftNode":"1","rightNode":"2","timeStamp":"2015-06-01T07:01:33+00:00","parentID":"0"}}'
     http_version: 
-  recorded_at: Mon, 01 Jun 2015 23:08:23 GMT
+  recorded_at: Tue, 02 Jun 2015 00:01:33 GMT
 recorded_with: VCR 2.9.3

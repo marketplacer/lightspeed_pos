@@ -12,8 +12,13 @@ module Lightspeed
     end
 
     def find(id)
-      response = get(query: { "#{resource_name.downcase}ID" => id })
-      resource_class.new(response[resource_name])
+      query = { "#{resource_name.downcase}ID" => id }
+      response = get(query: query)
+      if response[resource_name]
+        resource_class.new(response[resource_name])
+      else
+        raise Lightspeed::Errors::NotFound, "Could not find a #{resource_name} by #{query.inspect}"
+      end
     end
 
     def create(attributes={})
