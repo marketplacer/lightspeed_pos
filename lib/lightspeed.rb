@@ -18,9 +18,14 @@ module Lightspeed
 
   private
 
-  # Sets an API key to use for both Lightspeed::Client and Lightspeed::Account
+  # Sets an API key to use for authenticating with the API through basic auth.
   def self.api_key=(key)
     Lightspeed.basic_auth key, "apikey"
+  end
+
+  # Sets an OAuth token to use for authenticating with the API.
+  def self.oauth_token=(key)
+    Lightspeed.headers["Authorization"] = "OAuth #{key}"
   end
 
   # Instantiates a bunch of records from Lightspeed into their proper classes.
