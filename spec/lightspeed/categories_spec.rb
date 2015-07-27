@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe Lightspeed::Categories, configure: true do
   let(:account) do
-    Lightspeed::Account.new.tap do |account|
+    Lightspeed::Account.new(client).tap do |account|
       account.id = 113665
     end
   end

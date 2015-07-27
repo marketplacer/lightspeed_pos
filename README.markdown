@@ -10,25 +10,21 @@ Most definitely not production ready yet, but you can help by submitting pull re
 
 ## Getting Started
 
-First, configure the gem:
+First, intialize a new client:
 
 ```ruby
-Lightspeed.configure do |c|
-  c.api_key = "YOUR_API_KEY_GOES_HERE"
+client = Lightspeed::Client.new(api_key: "YOUR_API_KEY_HERE")
 ```
 
 **OR** you may also choose to pass through an OAuth access token if you have one:
 
 ```ruby
-Lightspeed.configure od |c|
-  c.oauth_token = "YOUR_ACCESS_TOKEN_HERE"
-end
+client = Lightspeed::Client.new(oauth_token: "YOUR_ACCESS_TOKEN_HERE")
 ```
 
 Next, make a request for your accounts:
 
 ```ruby
-client = Lightspeed::Client.new
 accounts = client.accounts
 ```
 

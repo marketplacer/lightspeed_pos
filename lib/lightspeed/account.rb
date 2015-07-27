@@ -21,11 +21,11 @@ module Lightspeed
     end
 
     def item_proxy
-      @item_proxy ||= Lightspeed::Items.new(id)
+      @item_proxy ||= Lightspeed::Items.new(self)
     end
 
     def category_proxy
-      @category_proxy ||= Lightspeed::Categories.new(id)
+      @category_proxy ||= Lightspeed::Categories.new(self)
     end
   end
 end

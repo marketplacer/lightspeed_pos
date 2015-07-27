@@ -1,42 +1,47 @@
 module Lightspeed
   class AccountResource
-    attr_accessor :account_id
+    attr_accessor :account
 
-    def initialize(account_id)
-      @account_id = account_id
+    def initialize(account)
+      @account = account
     end
 
     def all
       response = get
-      Lightspeed.instantiate(response[resource_name], Lightspeed.const_get(resource_name))
+      client.instantiate(response[resource_name], Lightspeed.const_get(resource_name))
     end
 
     def find(id)
-      query = { "#{resource_name.downcase}ID" => id }
-      response = get(query: query)
+      params = { "#{resource_name.downcase}ID" => id }
+      response = get(params: params)
       if response[resource_name]
         resource_class.new(response[resource_name])
       else
-        raise Lightspeed::Errors::NotFound, "Could not find a #{resource_name} by #{query.inspect}"
+        raise Lightspeed::Errors::NotFound, "Could not find a #{resource_name} by #{params.inspect}"
       end
     end
 
     def create(attributes={})
-      response = post(body: attributes.to_json)
-      resource_class.new(response[resource_name])
+      craft_instance(post(body: attributes.to_json))
     end
 
     def update(id, attributes={})
-      response = put(id, body: attributes.to_json)
-      resource_class.new(response[resource_name])
+      craft_instance(put(id, body: attributes.to_json))
     end
 
     def destroy(id, attributes={})
-      response = delete(id)
-      resource_class.new(response[resource_name])
+      craft_instance(delete(id))
     end
 
     private
+
+    def craft_instance(response)
+      resource_class.new(client, response[resource_name])
+    end
+
+    def client
+      account.client
+    end
 
     def resource_class
       Lightspeed.const_get(resource_name)
@@ -46,24 +51,42 @@ module Lightspeed
       self.class.resource_name
     end
 
-    def get(*args)
-      Lightspeed.request(:get, collection_path, *args)
+    def get(params: nil)
+      request = client.request(
+        method: :get,
+        path: collection_path,
+        params: params
+      )
+      request.perform
     end
 
-    def post(*args)
-      Lightspeed.request(:post, collection_path, *args)
+    def post(body: )
+      request = client.request(
+        method: :post,
+        path: collection_path,
+        body: body
+      )
+      request.perform
     end
 
-    def put(id, *args)
-      Lightspeed.request(:put, item_path(id), *args)
+    def put(id, body: )
+      request = client.request(
+        method: :put,
+        path: item_path(id),
+      )
+      request.perform
     end
 
     def delete(id)
-      Lightspeed.request(:delete, item_path(id))
+      request = client.request(
+        method: :delete,
+        path: item_path(id)
+      )
+      request.perform
     end
 
     def base_path
-      Lightspeed.base_uri + "/Account/#{account_id}/#{self.class.resource_name}"
+      "/Account/#{account.id}/#{self.class.resource_name}"
     end
 
     def collection_path
