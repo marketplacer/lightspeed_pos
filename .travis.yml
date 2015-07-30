@@ -4,3 +4,4 @@ rvm:
   - 2.1.6
 script: 'bundle exec rspec spec'
 cache: bundler
+sudo: false
