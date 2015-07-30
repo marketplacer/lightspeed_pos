@@ -18,7 +18,7 @@ module Lightspeed
 
       if client.oauth_token
         @request.options[:headers].merge!({
-          "Authorization" => "OAuth #{client.api_key}"
+          "Authorization" => "OAuth #{client.oauth_token}"
         })
       end
 
