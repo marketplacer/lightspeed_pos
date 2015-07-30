@@ -1,6 +1,6 @@
 module Lightspeed
   class Request
-    attr_accessor :request
+    attr_accessor :raw_request
 
     def self.base_url
       "https://api.merchantos.com/API"
@@ -8,7 +8,7 @@ module Lightspeed
 
 
     def initialize(client, method: , path:, params: nil, body: nil)
-      @request = Typhoeus::Request.new(
+      @raw_request = Typhoeus::Request.new(
         self.class.base_url + path, 
         method: method,
         body: body,
@@ -17,18 +17,18 @@ module Lightspeed
 
 
       if client.oauth_token
-        @request.options[:headers].merge!({
+        @raw_request.options[:headers].merge!({
           "Authorization" => "OAuth #{client.oauth_token}"
         })
       end
 
       if client.api_key
-        @request.options[:userpwd] = "#{client.api_key}:apikey"
+        @raw_request.options[:userpwd] = "#{client.api_key}:apikey"
       end
     end
 
     def perform
-      response = request.run
+      response = raw_request.run
       if response.code == 200
         handle_success(response)
       else
