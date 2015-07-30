@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Lightspeed::Client, configure: true do
+describe Lightspeed::Client do
 
   it "can set an API key" do
     key = 'test'
