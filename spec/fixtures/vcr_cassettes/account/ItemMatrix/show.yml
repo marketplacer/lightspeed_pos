@@ -1,0 +1,36 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.merchantos.com/API/Account/1/ItemMatrix.json?itemMatrixID=2
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Typhoeus - https://github.com/typhoeus/typhoeus
+      Authorization:
+      - OAuth test
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 30 Jul 2015 06:52:00 GMT
+      Server:
+      - Apache/2.2.15 (CentOS)
+      X-Powered-By:
+      - PHP/5.4.42
+      Content-Length:
+      - '492'
+      Vary:
+      - Accept-Encoding
+      Content-Type:
+      - application/json
+    body:
+      encoding: UTF-8
+      string: '{"@attributes":{"count":"1","offset":"0","limit":"100"},"ItemMatrix":{"itemMatrixID":"2","description":"T-Shirt","tax":"true","defaultCost":"0","itemType":"default","modelYear":"0","archived":"false","timeStamp":"2015-07-29T13:28:42+00:00","itemAttributeSetID":"2","manufacturerID":"0","categoryID":"0","defaultVendorID":"0","taxClassID":"2","seasonID":"0","departmentID":"0","itemECommerceID":"0","Prices":{"ItemPrice":[{"amount":"20","useType":"Default"},{"amount":"0","useType":"MSRP"}]}}}'
+    http_version: 
+  recorded_at: Thu, 30 Jul 2015 06:52:03 GMT
+recorded_with: VCR 2.9.3

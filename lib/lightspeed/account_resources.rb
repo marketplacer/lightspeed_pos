@@ -1,3 +1,5 @@
+require 'active_support/core_ext/string'
+
 module Lightspeed
   class AccountResources
     attr_accessor :account
@@ -12,10 +14,10 @@ module Lightspeed
     end
 
     def find(id)
-      params = { "#{resource_name.downcase}ID" => id }
+      params = { "#{resource_name.camelize(:lower)}ID" => id }
       response = get(params: params)
       if response[resource_name]
-        resource_class.new(response[resource_name])
+        resource_class.new(account, response[resource_name])
       else
         raise Lightspeed::Errors::NotFound, "Could not find a #{resource_name} by #{params.inspect}"
       end

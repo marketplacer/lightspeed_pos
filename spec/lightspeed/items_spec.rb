@@ -1,27 +1,23 @@
 require 'spec_helper'
 
 describe Lightspeed::Items do
-  let(:account) do
-    Lightspeed::Account.new(dummy_client).tap do |account|
-      account.id = 113665
-    end
-  end
+  setup_client_and_account
 
   it "can fetch items" do
     VCR.use_cassette("account/items/index") do
       items = account.items.all
       expect(items).to be_an(Array)
-      expect(items.count).to eq(2)
+      expect(items.count).to eq(4)
 
       item = items.first
       expect(item).to be_a(Lightspeed::Item)
-      expect(item.id).to eq("1")
+      expect(item.id).to eq("2")
     end
   end
 
   it "can fetch an item by ID" do
     VCR.use_cassette("account/items/show") do
-      item = account.items.find(1)
+      item = account.items.find(2)
       expect(item).to be_a(Lightspeed::Item)
     end
   end
@@ -51,17 +47,18 @@ describe Lightspeed::Items do
   context "updating" do
     it "with valid information" do
       VCR.use_cassette("account/items/update") do
-        item = account.items.update(1, {
-          description: "Onesie"
+        item = account.items.update(2, {
+          description: "T-Shirt Red Small"
         })
-        expect(item.description).to eq("Onesie")
+
+        expect(item.description).to eq("T-Shirt Red Small")
       end
     end
 
     it "missing a description" do
       VCR.use_cassette("account/items/update_invalid") do
         expect do
-          item = account.items.update(1, {
+          item = account.items.update(2, {
             description: ""
           })
         end.to raise_error(Lightspeed::Errors::BadRequest, "Item not updated. An Item must have a description.")
@@ -71,7 +68,7 @@ describe Lightspeed::Items do
 
   it "can archive an item" do
     VCR.use_cassette("account/items/archive") do
-      item = account.items.archive(1)
+      item = account.items.archive(2)
       expect(item.archived).to eq("true")
     end
   end

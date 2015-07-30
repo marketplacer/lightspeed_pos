@@ -1,11 +1,7 @@
 require 'spec_helper'
 
 describe Lightspeed::Categories do
-  let(:account) do
-    Lightspeed::Account.new(dummy_client).tap do |account|
-      account.id = 113665
-    end
-  end
+  setup_client_and_account
 
   it "can fetch categories" do
     VCR.use_cassette("account/categories/index") do
@@ -15,7 +11,7 @@ describe Lightspeed::Categories do
 
       category = categories.first
       expect(category).to be_a(Lightspeed::Category)
-      expect(category.id).to eq("1")
+      expect(category.id).to eq("2")
     end
   end
 
@@ -44,7 +40,7 @@ describe Lightspeed::Categories do
   context "updating" do
     it "with valid information" do
       VCR.use_cassette("account/categories/update") do
-        category = account.categories.update(1, {
+        category = account.categories.update(2, {
           name: "Category Two"
         })
         expect(category).to be_a(Lightspeed::Category)
@@ -55,7 +51,7 @@ describe Lightspeed::Categories do
     it "missing a name" do
       VCR.use_cassette("account/categories/update_invalid") do
         expect do
-          item = account.categories.update(1, {
+          item = account.categories.update(2, {
             name: ""
           })
         end.to raise_error(Lightspeed::Errors::BadRequest, "name cannot be blank.")
@@ -65,10 +61,10 @@ describe Lightspeed::Categories do
 
   it "can destroy an item" do
     VCR.use_cassette("account/categories/destroy") do
-      account.categories.destroy(1)
+      account.categories.destroy(2)
       expect do
-        account.categories.find(1)
-      end.to raise_error(Lightspeed::Errors::NotFound, %Q{Could not find a Category by {"categoryID"=>1}})
+        account.categories.find(2)
+      end.to raise_error(Lightspeed::Errors::NotFound, %Q{Could not find a Category by {"categoryID"=>2}})
     end
   end
 end

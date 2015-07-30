@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: post
-    uri: https://56a6f8a5dc8a2de9499fdb9566069be40ee98b4cd2e4f97a13d650c446879344:apikey@api.merchantos.com/API/Account/113665/ItemAttributeSet.json
+    uri: https://56a6f8a5dc8a2de9499fdb9566069be40ee98b4cd2e4f97a13d650c446879344:apikey@api.merchantos.com/API/Account/1/ItemAttributeSet.json
     body:
       encoding: UTF-8
       string: '{"name":"Color"}'

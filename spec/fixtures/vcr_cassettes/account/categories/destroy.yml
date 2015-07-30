@@ -2,73 +2,69 @@
 http_interactions:
 - request:
     method: delete
-    uri: https://test:apikey@api.merchantos.com/API/Account/113665/Category/1.json
+    uri: https://api.merchantos.com/API/Account/1/Category/2.json
     body:
       encoding: US-ASCII
       string: ''
     headers:
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - "*/*"
       User-Agent:
-      - Ruby
+      - Typhoeus - https://github.com/typhoeus/typhoeus
+      Authorization:
+      - OAuth test
   response:
     status:
       code: 200
       message: OK
     headers:
       Date:
-      - Tue, 02 Jun 2015 00:01:43 GMT
+      - Thu, 30 Jul 2015 06:07:21 GMT
       Server:
       - Apache/2.2.15 (CentOS)
       X-Powered-By:
-      - PHP/5.4.37
+      - PHP/5.4.42
+      Content-Length:
+      - '254'
       Vary:
       - Accept-Encoding
-      Transfer-Encoding:
-      - chunked
       Content-Type:
       - application/json
     body:
-      encoding: ASCII-8BIT
-      string: '{"@attributes":{"count":"1"},"Category":{"categoryID":"1","name":"Category
-        One","nodeDepth":"0","fullPathName":"Category One","leftNode":"1","rightNode":"2","timeStamp":"2015-06-01T07:01:33+00:00","parentID":"0"}}'
+      encoding: UTF-8
+      string: '{"@attributes":{"count":"1"},"Category":{"categoryID":"2","name":"Category
+        Two","nodeDepth":"0","fullPathName":"Category Two","leftNode":"1","rightNode":"2","createTime":"2015-07-29T12:55:26+00:00","timeStamp":"2015-07-29T13:05:56+00:00","parentID":"0"}}'
     http_version: 
-  recorded_at: Tue, 02 Jun 2015 00:01:43 GMT
+  recorded_at: Thu, 30 Jul 2015 06:07:24 GMT
 - request:
     method: get
-    uri: https://test:apikey@api.merchantos.com/API/Account/113665/Category.json?categoryID=1
+    uri: https://api.merchantos.com/API/Account/1/Category.json?categoryID=2
     body:
       encoding: US-ASCII
       string: ''
     headers:
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - "*/*"
       User-Agent:
-      - Ruby
+      - Typhoeus - https://github.com/typhoeus/typhoeus
+      Authorization:
+      - OAuth test
   response:
     status:
       code: 200
       message: OK
     headers:
       Date:
-      - Tue, 02 Jun 2015 00:01:44 GMT
+      - Thu, 30 Jul 2015 06:07:22 GMT
       Server:
       - Apache/2.2.15 (CentOS)
       X-Powered-By:
-      - PHP/5.4.37
+      - PHP/5.4.42
+      Content-Length:
+      - '29'
       Vary:
       - Accept-Encoding
-      Transfer-Encoding:
-      - chunked
       Content-Type:
       - application/json
     body:
-      encoding: ASCII-8BIT
+      encoding: UTF-8
       string: '{"@attributes":{"count":"0"}}'
     http_version: 
-  recorded_at: Tue, 02 Jun 2015 00:01:44 GMT
+  recorded_at: Thu, 30 Jul 2015 06:07:25 GMT
 recorded_with: VCR 2.9.3

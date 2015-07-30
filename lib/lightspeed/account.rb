@@ -1,6 +1,7 @@
 require 'lightspeed/base'
 require 'lightspeed/categories'
 require 'lightspeed/items'
+require 'lightspeed/item_matrices'
 
 module Lightspeed
   class Account < Lightspeed::Base
@@ -18,8 +19,12 @@ module Lightspeed
       category_proxy
     end
 
+    def item_matrices
+      item_matrices_proxy
+    end
+
     def instantiate(*args)
-      records = client.instantiate(self, *args)
+      client.instantiate(self, *args)
     end
 
     private
@@ -34,6 +39,10 @@ module Lightspeed
 
     def category_proxy
       @category_proxy ||= Lightspeed::Categories.new(self)
+    end
+
+    def item_matrices_proxy
+      @item_matrices_proxy ||= Lightspeed::ItemMatrices.new(self)
     end
   end
 end
