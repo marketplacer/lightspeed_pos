@@ -6,20 +6,18 @@ module Lightspeed
       "https://api.merchantos.com/API"
     end
 
-
-    def initialize(client, method: , path:, params: nil, body: nil)
+    def initialize(client, method:, path:, params: nil, body: nil)
       @raw_request = Typhoeus::Request.new(
-        self.class.base_url + path, 
+        self.class.base_url + path,
         method: method,
         body: body,
         params: params
       )
 
-
       if client.oauth_token
-        @raw_request.options[:headers].merge!({
+        @raw_request.options[:headers].merge!(
           "Authorization" => "OAuth #{client.oauth_token}"
-        })
+        )
       end
 
       if client.api_key
@@ -50,10 +48,8 @@ module Lightspeed
       when 401
         Lightspeed::Errors::Unauthorized
       end
-    
-      if error
-        raise error.new(data["message"])
-      end
+
+      raise error.new(data["message"]) if error
     end
   end
 end

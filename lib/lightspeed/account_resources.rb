@@ -23,15 +23,15 @@ module Lightspeed
       end
     end
 
-    def create(attributes={})
+    def create(attributes = {})
       craft_instance(post(body: attributes.to_json))
     end
 
-    def update(id, attributes={})
+    def update(id, attributes = {})
       craft_instance(put(id, body: attributes.to_json))
     end
 
-    def destroy(id, attributes={})
+    def destroy(id)
       craft_instance(delete(id))
     end
 
@@ -62,7 +62,7 @@ module Lightspeed
       request.perform
     end
 
-    def post(body: )
+    def post(body:)
       request = client.request(
         method: :post,
         path: collection_path,
@@ -71,7 +71,7 @@ module Lightspeed
       request.perform
     end
 
-    def put(id, body: )
+    def put(id, body:)
       request = client.request(
         method: :put,
         path: item_path(id),

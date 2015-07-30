@@ -10,11 +10,8 @@ module Lightspeed
     # Embedded
     attr_accessor :Prices
 
-    private
-
     def self.id_field
       "itemMatrixID"
     end
-
   end
 end

@@ -1,0 +1,69 @@
+AlignHash:
+  EnforcedLastArgumentHashStyle: always_ignore
+
+AlignParameters:
+  Enabled: false
+
+LineLength:
+  Max: 180
+
+ClassLength:
+  Enabled: true
+  Severity: refactor
+  Max: 300
+
+MethodLength:
+  Enabled: true
+  Max: 30
+  Severity: refactor
+
+CyclomaticComplexity:
+  Max: 10
+  Severity: refactor
+
+EndAlignment:
+  Enabled: false
+
+StringLiterals:
+  Enabled: false
+
+Documentation:
+  Enabled: false
+
+PercentLiteralDelimiters:
+  PreferredDelimiters:
+    '%w': '{}'
+
+MethodDefParentheses:
+  Enabled: false
+
+PredicateName:
+  NamePrefixBlacklist:
+    - is_
+    - have_
+
+IndentHash:
+  EnforcedStyle: consistent
+
+# breaks using if blocks with assignments
+IndentationWidth:
+  Enabled: false
+
+CaseIndentation:
+  IndentWhenRelativeTo: end
+
+FormatString:
+  Enabled: false
+
+ActionFilter:
+  Enabled: false
+
+# different methods calls that do exactly the same thing are a smell, regardless of semantics
+SignalException:
+  EnforcedStyle: only_raise
+
+DoubleNegation:
+  Enabled: false
+
+TrailingComma:
+  Enabled: false

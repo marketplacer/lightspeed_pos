@@ -18,9 +18,9 @@ describe Lightspeed::Categories do
   context "creating" do
     it "with valid information" do
       VCR.use_cassette("account/categories/create") do
-        category = account.categories.create({
+        category = account.categories.create(
           name: "Category One"
-        })
+        )
         expect(category).to be_a(Lightspeed::Category)
         expect(category.id).not_to be_nil
       end
@@ -29,9 +29,7 @@ describe Lightspeed::Categories do
     it "missing a name" do
       VCR.use_cassette("account/categories/create_invalid") do
         expect do
-          item = account.categories.create({
-            name: ""
-          })
+          account.categories.create(name: "")
         end.to raise_error(Lightspeed::Errors::BadRequest, "name cannot be blank.")
       end
     end
@@ -40,9 +38,7 @@ describe Lightspeed::Categories do
   context "updating" do
     it "with valid information" do
       VCR.use_cassette("account/categories/update") do
-        category = account.categories.update(2, {
-          name: "Category Two"
-        })
+        category = account.categories.update(2, name: "Category Two")
         expect(category).to be_a(Lightspeed::Category)
         expect(category.name).to eq("Category Two")
       end
@@ -51,9 +47,7 @@ describe Lightspeed::Categories do
     it "missing a name" do
       VCR.use_cassette("account/categories/update_invalid") do
         expect do
-          item = account.categories.update(2, {
-            name: ""
-          })
+          account.categories.update(2, name: "")
         end.to raise_error(Lightspeed::Errors::BadRequest, "name cannot be blank.")
       end
     end
@@ -64,7 +58,7 @@ describe Lightspeed::Categories do
       account.categories.destroy(2)
       expect do
         account.categories.find(2)
-      end.to raise_error(Lightspeed::Errors::NotFound, %Q{Could not find a Category by {"categoryID"=>2}})
+      end.to raise_error(Lightspeed::Errors::NotFound, %(Could not find a Category by {"categoryID"=>2}))
     end
   end
 end

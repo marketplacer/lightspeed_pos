@@ -4,14 +4,14 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'lightspeed/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "lightspeed-pos"
+  spec.name          = "lightspeed_pos"
   spec.version       = Lightspeed::VERSION
   spec.authors       = ["Ryan Bigg"]
   spec.email         = ["git@ryanbigg.com"]
 
-  spec.summary       = %q{A gem for interacting with Lightspeed's Point of Sale system}
-  spec.description   = %q{A gem for interacting with Lightspeed's Point of Sale system}
-  spec.homepage      = "https://github.com/radar/lightspeed-pos"
+  spec.summary       = "A gem for interacting with Lightspeed's Point of Sale system"
+  spec.description   = "A gem for interacting with Lightspeed's Point of Sale system"
+  spec.homepage      = "https://github.com/radar/lightspeed_pos"
 
   spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(spec)/}) }
   spec.bindir        = "exe"

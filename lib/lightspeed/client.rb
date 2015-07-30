@@ -22,7 +22,7 @@ module Lightspeed
     end
 
     # Instantiates a bunch of records from Lightspeed into their proper classes.
-    def instantiate(owner=self, records, klass)
+    def instantiate(owner = self, records, klass)
       records = splat(records)
       records.map do |record|
         klass.new(owner, record)
@@ -32,7 +32,7 @@ module Lightspeed
     private
 
     # Converts a thing to an Array unless it is already.
-    # Unfortunately necessary because Lightspeed's API may return an object, 
+    # Unfortunately necessary because Lightspeed's API may return an object,
     # or an array of objects.
     #
     # The compact is becuase it may return nothing at all.

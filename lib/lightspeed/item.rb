@@ -2,7 +2,6 @@ require 'lightspeed/base'
 
 module Lightspeed
   class Item < Lightspeed::Base
-
     attr_accessor :systemSku, :defaultCost, :avgCost, :discountable, :tax,
       :archived, :itemType, :description, :modelYear, :upc, :ean, :customSku,
       :manufacturerSku, :createTime, :timeStamp,
@@ -14,16 +13,14 @@ module Lightspeed
       # Embedded
       :ItemMatrix, :ItemAttributes, :ItemShops, :Prices, :Note
 
-    # FUNFACT: ItemMatrix data is returned during an `update` request, 
+    def self.id_field
+      "itemID"
+    end
+
+    # FUNFACT: ItemMatrix data is returned during an `update` request,
     # but not during a `find` request.
     def ItemMatrix
       @ItemMatrix ||= owner.item_matrices.find(itemMatrixID)
-    end
-
-    private
-
-    def self.id_field
-      "itemID"
     end
   end
 end
