@@ -2,6 +2,8 @@ language: ruby
 rvm:
   - 2.2.2
   - 2.1.6
-script: 'bundle exec rspec spec'
+script:
+  - 'bundle exec rspec spec'
+  - 'bundle exec rubocop'
 cache: bundler
 sudo: false

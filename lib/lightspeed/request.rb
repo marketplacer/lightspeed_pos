@@ -20,9 +20,7 @@ module Lightspeed
         )
       end
 
-      if client.api_key
-        @raw_request.options[:userpwd] = "#{client.api_key}:apikey"
-      end
+      @raw_request.options[:userpwd] = "#{client.api_key}:apikey" if client.api_key
     end
 
     def perform
@@ -47,9 +45,11 @@ module Lightspeed
         Lightspeed::Errors::BadRequest
       when 401
         Lightspeed::Errors::Unauthorized
+      when 500
+        Lightspeed::Errors::InternalServerError
       end
 
-      raise error.new(data["message"]) if error
+      raise error.new(data["message"]) if error # rubocop:disable RaiseArgs
     end
   end
 end
