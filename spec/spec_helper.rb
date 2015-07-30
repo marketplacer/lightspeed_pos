@@ -1,5 +1,5 @@
 $LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
-require 'lightspeed-pos'
+require 'lightspeed_pos'
 require 'webmock/rspec'
 require 'vcr'
 
