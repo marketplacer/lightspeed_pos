@@ -73,6 +73,7 @@ module Lightspeed
       request = client.request(
         method: :put,
         path: item_path(id),
+        body: body,
       )
       request.perform
     end
