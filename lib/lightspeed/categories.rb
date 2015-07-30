@@ -1,8 +1,8 @@
 require 'lightspeed/category'
-require 'lightspeed/account_resource'
+require 'lightspeed/account_resources'
 
 module Lightspeed
-  class Categories < Lightspeed::AccountResource
+  class Categories < Lightspeed::AccountResources
 
     private
 

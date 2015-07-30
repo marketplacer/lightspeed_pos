@@ -22,10 +22,10 @@ module Lightspeed
     end
 
     # Instantiates a bunch of records from Lightspeed into their proper classes.
-    def instantiate(records, klass)
+    def instantiate(owner=self, records, klass)
       records = splat(records)
       records.map do |record|
-        klass.new(self, record)
+        klass.new(owner, record)
       end
     end
 

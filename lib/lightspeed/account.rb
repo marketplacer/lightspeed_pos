@@ -6,12 +6,20 @@ module Lightspeed
   class Account < Lightspeed::Base
     attr_accessor :id, :name, :link
 
+    def client
+      owner
+    end
+
     def items
       item_proxy
     end
 
     def categories
       category_proxy
+    end
+
+    def instantiate(*args)
+      records = client.instantiate(self, *args)
     end
 
     private

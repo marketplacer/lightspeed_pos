@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe Lightspeed::Items do
   let(:account) do
-    Lightspeed::Account.new(client).tap do |account|
+    Lightspeed::Account.new(dummy_client).tap do |account|
       account.id = 113665
     end
   end

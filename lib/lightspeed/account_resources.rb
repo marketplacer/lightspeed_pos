@@ -1,5 +1,5 @@
 module Lightspeed
-  class AccountResource
+  class AccountResources
     attr_accessor :account
 
     def initialize(account)
@@ -8,7 +8,7 @@ module Lightspeed
 
     def all
       response = get
-      client.instantiate(response[resource_name], Lightspeed.const_get(resource_name))
+      account.instantiate(response[resource_name], Lightspeed.const_get(resource_name))
     end
 
     def find(id)

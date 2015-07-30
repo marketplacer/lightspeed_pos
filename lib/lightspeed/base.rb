@@ -1,9 +1,9 @@
 module Lightspeed
   class Base
-    attr_accessor :id, :client
+    attr_accessor :id, :owner
 
-    def initialize(client, data={})
-      @client = client
+    def initialize(owner, data={})
+      @owner = owner
       self.id = data.delete(self.class.id_field)
       data.each do |k,v|
         send("#{k}=", v)

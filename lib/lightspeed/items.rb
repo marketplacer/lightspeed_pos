@@ -1,8 +1,8 @@
 require 'lightspeed/item'
-require 'lightspeed/account_resource'
+require 'lightspeed/account_resources'
 
 module Lightspeed
-  class Items < Lightspeed::AccountResource
+  class Items < Lightspeed::AccountResources
 
     alias_method :archive, :destroy
 
