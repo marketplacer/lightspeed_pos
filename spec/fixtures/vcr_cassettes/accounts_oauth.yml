@@ -1,0 +1,36 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.merchantos.com/API/Account.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Typhoeus - https://github.com/typhoeus/typhoeus
+      Authorization:
+      - OAuth test
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 30 Jul 2015 03:57:42 GMT
+      Server:
+      - Apache/2.2.15 (CentOS)
+      X-Powered-By:
+      - PHP/5.4.42
+      Content-Length:
+      - '143'
+      Vary:
+      - Accept-Encoding
+      Content-Type:
+      - application/json
+    body:
+      encoding: UTF-8
+      string: '{"@attributes":{"count":"1"},"Account":{"accountID":"113665","name":"Marketplacer","link":{"@attributes":{"href":"\/API\/Account\/117102"}}}}'
+    http_version: 
+  recorded_at: Thu, 30 Jul 2015 03:57:45 GMT
+recorded_with: VCR 2.9.3
