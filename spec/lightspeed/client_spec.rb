@@ -17,9 +17,20 @@ describe Lightspeed::Client do
   it "can fetch accounts using an API key" do
     VCR.use_cassette("accounts") do
       client = Lightspeed::Client.new(api_key: 'test')
-      expect(client.accounts).to be_an(Array)
-      expect(client.accounts.length).to eq(1)
-      expect(client.accounts.first.id).to eq("113665")
+      accounts = client.accounts
+      expect(accounts).to be_an(Array)
+      expect(accounts.length).to eq(1)
+      expect(accounts.first.id).to eq("113665")
+    end
+  end
+
+  it "can fetch accounts using an OAuth token" do
+    VCR.use_cassette("accounts_oauth") do
+      client = Lightspeed::Client.new(oauth_token: 'test')
+      accounts = client.accounts
+      expect(accounts).to be_an(Array)
+      expect(accounts.length).to eq(1)
+      expect(accounts.first.id).to eq("113665")
     end
   end
 
