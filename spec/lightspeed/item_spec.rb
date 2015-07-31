@@ -15,6 +15,12 @@ describe Lightspeed::Item do
     end
   end
 
+  it "does not fetch an item matrix if itemMatrixID is nil" do
+    # Yes, Lightspeed's API returns 0 for an ID, rather than `null`.
+    subject.itemMatrixID = 0
+    expect(subject.item_matrix).to be_nil
+  end
+
   it "can get the attributes of an item" do
     expect(subject.attributes).to eq({ id: 2 })
   end

@@ -20,6 +20,7 @@ module Lightspeed
     # FUNFACT: ItemMatrix data is returned during an `update` request,
     # but not during a `find` request.
     def item_matrix
+      return if itemMatrixID.zero?
       @ItemMatrix ||= owner.item_matrices.find(itemMatrixID) # rubocop:disable VariableName
     end
   end
