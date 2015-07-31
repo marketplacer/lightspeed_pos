@@ -17,7 +17,7 @@ describe Lightspeed::Item do
 
   it "does not fetch an item matrix if itemMatrixID is nil" do
     # Yes, Lightspeed's API returns 0 for an ID, rather than `null`.
-    subject.itemMatrixID = 0
+    subject.itemMatrixID = "0"
     expect(subject.item_matrix).to be_nil
   end
 
