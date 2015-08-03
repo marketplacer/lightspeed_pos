@@ -16,7 +16,7 @@ module Lightspeed
 
     def item_attribute_set
       return if itemAttributeSetID.to_i.zero?
-      owner.item_attribute_sets.find(itemAttributeSetID)
+      @item_attribute_set ||= owner.item_attribute_sets.find(itemAttributeSetID)
     end
   end
 end
