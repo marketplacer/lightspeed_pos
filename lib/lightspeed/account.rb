@@ -13,19 +13,19 @@ module Lightspeed
     end
 
     def items
-      item_proxy
+      @items ||= Lightspeed::Items.new(self)
     end
 
     def categories
-      category_proxy
+      @categories ||= Lightspeed::Categories.new(self)
     end
 
     def item_matrices
-      item_matrices_proxy
+      @item_matrices ||= Lightspeed::ItemMatrices.new(self)
     end
 
     def item_attribute_sets
-      item_attribute_sets_proxy
+      @item_attribute_sets ||= Lightspeed::ItemAttributeSets.new(self)
     end
 
     def instantiate(*args)
@@ -36,22 +36,6 @@ module Lightspeed
 
     def self.id_field
       "accountID"
-    end
-
-    def item_proxy
-      @item_proxy ||= Lightspeed::Items.new(self)
-    end
-
-    def category_proxy
-      @category_proxy ||= Lightspeed::Categories.new(self)
-    end
-
-    def item_matrices_proxy
-      @item_matrices_proxy ||= Lightspeed::ItemMatrices.new(self)
-    end
-
-    def item_attribute_sets_proxy
-      @item_attribute_sets_proxy ||= Lightspeed::ItemAttributeSets.new(self)
     end
   end
 end
