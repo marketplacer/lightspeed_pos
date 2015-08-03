@@ -1,6 +1,6 @@
 # Lightspeed POS
 
-[![Build Status](https://travis-ci.org/radar/lightspeed-pos.svg?branch=master)](https://travis-ci.org/radar/lightspeed-pos)
+[![Build Status](https://travis-ci.org/radar/lightspeed_pos.svg?branch=master)](https://travis-ci.org/radar/lightspeed_pos)
 [![Code Climate](https://codeclimate.com/github/radar/lightspeed-pos/badges/gpa.svg)](https://codeclimate.com/github/radar/lightspeed-pos)
 
 
