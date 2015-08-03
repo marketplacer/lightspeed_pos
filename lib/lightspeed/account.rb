@@ -2,6 +2,7 @@ require 'lightspeed/base'
 require 'lightspeed/categories'
 require 'lightspeed/items'
 require 'lightspeed/item_matrices'
+require 'lightspeed/item_attribute_sets'
 
 module Lightspeed
   class Account < Lightspeed::Base
@@ -21,6 +22,10 @@ module Lightspeed
 
     def item_matrices
       item_matrices_proxy
+    end
+
+    def item_attribute_sets
+      item_attribute_sets_proxy
     end
 
     def instantiate(*args)
@@ -43,6 +48,10 @@ module Lightspeed
 
     def item_matrices_proxy
       @item_matrices_proxy ||= Lightspeed::ItemMatrices.new(self)
+    end
+
+    def item_attribute_sets_proxy
+      @item_attribute_sets_proxy ||= Lightspeed::ItemAttributeSets.new(self)
     end
   end
 end

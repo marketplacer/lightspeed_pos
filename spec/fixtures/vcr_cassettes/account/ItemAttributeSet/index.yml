@@ -1,0 +1,38 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.merchantos.com/API/Account/1/ItemAttributeSet.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Typhoeus - https://github.com/typhoeus/typhoeus
+      Authorization:
+      - OAuth test
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 03 Aug 2015 00:20:22 GMT
+      Server:
+      - Apache/2.2.15 (CentOS)
+      X-Powered-By:
+      - PHP/5.4.42
+      Content-Length:
+      - '548'
+      Vary:
+      - Accept-Encoding
+      Content-Type:
+      - application/json
+    body:
+      encoding: UTF-8
+      string: '{"@attributes":{"count":"4","offset":"0","limit":"100"},"ItemAttributeSet":[{"itemAttributeSetID":"2","name":"Color\/Size","attributeName1":"Color","attributeName2":"Size","attributeName3":""},{"itemAttributeSetID":"4","name":"Size","attributeName1":"","attributeName2":"Size","attributeName3":""},{"itemAttributeSetID":"6","name":"Color","attributeName1":"Color","attributeName2":"","attributeName3":""},{"itemAttributeSetID":"8","name":"3
+        Attributes","attributeName1":"Attribute 1","attributeName2":"Attribute 2","attributeName3":"Attribute
+        3"}]}'
+    http_version: 
+  recorded_at: Mon, 03 Aug 2015 00:20:22 GMT
+recorded_with: VCR 2.9.3
