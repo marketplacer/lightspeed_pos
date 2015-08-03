@@ -3,6 +3,7 @@ require 'lightspeed/categories'
 require 'lightspeed/items'
 require 'lightspeed/item_matrices'
 require 'lightspeed/item_attribute_sets'
+require 'lightspeed/inventories'
 
 module Lightspeed
   class Account < Lightspeed::Base
@@ -30,6 +31,10 @@ module Lightspeed
 
     def item_attribute_sets
       @item_attribute_sets ||= Lightspeed::ItemAttributeSets.new(self)
+    end
+
+    def inventories
+      @inventories ||= Lightspeed::Inventories.new(self)
     end
 
     def instantiate(*args)
