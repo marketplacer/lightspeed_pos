@@ -8,6 +8,10 @@ module Lightspeed
   class Account < Lightspeed::Base
     attr_accessor :id, :name, :link
 
+    def self.id_field
+      "accountID"
+    end
+
     def client
       owner
     end
@@ -30,12 +34,6 @@ module Lightspeed
 
     def instantiate(*args)
       client.instantiate(self, *args)
-    end
-
-    private
-
-    def self.id_field
-      "accountID"
     end
   end
 end
