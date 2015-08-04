@@ -8,7 +8,7 @@ module Lightspeed
       :taxClassID, :seasonID, :departmentID, :itemECommerceID
 
     # Embedded
-    attr_accessor :Prices
+    attr_accessor :Prices, :ItemAttributeSet, :TaxClass, :Items
 
     def self.id_field
       "itemMatrixID"
@@ -16,7 +16,7 @@ module Lightspeed
 
     def item_attribute_set
       return if itemAttributeSetID.to_i.zero?
-      @item_attribute_set ||= owner.item_attribute_sets.find(itemAttributeSetID)
+      @ItemAttributeSet ||= owner.item_attribute_sets.find(itemAttributeSetID) # rubocop:disable VariableName
     end
   end
 end

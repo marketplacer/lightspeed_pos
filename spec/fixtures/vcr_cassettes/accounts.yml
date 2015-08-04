@@ -28,7 +28,7 @@ http_interactions:
       - application/json
     body:
       encoding: UTF-8
-      string: '{"@attributes":{"count":"1"},"Account":{"accountID":"1","name":"Marketplacer","link":{"@attributes":{"href":"\/API\/Account\/117102"}}}}'
+      string: '{"@attributes":{"count":"1"},"Account":{"accountID":"1","name":"Marketplacer","link":{"@attributes":{"href":"\/API\/Account\/1"}}}}'
     http_version: 
   recorded_at: Thu, 30 Jul 2015 03:58:50 GMT
 recorded_with: VCR 2.9.3

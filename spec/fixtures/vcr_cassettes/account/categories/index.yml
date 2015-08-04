@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://api.merchantos.com/API/Account/1/Category.json
+    uri: https://api.merchantos.com/API/Account/1/Category.json?load_relations=all
     body:
       encoding: US-ASCII
       string: ''
@@ -17,21 +17,20 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Thu, 30 Jul 2015 05:56:22 GMT
+      - Tue, 04 Aug 2015 00:17:02 GMT
       Server:
       - Apache/2.2.15 (CentOS)
       X-Powered-By:
       - PHP/5.4.42
       Content-Length:
-      - '281'
+      - '265'
       Vary:
       - Accept-Encoding
       Content-Type:
       - application/json
     body:
       encoding: UTF-8
-      string: '{"@attributes":{"count":"1","offset":"0","limit":"100"},"Category":{"categoryID":"2","name":"Category
-        One","nodeDepth":"0","fullPathName":"Category One","leftNode":"1","rightNode":"2","createTime":"2015-07-29T12:55:26+00:00","timeStamp":"2015-07-29T12:55:26+00:00","parentID":"0"}}'
+      string: '{"@attributes":{"count":"1","offset":"0","limit":"100"},"Category":{"categoryID":"2","name":"Test","nodeDepth":"0","fullPathName":"Test","leftNode":"1","rightNode":"2","createTime":"2015-08-04T00:16:54+00:00","timeStamp":"2015-08-03T07:16:54+00:00","parentID":"0"}}'
     http_version: 
-  recorded_at: Thu, 30 Jul 2015 05:56:24 GMT
+  recorded_at: Tue, 04 Aug 2015 00:17:03 GMT
 recorded_with: VCR 2.9.3

@@ -58,7 +58,7 @@ describe Lightspeed::Categories do
       account.categories.destroy(2)
       expect do
         account.categories.find(2)
-      end.to raise_error(Lightspeed::Errors::NotFound, %(Could not find a Category by {"categoryID"=>2}))
+      end.to raise_error(Lightspeed::Errors::NotFound, %(Could not find a Category with categoryID=2))
     end
   end
 end

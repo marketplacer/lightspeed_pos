@@ -36,7 +36,7 @@ http_interactions:
   recorded_at: Thu, 30 Jul 2015 06:07:24 GMT
 - request:
     method: get
-    uri: https://api.merchantos.com/API/Account/1/Category.json?categoryID=2
+    uri: https://api.merchantos.com/API/Account/1/Category.json?categoryID=2&load_relations=all
     body:
       encoding: US-ASCII
       string: ''

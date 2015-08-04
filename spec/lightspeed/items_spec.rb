@@ -7,7 +7,7 @@ describe Lightspeed::Items do
     VCR.use_cassette("account/items/index") do
       items = account.items.all
       expect(items).to be_an(Array)
-      expect(items.count).to eq(4)
+      expect(items.count).to eq(7)
 
       item = items.first
       expect(item).to be_a(Lightspeed::Item)

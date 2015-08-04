@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://api.merchantos.com/API/Account/1/Inventory.json
+    uri: https://api.merchantos.com/API/Account/1/Inventory.json?load_relations=all
     body:
       encoding: US-ASCII
       string: ''

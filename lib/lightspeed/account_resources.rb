@@ -14,12 +14,13 @@ module Lightspeed
     end
 
     def find(id)
-      params = { "#{resource_name.camelize(:lower)}ID" => id }
+      id_key = "#{resource_name.camelize(:lower)}ID"
+      params = { id_key => id }
       response = get(params: params)
       if response[resource_name]
         resource_class.new(account, response[resource_name])
       else
-        raise Lightspeed::Errors::NotFound, "Could not find a #{resource_name} by #{params.inspect}"
+        raise Lightspeed::Errors::NotFound, "Could not find a #{resource_name} with #{id_key}=#{id}"
       end
     end
 
@@ -53,7 +54,8 @@ module Lightspeed
       self.class.resource_name
     end
 
-    def get(params: nil)
+    def get(params: {})
+      params.merge!(load_relations: "all")
       request = client.request(
         method: :get,
         path: collection_path,
