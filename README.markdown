@@ -41,6 +41,8 @@ Account resources share a common API. Account resources that are currently suppo
 
 * Categories
 * Items
+* Item Matrices
+* Item Attribute Sets
 
 To work with account resources, you first need to fetch an account. The examples below are for items, but will also work with other types listed above.
 
@@ -50,6 +52,12 @@ You can fetch a list of items with this:
 
 ```ruby
 account.items.all
+```
+
+You can pass query parameters to this by using the `params` keyword:
+
+```ruby
+account.items.all(params: { itemMatrixID: 0 })
 ```
 
 ### Show
