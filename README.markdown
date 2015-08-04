@@ -103,4 +103,3 @@ For the `Items` resource, this is aliased to `archive`:
 ```ruby
 account.items.archive(1)
 ```
-

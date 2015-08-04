@@ -16,14 +16,14 @@ describe Lightspeed::Client do
   it "sets the API key up for a request" do
     key = 'test'
     client = Lightspeed::Client.new(api_key: key)
-    request = client.request(method: :get, path: '/')
+    request = client.send(:request, method: :get, path: '/')
     expect(request.raw_request.options[:userpwd]).to eq("test:apikey")
   end
 
   it "sets the OAuth token up for a request" do
     key = 'test'
     client = Lightspeed::Client.new(oauth_token: key)
-    request = client.request(method: :get, path: '/')
+    request = client.send(:request, method: :get, path: '/')
     expect(request.raw_request.options[:headers]["Authorization"]).to eq("OAuth test")
   end
 

@@ -56,38 +56,30 @@ module Lightspeed
 
     def get(params: {})
       params.merge!(load_relations: "all")
-      request = client.request(
-        method: :get,
+      client.get(
         path: collection_path,
         params: params
       )
-      request.perform
     end
 
     def post(body:)
-      request = client.request(
-        method: :post,
+      client.post(
         path: collection_path,
         body: body
       )
-      request.perform
     end
 
     def put(id, body:)
-      request = client.request(
-        method: :put,
+      client.put(
         path: item_path(id),
         body: body,
       )
-      request.perform
     end
 
     def delete(id)
-      request = client.request(
-        method: :delete,
+      client.delete(
         path: item_path(id)
       )
-      request.perform
     end
 
     def base_path
