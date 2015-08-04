@@ -15,6 +15,19 @@ describe Lightspeed::Items do
     end
   end
 
+  it "can fetch items where itemMatrixID is 0" do
+    VCR.use_cassette("account/items/index_without_item_matrices") do
+      items = account.items.all(params: { itemMatrixID: 0 })
+      expect(items).to be_an(Array)
+      expect(items.count).to eq(3)
+
+      item = items.first
+      expect(item).to be_a(Lightspeed::Item)
+      expect(item.id).to eq("6")
+      expect(item.item_matrix).to be_nil
+    end
+  end
+
   it "can fetch an item by ID" do
     VCR.use_cassette("account/items/show") do
       item = account.items.find(2)

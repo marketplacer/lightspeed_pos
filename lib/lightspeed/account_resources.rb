@@ -8,8 +8,8 @@ module Lightspeed
       @account = account
     end
 
-    def all
-      response = get
+    def all(params: {})
+      response = get(params: params)
       account.instantiate(response[resource_name], Lightspeed.const_get(resource_name))
     end
 
