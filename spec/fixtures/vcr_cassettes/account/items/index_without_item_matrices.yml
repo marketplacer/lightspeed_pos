@@ -1,0 +1,37 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.merchantos.com/API/Account/1/Item.json?itemMatrixID=0&load_relations=all
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Typhoeus - https://github.com/typhoeus/typhoeus
+      Authorization:
+      - OAuth test
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 04 Aug 2015 00:38:00 GMT
+      Server:
+      - Apache/2.2.15 (CentOS)
+      X-Powered-By:
+      - PHP/5.4.42
+      Content-Length:
+      - '2844'
+      Vary:
+      - Accept-Encoding
+      Content-Type:
+      - application/json
+    body:
+      encoding: UTF-8
+      string: '{"@attributes":{"count":"3","offset":"0","limit":"100"},"Item":[{"itemID":"6","systemSku":"210000000006","defaultCost":"0","avgCost":"0","discountable":"true","tax":"true","archived":"false","itemType":"default","description":"Giant
+        Cypress DX","modelYear":"0","upc":"","ean":"","customSku":"","manufacturerSku":"","createTime":"2015-07-28T04:45:14+00:00","timeStamp":"2015-07-27T11:45:14+00:00","categoryID":"0","taxClassID":"2","departmentID":"0","itemMatrixID":"0","manufacturerID":"0","seasonID":"0","defaultVendorID":"0","itemECommerceID":"0","TaxClass":{"taxClassID":"2","name":"Item","timeStamp":"2015-07-19T07:59:46+00:00"},"Note":{"note":"","isPublic":"false","timeStamp":"2015-07-27T11:45:14+00:00"},"ItemShops":{"ItemShop":{"itemShopID":"10","qoh":"0","backorder":"0","componentQoh":"0","componentBackorder":"0","reorderPoint":"0","reorderLevel":"0","timeStamp":"2015-07-27T11:45:14+00:00","itemID":"6","shopID":"1"}},"Prices":{"ItemPrice":[{"amount":"0","useType":"Default"},{"amount":"0","useType":"MSRP"}]}},{"itemID":"10","systemSku":"210000000010","defaultCost":"0","avgCost":"0","discountable":"true","tax":"true","archived":"false","itemType":"default","description":"Onesie","modelYear":"0","upc":"","ean":"","customSku":"","manufacturerSku":"","createTime":"2015-07-29T13:10:29+00:00","timeStamp":"2015-07-29T13:10:29+00:00","categoryID":"0","taxClassID":"2","departmentID":"0","itemMatrixID":"0","manufacturerID":"0","seasonID":"0","defaultVendorID":"0","itemECommerceID":"0","TaxClass":{"taxClassID":"2","name":"Item","timeStamp":"2015-07-19T07:59:46+00:00"},"ItemShops":{"ItemShop":{"itemShopID":"14","qoh":"0","backorder":"0","componentQoh":"0","componentBackorder":"0","reorderPoint":"0","reorderLevel":"0","timeStamp":"2015-07-29T13:10:29+00:00","itemID":"10","shopID":"1"}},"Prices":{"ItemPrice":[{"amount":"0","useType":"Default"},{"amount":"0","useType":"MSRP"}]}},{"itemID":"14","systemSku":"210000000014","defaultCost":"0","avgCost":"0","discountable":"true","tax":"true","archived":"false","itemType":"default","description":"Shirt","modelYear":"0","upc":"","ean":"","customSku":"","manufacturerSku":"","createTime":"2015-08-03T02:49:17+00:00","timeStamp":"2015-08-02T09:49:18+00:00","categoryID":"0","taxClassID":"2","departmentID":"0","itemMatrixID":"0","manufacturerID":"0","seasonID":"0","defaultVendorID":"0","itemECommerceID":"0","TaxClass":{"taxClassID":"2","name":"Item","timeStamp":"2015-07-19T07:59:46+00:00"},"Note":{"note":"","isPublic":"false","timeStamp":"2015-08-02T09:49:17+00:00"},"ItemShops":{"ItemShop":{"itemShopID":"18","qoh":"0","backorder":"0","componentQoh":"0","componentBackorder":"0","reorderPoint":"0","reorderLevel":"0","timeStamp":"2015-08-02T09:49:18+00:00","itemID":"14","shopID":"1"}},"Prices":{"ItemPrice":[{"amount":"0","useType":"Default"},{"amount":"0","useType":"MSRP"}]}}]}'
+    http_version: 
+  recorded_at: Tue, 04 Aug 2015 00:38:01 GMT
+recorded_with: VCR 2.9.3
