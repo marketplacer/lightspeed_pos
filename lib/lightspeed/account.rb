@@ -38,7 +38,8 @@ module Lightspeed
     end
 
     def instantiate(*args)
-      client.instantiate(self, *args)
+      args << self
+      client.instantiate(*args)
     end
   end
 end

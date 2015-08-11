@@ -18,7 +18,7 @@ module Lightspeed
     end
 
     # Instantiates a bunch of records from Lightspeed into their proper classes.
-    def instantiate(owner = self, records, klass)
+    def instantiate(records, klass, owner = self)
       records = splat(records)
       records.map do |record|
         klass.new(owner, record)
