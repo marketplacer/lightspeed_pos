@@ -12,7 +12,7 @@ module Lightspeed
 
       # Embedded
       :ItemMatrix, :ItemAttributes, :ItemShops, :Prices, :Note, :TaxClass, :Category,
-      :Manufacturer, :Images, :ItemVendorNums
+      :Manufacturer, :Images, :ItemVendorNums, :CustomFieldValues
 
     def self.id_field
       "itemID"
