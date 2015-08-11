@@ -11,7 +11,8 @@ module Lightspeed
       :defaultVendorID, :itemECommerceID,
 
       # Embedded
-      :ItemMatrix, :ItemAttributes, :ItemShops, :Prices, :Note, :TaxClass, :Category, :Manufacturer
+      :ItemMatrix, :ItemAttributes, :ItemShops, :Prices, :Note, :TaxClass, :Category,
+      :Manufacturer, :Images
 
     def self.id_field
       "itemID"
