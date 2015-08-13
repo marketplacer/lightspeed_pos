@@ -8,7 +8,7 @@ module Lightspeed
       :taxClassID, :seasonID, :departmentID, :itemECommerceID
 
     # Embedded
-    attr_accessor :Prices, :ItemAttributeSet, :TaxClass, :Items
+    attr_accessor :Prices, :ItemAttributeSet, :TaxClass, :Items, :Manufacturer
 
     def self.id_field
       "itemMatrixID"
