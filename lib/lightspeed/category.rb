@@ -1,10 +1,8 @@
+require_relative 'resource'
+
 module Lightspeed
-  class Category < Base
+  class Category < Lightspeed::Resource
     attr_accessor :name, :nodeDepth, :fullPathName, :leftNode, :rightNode, :timeStamp, :parentID,
       :createTime
-
-    def self.id_field
-      "categoryID"
-    end
   end
 end

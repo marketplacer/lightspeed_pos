@@ -1,12 +1,9 @@
-require 'lightspeed/item'
-require 'lightspeed/account_resources'
+require_relative 'collection'
+
+require_relative 'item'
 
 module Lightspeed
-  class Items < Lightspeed::AccountResources
+  class Items < Lightspeed::Collection
     alias_method :archive, :destroy
-
-    def self.resource_name
-      "Item"
-    end
   end
 end

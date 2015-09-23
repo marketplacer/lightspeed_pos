@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://api.merchantos.com/API/Account/1/Inventory.json?load_relations=all
+    uri: https://api.merchantos.com/API/Account/117102/Inventory.json?limit=100&load_relations=all
     body:
       encoding: US-ASCII
       string: ''
@@ -17,20 +17,24 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Mon, 03 Aug 2015 04:43:52 GMT
+      - Wed, 23 Sep 2015 04:53:21 GMT
       Server:
       - Apache/2.2.15 (CentOS)
       X-Powered-By:
-      - PHP/5.4.42
+      - PHP/5.4.44
       Content-Length:
-      - '136'
+      - '5459'
       Vary:
       - Accept-Encoding
       Content-Type:
       - application/json
     body:
       encoding: UTF-8
-      string: '{"@attributes":{"count":"2","offset":"0","limit":"100"},"Inventory":[{"inventoryID":"2","itemID":"2"},{"inventoryID":"4","itemID":"2"}]}'
+      string: '{"@attributes":{"count":"5","offset":"0","limit":"100"},"Inventory":[{"inventoryID":"2","itemID":"2","Item":{"itemID":"2","systemSku":"210000000002","defaultCost":"0","avgCost":"0","discountable":"true","tax":"true","archived":"true","itemType":"default","description":"T-Shirt
+        Red Small","modelYear":"0","upc":"9300601000003","ean":"","customSku":"1","manufacturerSku":"","createTime":"2015-07-28T04:38:48+00:00","timeStamp":"2015-09-22T11:16:32+00:00","categoryID":"4","taxClassID":"2","departmentID":"0","itemMatrixID":"2","itemAttributesID":"2","manufacturerID":"6","noteID":"2","seasonID":"0","defaultVendorID":"0","itemECommerceID":"0","ItemShops":{"ItemShop":[{"itemShopID":"4","qoh":"0","backorder":"0","componentQoh":"0","componentBackorder":"0","reorderPoint":"0","reorderLevel":"0","timeStamp":"2015-09-23T04:16:32+00:00","itemID":"2","shopID":"1"},{"itemShopID":"6","qoh":"0","backorder":"0","componentQoh":"0","componentBackorder":"0","reorderPoint":"0","reorderLevel":"0","timeStamp":"2015-09-23T04:16:32+00:00","itemID":"2","shopID":"0"}]},"Prices":{"ItemPrice":[{"amount":"20","useType":"Default"},{"amount":"0","useType":"MSRP"}]}}},{"inventoryID":"4","itemID":"2","Item":{"itemID":"2","systemSku":"210000000002","defaultCost":"0","avgCost":"0","discountable":"true","tax":"true","archived":"true","itemType":"default","description":"T-Shirt
+        Red Small","modelYear":"0","upc":"9300601000003","ean":"","customSku":"1","manufacturerSku":"","createTime":"2015-07-28T04:38:48+00:00","timeStamp":"2015-09-22T11:16:32+00:00","categoryID":"4","taxClassID":"2","departmentID":"0","itemMatrixID":"2","itemAttributesID":"2","manufacturerID":"6","noteID":"2","seasonID":"0","defaultVendorID":"0","itemECommerceID":"0","ItemShops":{"ItemShop":[{"itemShopID":"4","qoh":"0","backorder":"0","componentQoh":"0","componentBackorder":"0","reorderPoint":"0","reorderLevel":"0","timeStamp":"2015-09-23T04:16:32+00:00","itemID":"2","shopID":"1"},{"itemShopID":"6","qoh":"0","backorder":"0","componentQoh":"0","componentBackorder":"0","reorderPoint":"0","reorderLevel":"0","timeStamp":"2015-09-23T04:16:32+00:00","itemID":"2","shopID":"0"}]},"Prices":{"ItemPrice":[{"amount":"20","useType":"Default"},{"amount":"0","useType":"MSRP"}]}}},{"inventoryID":"6","itemID":"2","Item":{"itemID":"2","systemSku":"210000000002","defaultCost":"0","avgCost":"0","discountable":"true","tax":"true","archived":"true","itemType":"default","description":"T-Shirt
+        Red Small","modelYear":"0","upc":"9300601000003","ean":"","customSku":"1","manufacturerSku":"","createTime":"2015-07-28T04:38:48+00:00","timeStamp":"2015-09-22T11:16:32+00:00","categoryID":"4","taxClassID":"2","departmentID":"0","itemMatrixID":"2","itemAttributesID":"2","manufacturerID":"6","noteID":"2","seasonID":"0","defaultVendorID":"0","itemECommerceID":"0","ItemShops":{"ItemShop":[{"itemShopID":"4","qoh":"0","backorder":"0","componentQoh":"0","componentBackorder":"0","reorderPoint":"0","reorderLevel":"0","timeStamp":"2015-09-23T04:16:32+00:00","itemID":"2","shopID":"1"},{"itemShopID":"6","qoh":"0","backorder":"0","componentQoh":"0","componentBackorder":"0","reorderPoint":"0","reorderLevel":"0","timeStamp":"2015-09-23T04:16:32+00:00","itemID":"2","shopID":"0"}]},"Prices":{"ItemPrice":[{"amount":"20","useType":"Default"},{"amount":"0","useType":"MSRP"}]}}},{"inventoryID":"8","itemID":"10","Item":{"itemID":"10","systemSku":"210000000010","defaultCost":"0","avgCost":"0","discountable":"true","tax":"true","archived":"false","itemType":"default","description":"Onesie","modelYear":"0","upc":"","ean":"","customSku":"","manufacturerSku":"","createTime":"2015-07-29T13:10:29+00:00","timeStamp":"2015-08-11T07:21:36+00:00","categoryID":"0","taxClassID":"2","departmentID":"0","itemMatrixID":"0","itemAttributesID":"0","manufacturerID":"2","noteID":"10","seasonID":"0","defaultVendorID":"0","itemECommerceID":"0","ItemShops":{"ItemShop":[{"itemShopID":"14","qoh":"10","backorder":"0","componentQoh":"0","componentBackorder":"0","reorderPoint":"0","reorderLevel":"0","timeStamp":"2015-08-12T00:21:36+00:00","itemID":"10","shopID":"1"},{"itemShopID":"22","qoh":"10","backorder":"0","componentQoh":"0","componentBackorder":"0","reorderPoint":"0","reorderLevel":"0","timeStamp":"2015-08-11T23:56:50+00:00","itemID":"10","shopID":"0"}]},"Prices":{"ItemPrice":[{"amount":"0","useType":"Default"},{"amount":"0","useType":"MSRP"}]}}},{"inventoryID":"9","itemID":"2","Item":{"itemID":"2","systemSku":"210000000002","defaultCost":"0","avgCost":"0","discountable":"true","tax":"true","archived":"true","itemType":"default","description":"T-Shirt
+        Red Small","modelYear":"0","upc":"9300601000003","ean":"","customSku":"1","manufacturerSku":"","createTime":"2015-07-28T04:38:48+00:00","timeStamp":"2015-09-22T11:16:32+00:00","categoryID":"4","taxClassID":"2","departmentID":"0","itemMatrixID":"2","itemAttributesID":"2","manufacturerID":"6","noteID":"2","seasonID":"0","defaultVendorID":"0","itemECommerceID":"0","ItemShops":{"ItemShop":[{"itemShopID":"4","qoh":"0","backorder":"0","componentQoh":"0","componentBackorder":"0","reorderPoint":"0","reorderLevel":"0","timeStamp":"2015-09-23T04:16:32+00:00","itemID":"2","shopID":"1"},{"itemShopID":"6","qoh":"0","backorder":"0","componentQoh":"0","componentBackorder":"0","reorderPoint":"0","reorderLevel":"0","timeStamp":"2015-09-23T04:16:32+00:00","itemID":"2","shopID":"0"}]},"Prices":{"ItemPrice":[{"amount":"20","useType":"Default"},{"amount":"0","useType":"MSRP"}]}}}]}'
     http_version: 
-  recorded_at: Mon, 03 Aug 2015 04:43:52 GMT
+  recorded_at: Wed, 23 Sep 2015 04:53:43 GMT
 recorded_with: VCR 2.9.3

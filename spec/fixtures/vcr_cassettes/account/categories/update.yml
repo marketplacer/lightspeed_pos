@@ -1,8 +1,42 @@
 ---
 http_interactions:
 - request:
+    method: post
+    uri: https://api.merchantos.com/API/Account/117102/Category.json
+    body:
+      encoding: UTF-8
+      string: '{"name":"Category to update"}'
+    headers:
+      User-Agent:
+      - Typhoeus - https://github.com/typhoeus/typhoeus
+      Authorization:
+      - OAuth test
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Wed, 23 Sep 2015 04:52:16 GMT
+      Server:
+      - Apache/2.2.15 (CentOS)
+      X-Powered-By:
+      - PHP/5.4.44
+      Content-Encoding:
+      - none
+      Content-Length:
+      - '269'
+      Content-Type:
+      - application/json
+    body:
+      encoding: UTF-8
+      string: '{"@attributes":{"count":"1"},"Category":{"categoryID":"27","name":"Category
+        to update","nodeDepth":"0","fullPathName":"Category to update","leftNode":"25","rightNode":"26","createTime":"2015-09-22T11:52:16+00:00","timeStamp":"2015-09-22T11:52:16+00:00","parentID":"0"}}'
+    http_version:
+  recorded_at: Wed, 23 Sep 2015 04:52:37 GMT
+- request:
     method: put
-    uri: https://api.merchantos.com/API/Account/1/Category/2.json
+    uri: https://api.merchantos.com/API/Account/117102/Category/27.json
     body:
       encoding: UTF-8
       string: '{"name":"Category Two"}'
@@ -17,21 +51,21 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Thu, 30 Jul 2015 06:05:56 GMT
+      - Wed, 23 Sep 2015 04:53:18 GMT
       Server:
       - Apache/2.2.15 (CentOS)
       X-Powered-By:
-      - PHP/5.4.42
+      - PHP/5.4.44
+      Content-Encoding:
+      - none
       Content-Length:
-      - '254'
-      Vary:
-      - Accept-Encoding
+      - '257'
       Content-Type:
       - application/json
     body:
       encoding: UTF-8
-      string: '{"@attributes":{"count":"1"},"Category":{"categoryID":"2","name":"Category
-        Two","nodeDepth":"0","fullPathName":"Category Two","leftNode":"1","rightNode":"2","createTime":"2015-07-29T12:55:26+00:00","timeStamp":"2015-07-29T13:05:56+00:00","parentID":"0"}}'
-    http_version: 
-  recorded_at: Thu, 30 Jul 2015 06:05:59 GMT
+      string: '{"@attributes":{"count":"1"},"Category":{"categoryID":"27","name":"Category
+        Two","nodeDepth":"0","fullPathName":"Category Two","leftNode":"25","rightNode":"26","createTime":"2015-09-22T11:52:16+00:00","timeStamp":"2015-09-22T11:53:19+00:00","parentID":"0"}}'
+    http_version:
+  recorded_at: Wed, 23 Sep 2015 04:53:40 GMT
 recorded_with: VCR 2.9.3

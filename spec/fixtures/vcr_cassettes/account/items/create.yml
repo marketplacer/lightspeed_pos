@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: post
-    uri: https://api.merchantos.com/API/Account/1/Item.json
+    uri: https://api.merchantos.com/API/Account/117102/Item.json
     body:
       encoding: UTF-8
       string: '{"description":"Onesie"}'
@@ -17,20 +17,20 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Thu, 30 Jul 2015 06:10:29 GMT
+      - Wed, 23 Sep 2015 04:54:28 GMT
       Server:
       - Apache/2.2.15 (CentOS)
       X-Powered-By:
-      - PHP/5.4.42
+      - PHP/5.4.44
+      Content-Encoding:
+      - none
       Content-Length:
-      - '824'
-      Vary:
-      - Accept-Encoding
+      - '1021'
       Content-Type:
       - application/json
     body:
       encoding: UTF-8
-      string: '{"@attributes":{"count":"1"},"Item":{"itemID":"10","systemSku":"210000000010","defaultCost":"0","avgCost":"0","discountable":"true","tax":"true","archived":"false","itemType":"default","description":"Onesie","modelYear":"0","upc":"","ean":"","customSku":"","manufacturerSku":"","createTime":"2015-07-29T13:10:29+00:00","timeStamp":"2015-07-29T13:10:29+00:00","categoryID":"0","taxClassID":"2","departmentID":"0","itemMatrixID":"0","manufacturerID":"0","seasonID":"0","defaultVendorID":"0","itemECommerceID":"0","ItemShops":{"ItemShop":{"itemShopID":"14","qoh":"0","backorder":"0","componentQoh":"0","componentBackorder":"0","reorderPoint":"0","reorderLevel":"0","timeStamp":"2015-07-29T13:10:29+00:00","itemID":"10","shopID":"1"}},"Prices":{"ItemPrice":[{"amount":"0","useType":"Default"},{"amount":"0","useType":"MSRP"}]}}}'
+      string: '{"@attributes":{"count":"1"},"Item":{"itemID":"27","systemSku":"210000000026","defaultCost":"0","avgCost":"0","discountable":"true","tax":"true","archived":"false","itemType":"default","description":"Onesie","modelYear":"0","upc":"","ean":"","customSku":"","manufacturerSku":"","createTime":"2015-09-22T11:54:29+00:00","timeStamp":"2015-09-22T11:54:29+00:00","categoryID":"0","taxClassID":"2","departmentID":"0","itemMatrixID":"0","manufacturerID":"0","seasonID":"0","defaultVendorID":"0","itemECommerceID":"0","ItemShops":{"ItemShop":[{"itemShopID":"41","qoh":"0","backorder":"0","componentQoh":"0","componentBackorder":"0","reorderPoint":"0","reorderLevel":"0","timeStamp":"2015-09-22T11:54:29+00:00","itemID":"27","shopID":"1"},{"itemShopID":"42","qoh":"0","backorder":"0","componentQoh":"0","componentBackorder":"0","reorderPoint":"0","reorderLevel":"0","timeStamp":"2015-09-22T11:54:29+00:00","itemID":"27","shopID":"0"}]},"Prices":{"ItemPrice":[{"amount":"0","useType":"Default"},{"amount":"0","useType":"MSRP"}]}}}'
     http_version: 
-  recorded_at: Thu, 30 Jul 2015 06:10:32 GMT
+  recorded_at: Wed, 23 Sep 2015 04:54:50 GMT
 recorded_with: VCR 2.9.3

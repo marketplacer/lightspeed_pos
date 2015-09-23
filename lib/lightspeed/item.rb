@@ -1,28 +1,25 @@
-require 'lightspeed/base'
+require_relative 'resource'
+
+require_relative 'item_matrix'
+require_relative 'category'
+require_relative 'images'
 
 module Lightspeed
-  class Item < Lightspeed::Base
+  class Item < Lightspeed::Resource
     attr_accessor :systemSku, :defaultCost, :avgCost, :discountable, :tax,
       :archived, :itemType, :description, :modelYear, :upc, :ean, :customSku,
       :manufacturerSku, :createTime, :timeStamp,
 
       # Association keys
-      :categoryID, :taxClassID, :departmentID, :itemMatrixID, :manufacturerID, :seasonID,
+      :taxClassID, :departmentID, :manufacturerID, :seasonID,
       :defaultVendorID, :itemECommerceID,
 
       # Embedded
-      :ItemMatrix, :ItemAttributes, :ItemShops, :Prices, :Note, :TaxClass, :Category,
-      :Manufacturer, :Images, :ItemVendorNums, :CustomFieldValues, :Tags
+      :ItemAttributes, :ItemShops, :Prices, :Note, :TaxClass,
+      :Manufacturer, :ItemVendorNums, :CustomFieldValues, :Tags
 
-    def self.id_field
-      "itemID"
-    end
+    has_one :ItemMatrix, :Category
+    has_many :Images
 
-    # FUNFACT: ItemMatrix data is returned during an `update` request,
-    # but not during a `find` request.
-    def item_matrix
-      return if itemMatrixID.to_i.zero?
-      @ItemMatrix ||= owner.item_matrices.find(itemMatrixID) # rubocop:disable VariableName
-    end
   end
 end

@@ -1,11 +1,11 @@
 ---
 http_interactions:
 - request:
-    method: delete
-    uri: https://api.merchantos.com/API/Account/1/Category/2.json
+    method: post
+    uri: https://api.merchantos.com/API/Account/117102/Category.json
     body:
-      encoding: US-ASCII
-      string: ''
+      encoding: UTF-8
+      string: '{"name":"Category to delete"}'
     headers:
       User-Agent:
       - Typhoeus - https://github.com/typhoeus/typhoeus
@@ -17,26 +17,26 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Thu, 30 Jul 2015 06:07:21 GMT
+      - Wed, 23 Sep 2015 04:51:11 GMT
       Server:
       - Apache/2.2.15 (CentOS)
       X-Powered-By:
-      - PHP/5.4.42
+      - PHP/5.4.44
+      Content-Encoding:
+      - none
       Content-Length:
-      - '254'
-      Vary:
-      - Accept-Encoding
+      - '269'
       Content-Type:
       - application/json
     body:
       encoding: UTF-8
-      string: '{"@attributes":{"count":"1"},"Category":{"categoryID":"2","name":"Category
-        Two","nodeDepth":"0","fullPathName":"Category Two","leftNode":"1","rightNode":"2","createTime":"2015-07-29T12:55:26+00:00","timeStamp":"2015-07-29T13:05:56+00:00","parentID":"0"}}'
-    http_version: 
-  recorded_at: Thu, 30 Jul 2015 06:07:24 GMT
+      string: '{"@attributes":{"count":"1"},"Category":{"categoryID":"25","name":"Category
+        to delete","nodeDepth":"0","fullPathName":"Category to delete","leftNode":"23","rightNode":"24","createTime":"2015-09-22T11:51:11+00:00","timeStamp":"2015-09-22T11:51:11+00:00","parentID":"0"}}'
+    http_version:
+  recorded_at: Wed, 23 Sep 2015 04:51:33 GMT
 - request:
-    method: get
-    uri: https://api.merchantos.com/API/Account/1/Category.json?categoryID=2&load_relations=all
+    method: delete
+    uri: https://api.merchantos.com/API/Account/117102/Category/25.json
     body:
       encoding: US-ASCII
       string: ''
@@ -51,20 +51,54 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Thu, 30 Jul 2015 06:07:22 GMT
+      - Wed, 23 Sep 2015 04:51:11 GMT
       Server:
       - Apache/2.2.15 (CentOS)
       X-Powered-By:
-      - PHP/5.4.42
+      - PHP/5.4.44
+      Content-Encoding:
+      - none
+      Content-Length:
+      - '269'
+      Content-Type:
+      - application/json
+    body:
+      encoding: UTF-8
+      string: '{"@attributes":{"count":"1"},"Category":{"categoryID":"25","name":"Category
+        to delete","nodeDepth":"0","fullPathName":"Category to delete","leftNode":"23","rightNode":"24","createTime":"2015-09-22T11:51:11+00:00","timeStamp":"2015-09-22T11:51:11+00:00","parentID":"0"}}'
+    http_version:
+  recorded_at: Wed, 23 Sep 2015 04:51:33 GMT
+- request:
+    method: get
+    uri: https://api.merchantos.com/API/Account/117102/Category.json?categoryID=25&load_relations=all
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Typhoeus - https://github.com/typhoeus/typhoeus
+      Authorization:
+      - OAuth test
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Wed, 23 Sep 2015 04:52:13 GMT
+      Server:
+      - Apache/2.2.15 (CentOS)
+      X-Powered-By:
+      - PHP/5.4.44
+      Content-Encoding:
+      - none
       Content-Length:
       - '29'
-      Vary:
-      - Accept-Encoding
       Content-Type:
       - application/json
     body:
       encoding: UTF-8
       string: '{"@attributes":{"count":"0"}}'
-    http_version: 
-  recorded_at: Thu, 30 Jul 2015 06:07:25 GMT
+    http_version:
+  recorded_at: Wed, 23 Sep 2015 04:52:35 GMT
 recorded_with: VCR 2.9.3

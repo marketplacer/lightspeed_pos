@@ -1,8 +1,42 @@
 ---
 http_interactions:
 - request:
+    method: post
+    uri: https://api.merchantos.com/API/Account/117102/Category.json
+    body:
+      encoding: UTF-8
+      string: '{"name":"Category to update"}'
+    headers:
+      User-Agent:
+      - Typhoeus - https://github.com/typhoeus/typhoeus
+      Authorization:
+      - OAuth test
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Wed, 23 Sep 2015 04:53:19 GMT
+      Server:
+      - Apache/2.2.15 (CentOS)
+      X-Powered-By:
+      - PHP/5.4.44
+      Content-Encoding:
+      - none
+      Content-Length:
+      - '269'
+      Content-Type:
+      - application/json
+    body:
+      encoding: UTF-8
+      string: '{"@attributes":{"count":"1"},"Category":{"categoryID":"28","name":"Category
+        to update","nodeDepth":"0","fullPathName":"Category to update","leftNode":"27","rightNode":"28","createTime":"2015-09-22T11:53:19+00:00","timeStamp":"2015-09-22T11:53:19+00:00","parentID":"0"}}'
+    http_version: 
+  recorded_at: Wed, 23 Sep 2015 04:53:41 GMT
+- request:
     method: put
-    uri: https://api.merchantos.com/API/Account/1/Category/2.json
+    uri: https://api.merchantos.com/API/Account/117102/Category/28.json
     body:
       encoding: UTF-8
       string: '{"name":""}'
@@ -10,22 +44,22 @@ http_interactions:
       User-Agent:
       - Typhoeus - https://github.com/typhoeus/typhoeus
       Authorization:
-      - OAuth token
+      - OAuth test
   response:
     status:
       code: 400
       message: Bad Request
     headers:
       Date:
-      - Thu, 30 Jul 2015 06:06:45 GMT
+      - Wed, 23 Sep 2015 04:53:19 GMT
       Server:
       - Apache/2.2.15 (CentOS)
       X-Powered-By:
-      - PHP/5.4.42
+      - PHP/5.4.44
+      Content-Encoding:
+      - none
       Content-Length:
       - '105'
-      Vary:
-      - Accept-Encoding
       Content-Type:
       - text/html; charset=UTF-8
     body:
@@ -33,5 +67,5 @@ http_interactions:
       string: '{"httpCode":"400","httpMessage":"Bad Request","message":"name cannot
         be blank.","errorClass":"Exception"}'
     http_version: 
-  recorded_at: Thu, 30 Jul 2015 06:06:48 GMT
+  recorded_at: Wed, 23 Sep 2015 04:53:41 GMT
 recorded_with: VCR 2.9.3

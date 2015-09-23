@@ -1,10 +1,8 @@
-require 'lightspeed/category'
-require 'lightspeed/account_resources'
+require_relative 'category'
+require_relative 'collection'
 
 module Lightspeed
-  class Categories < Lightspeed::AccountResources
-    def self.resource_name
-      "Category"
-    end
+  class Categories < Lightspeed::Collection
+
   end
 end

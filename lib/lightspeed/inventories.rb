@@ -1,10 +1,9 @@
-require 'lightspeed/account_resources'
-require 'lightspeed/inventory'
+require_relative 'collection'
+
+require_relative 'inventory'
 
 module Lightspeed
-  class Inventories < AccountResources
-    def self.resource_name
-      "Inventory"
-    end
+  class Inventories < Lightspeed::Collection
+
   end
 end

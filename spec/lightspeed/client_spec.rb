@@ -33,7 +33,7 @@ describe Lightspeed::Client do
       accounts = client.accounts
       expect(accounts).to be_an(Array)
       expect(accounts.length).to eq(1)
-      expect(accounts.first.id).to eq("1")
+      expect(accounts.first.id).to be 1
     end
   end
 
@@ -43,7 +43,7 @@ describe Lightspeed::Client do
       accounts = client.accounts
       expect(accounts).to be_an(Array)
       expect(accounts.length).to eq(1)
-      expect(accounts.first.id).to eq("1")
+      expect(accounts.first.id).to eq(1)
     end
   end
 
@@ -52,7 +52,7 @@ describe Lightspeed::Client do
       client = Lightspeed::Client.new(api_key: 'totally-bogus')
 
       VCR.use_cassette("accounts_401") do
-        expect { client.accounts }.to raise_error(Lightspeed::Errors::Unauthorized, "Invalid username/password or API key.")
+        expect { client.accounts }.to raise_error(Lightspeed::Error::Unauthorized, "Invalid username/password or API key.")
       end
     end
   end

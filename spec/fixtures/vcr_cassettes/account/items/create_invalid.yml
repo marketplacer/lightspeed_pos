@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: post
-    uri: https://api.merchantos.com/API/Account/1/Item.json
+    uri: https://api.merchantos.com/API/Account/117102/Item.json
     body:
       encoding: UTF-8
       string: '{"description":""}'
@@ -17,21 +17,21 @@ http_interactions:
       message: Bad Request
     headers:
       Date:
-      - Thu, 30 Jul 2015 06:11:04 GMT
+      - Wed, 23 Sep 2015 04:55:31 GMT
       Server:
       - Apache/2.2.15 (CentOS)
       X-Powered-By:
-      - PHP/5.4.42
+      - PHP/5.4.44
+      Content-Encoding:
+      - none
       Content-Length:
       - '134'
-      Vary:
-      - Accept-Encoding
       Content-Type:
       - text/html; charset=UTF-8
     body:
       encoding: UTF-8
       string: '{"httpCode":"400","httpMessage":"Bad Request","message":"Item not created.
         An Item must have a description.","errorClass":"Exception"}'
-    http_version: 
-  recorded_at: Thu, 30 Jul 2015 06:11:07 GMT
+    http_version:
+  recorded_at: Wed, 23 Sep 2015 04:55:53 GMT
 recorded_with: VCR 2.9.3

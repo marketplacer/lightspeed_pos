@@ -1,10 +1,8 @@
-require 'lightspeed/item_attribute_set'
-require 'lightspeed/account_resources'
+require_relative 'collection'
+
+require_relative 'item_attribute_set'
 
 module Lightspeed
-  class ItemAttributeSets < AccountResources
-    def self.resource_name
-      "ItemAttributeSet"
-    end
+  class ItemAttributeSets < Lightspeed::Collection
   end
 end

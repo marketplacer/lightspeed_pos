@@ -8,7 +8,7 @@ describe Lightspeed::ItemMatrix do
   end
 
   it "can fetch an item matrix's attribute set" do
-    subject.itemAttributeSetID = 2
+    subject.attributes["itemAttributeSetID"] = 2
     VCR.use_cassette("account/ItemAttributeSet/show") do
       attribute_set = subject.item_attribute_set
       expect(attribute_set).to be_a(Lightspeed::ItemAttributeSet)

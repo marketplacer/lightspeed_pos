@@ -5,5 +5,5 @@ require 'pry'
 module Lightspeed
 end
 
-require 'lightspeed/client'
-require 'lightspeed/errors'
+require_relative 'lightspeed/client'
+require_relative 'lightspeed/error'

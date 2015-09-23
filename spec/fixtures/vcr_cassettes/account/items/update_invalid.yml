@@ -1,8 +1,42 @@
 ---
 http_interactions:
 - request:
+    method: post
+    uri: https://api.merchantos.com/API/Account/117102/Item.json
+    body:
+      encoding: UTF-8
+      string: '{"description":"Item to update"}'
+    headers:
+      User-Agent:
+      - Typhoeus - https://github.com/typhoeus/typhoeus
+      Authorization:
+      - OAuth test
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Wed, 23 Sep 2015 04:56:34 GMT
+      Server:
+      - Apache/2.2.15 (CentOS)
+      X-Powered-By:
+      - PHP/5.4.44
+      Content-Encoding:
+      - none
+      Content-Length:
+      - '1029'
+      Content-Type:
+      - application/json
+    body:
+      encoding: UTF-8
+      string: '{"@attributes":{"count":"1"},"Item":{"itemID":"29","systemSku":"210000000028","defaultCost":"0","avgCost":"0","discountable":"true","tax":"true","archived":"false","itemType":"default","description":"Item
+        to update","modelYear":"0","upc":"","ean":"","customSku":"","manufacturerSku":"","createTime":"2015-09-22T11:56:35+00:00","timeStamp":"2015-09-22T11:56:35+00:00","categoryID":"0","taxClassID":"2","departmentID":"0","itemMatrixID":"0","manufacturerID":"0","seasonID":"0","defaultVendorID":"0","itemECommerceID":"0","ItemShops":{"ItemShop":[{"itemShopID":"45","qoh":"0","backorder":"0","componentQoh":"0","componentBackorder":"0","reorderPoint":"0","reorderLevel":"0","timeStamp":"2015-09-22T11:56:35+00:00","itemID":"29","shopID":"1"},{"itemShopID":"46","qoh":"0","backorder":"0","componentQoh":"0","componentBackorder":"0","reorderPoint":"0","reorderLevel":"0","timeStamp":"2015-09-22T11:56:35+00:00","itemID":"29","shopID":"0"}]},"Prices":{"ItemPrice":[{"amount":"0","useType":"Default"},{"amount":"0","useType":"MSRP"}]}}}'
+    http_version:
+  recorded_at: Wed, 23 Sep 2015 04:56:57 GMT
+- request:
     method: put
-    uri: https://api.merchantos.com/API/Account/1/Item/2.json
+    uri: https://api.merchantos.com/API/Account/117102/Item/29.json
     body:
       encoding: UTF-8
       string: '{"description":""}'
@@ -17,21 +51,21 @@ http_interactions:
       message: Bad Request
     headers:
       Date:
-      - Thu, 30 Jul 2015 06:12:41 GMT
+      - Wed, 23 Sep 2015 04:56:35 GMT
       Server:
       - Apache/2.2.15 (CentOS)
       X-Powered-By:
-      - PHP/5.4.42
+      - PHP/5.4.44
+      Content-Encoding:
+      - none
       Content-Length:
       - '134'
-      Vary:
-      - Accept-Encoding
       Content-Type:
       - text/html; charset=UTF-8
     body:
       encoding: UTF-8
       string: '{"httpCode":"400","httpMessage":"Bad Request","message":"Item not updated.
         An Item must have a description.","errorClass":"Exception"}'
-    http_version: 
-  recorded_at: Thu, 30 Jul 2015 06:12:45 GMT
+    http_version:
+  recorded_at: Wed, 23 Sep 2015 04:56:57 GMT
 recorded_with: VCR 2.9.3

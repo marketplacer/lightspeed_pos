@@ -1,8 +1,9 @@
-require 'lightspeed/item_matrix'
-require 'lightspeed/account_resources'
+require_relative 'collection'
+
+require_relative 'item_matrix'
 
 module Lightspeed
-  class ItemMatrices < AccountResources
+  class ItemMatrices < Lightspeed::Collection
     def self.resource_name
       "ItemMatrix"
     end

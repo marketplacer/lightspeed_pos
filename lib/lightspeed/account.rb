@@ -1,20 +1,21 @@
-require 'lightspeed/base'
-require 'lightspeed/categories'
-require 'lightspeed/items'
-require 'lightspeed/item_matrices'
-require 'lightspeed/item_attribute_sets'
-require 'lightspeed/inventories'
+require_relative 'base'
+require_relative 'categories'
+require_relative 'items'
+require_relative 'item_matrices'
+require_relative 'item_attribute_sets'
+require_relative 'images'
+require_relative 'inventories'
 
 module Lightspeed
-  class Account < Lightspeed::Base
+  class Account < Lightspeed::Resource
     attr_accessor :id, :name, :link
 
-    def self.id_field
-      "accountID"
+    def client
+      owner.client
     end
 
-    def client
-      owner
+    def account
+      self
     end
 
     def items
@@ -33,13 +34,16 @@ module Lightspeed
       @item_attribute_sets ||= Lightspeed::ItemAttributeSets.new(self)
     end
 
+    def images
+      @images ||= Lightspeed::Images.new(self)
+    end
+
     def inventories
       @inventories ||= Lightspeed::Inventories.new(self)
     end
 
-    def instantiate(*args)
-      args << self
-      client.instantiate(*args)
+    def instantiate(**args)
+      client.instantiate({owner: self}.merge(args))
     end
   end
 end

@@ -1,9 +1,9 @@
-module Lightspeed
-  class Inventory < Lightspeed::Base
-    attr_accessor :itemID
+require_relative 'resource'
 
-    def self.id_field
-      "inventoryID"
-    end
+require_relative 'item'
+
+module Lightspeed
+  class Inventory < Lightspeed::Resource
+    has_one :Item
   end
 end

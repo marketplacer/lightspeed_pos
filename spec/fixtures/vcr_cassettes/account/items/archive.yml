@@ -1,8 +1,42 @@
 ---
 http_interactions:
 - request:
+    method: post
+    uri: https://api.merchantos.com/API/Account/117102/Item.json
+    body:
+      encoding: UTF-8
+      string: '{"description":"Item to destroy"}'
+    headers:
+      User-Agent:
+      - Typhoeus - https://github.com/typhoeus/typhoeus
+      Authorization:
+      - OAuth test
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Wed, 23 Sep 2015 04:54:27 GMT
+      Server:
+      - Apache/2.2.15 (CentOS)
+      X-Powered-By:
+      - PHP/5.4.44
+      Content-Encoding:
+      - none
+      Content-Length:
+      - '1030'
+      Content-Type:
+      - application/json
+    body:
+      encoding: UTF-8
+      string: '{"@attributes":{"count":"1"},"Item":{"itemID":"26","systemSku":"210000000025","defaultCost":"0","avgCost":"0","discountable":"true","tax":"true","archived":"false","itemType":"default","description":"Item
+        to destroy","modelYear":"0","upc":"","ean":"","customSku":"","manufacturerSku":"","createTime":"2015-09-22T11:54:27+00:00","timeStamp":"2015-09-22T11:54:27+00:00","categoryID":"0","taxClassID":"2","departmentID":"0","itemMatrixID":"0","manufacturerID":"0","seasonID":"0","defaultVendorID":"0","itemECommerceID":"0","ItemShops":{"ItemShop":[{"itemShopID":"39","qoh":"0","backorder":"0","componentQoh":"0","componentBackorder":"0","reorderPoint":"0","reorderLevel":"0","timeStamp":"2015-09-22T11:54:28+00:00","itemID":"26","shopID":"1"},{"itemShopID":"40","qoh":"0","backorder":"0","componentQoh":"0","componentBackorder":"0","reorderPoint":"0","reorderLevel":"0","timeStamp":"2015-09-22T11:54:27+00:00","itemID":"26","shopID":"0"}]},"Prices":{"ItemPrice":[{"amount":"0","useType":"Default"},{"amount":"0","useType":"MSRP"}]}}}'
+    http_version: 
+  recorded_at: Wed, 23 Sep 2015 04:54:49 GMT
+- request:
     method: delete
-    uri: https://api.merchantos.com/API/Account/1/Item/2.json
+    uri: https://api.merchantos.com/API/Account/117102/Item/26.json
     body:
       encoding: US-ASCII
       string: ''
@@ -17,21 +51,21 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Thu, 30 Jul 2015 06:11:12 GMT
+      - Wed, 23 Sep 2015 04:54:28 GMT
       Server:
       - Apache/2.2.15 (CentOS)
       X-Powered-By:
-      - PHP/5.4.42
+      - PHP/5.4.44
+      Content-Encoding:
+      - none
       Content-Length:
-      - '615'
-      Vary:
-      - Accept-Encoding
+      - '612'
       Content-Type:
       - application/json
     body:
       encoding: UTF-8
-      string: '{"@attributes":{"count":"1"},"Item":{"itemID":"2","systemSku":"210000000002","defaultCost":"0","avgCost":"0","discountable":"true","tax":"true","archived":"true","itemType":"default","description":"T-Shirt
-        Red Small","modelYear":"0","upc":"","ean":"","customSku":"1","manufacturerSku":"","createTime":"2015-07-28T04:38:48+00:00","timeStamp":"2015-07-27T11:40:31+00:00","categoryID":"0","taxClassID":"2","departmentID":"0","itemMatrixID":"2","manufacturerID":"0","seasonID":"0","defaultVendorID":"0","itemECommerceID":"0","Prices":{"ItemPrice":[{"amount":"20","useType":"Default"},{"amount":"0","useType":"MSRP"}]}}}'
+      string: '{"@attributes":{"count":"1"},"Item":{"itemID":"26","systemSku":"210000000025","defaultCost":"0","avgCost":"0","discountable":"true","tax":"true","archived":"true","itemType":"default","description":"Item
+        to destroy","modelYear":"0","upc":"","ean":"","customSku":"","manufacturerSku":"","createTime":"2015-09-22T11:54:27+00:00","timeStamp":"2015-09-22T11:54:27+00:00","categoryID":"0","taxClassID":"2","departmentID":"0","itemMatrixID":"0","manufacturerID":"0","seasonID":"0","defaultVendorID":"0","itemECommerceID":"0","Prices":{"ItemPrice":[{"amount":"0","useType":"Default"},{"amount":"0","useType":"MSRP"}]}}}'
     http_version: 
-  recorded_at: Thu, 30 Jul 2015 06:11:15 GMT
+  recorded_at: Wed, 23 Sep 2015 04:54:50 GMT
 recorded_with: VCR 2.9.3

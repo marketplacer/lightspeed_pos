@@ -2,6 +2,8 @@ module Lightspeed
   class Request
     attr_accessor :raw_request
 
+    SECONDS_TO_WAIT_WHEN_THROTTLED = 60 #API requirements.
+
     def self.base_url
       "https://api.merchantos.com/API"
     end
@@ -30,6 +32,8 @@ module Lightspeed
       else
         handle_error(response)
       end
+    rescue Lightspeed::Error::Throttled
+      retry_throttled_request
     end
 
     private
@@ -38,18 +42,23 @@ module Lightspeed
       JSON.parse(response.body)
     end
 
+    def retry_throttled_request
+      puts 'retrying throttled request.'
+      sleep SECONDS_TO_WAIT_WHEN_THROTTLED
+      perform
+    end
+
     def handle_error(response)
       data = JSON.parse(response.body)
-      error = case response.code
-      when 400
-        Lightspeed::Errors::BadRequest
-      when 401
-        Lightspeed::Errors::Unauthorized
-      when 500
-        Lightspeed::Errors::InternalServerError
+      error = case response.code.to_s
+      when '400' then Lightspeed::Error::BadRequest
+      when '401' then Lightspeed::Error::Unauthorized
+      when '404' then Lightspeed::Error::NotFound
+      when '429' then Lightspeed::Error::Throttled
+      when /5../ then Lightspeed::Error::InternalServerError
+      else Lightspeed::Error
       end
-
-      raise error.new(data["message"]) if error # rubocop:disable RaiseArgs
+      raise error.new(data["message"]) # rubocop:disable RaiseArgs
     end
   end
 end

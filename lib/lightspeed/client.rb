@@ -1,5 +1,7 @@
-require 'lightspeed/account'
-require 'lightspeed/request'
+require 'active_support/core_ext/array/wrap'
+
+require_relative 'account'
+require_relative 'request'
 
 module Lightspeed
   class Client
@@ -14,14 +16,22 @@ module Lightspeed
     def accounts
       request = request(method: :get, path: "/Account.json")
       response = request.perform
-      instantiate(response["Account"], Lightspeed::Account)
+      instantiate(records: response["Account"], kind: Lightspeed::Account)
+    end
+
+    def account
+      accounts.first
+    end
+
+    def client
+      self
     end
 
     # Instantiates a bunch of records from Lightspeed into their proper classes.
-    def instantiate(records, klass, owner = self)
-      records = splat(records)
+    def instantiate(records:, kind:, owner: self)
+      records = Array.wrap(records)
       records.map do |record|
-        klass.new(owner, record)
+        kind.new(owner, record)
       end
     end
 
@@ -45,17 +55,6 @@ module Lightspeed
 
     def request(**args)
       Lightspeed::Request.new(self, **args)
-    end
-
-    # Converts a thing to an Array unless it is already.
-    # Unfortunately necessary because Lightspeed's API may return an object,
-    # or an array of objects.
-    #
-    # The compact is becuase it may return nothing at all.
-    # In the example of fetching categories resource where there are no categories,
-    # response["Category"] will not be present.
-    def splat(thing)
-      (thing.is_a?(Array) ? thing : [thing]).compact
     end
   end
 end

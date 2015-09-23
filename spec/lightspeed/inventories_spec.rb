@@ -6,7 +6,7 @@ describe Lightspeed::Inventories do
   it "gets the inventory for an account" do
     VCR.use_cassette("account/Inventory/index") do
       inventories = account.inventories.all
-      expect(inventories.count).to eq(2)
+      expect(inventories.count).to eq(5)
     end
   end
 
