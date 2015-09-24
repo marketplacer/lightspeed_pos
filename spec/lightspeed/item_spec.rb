@@ -4,7 +4,7 @@ describe Lightspeed::Item do
   setup_client_and_account
 
   subject do
-    Lightspeed::Item.new(account, id: 2)
+    Lightspeed::Item.new(context: account, attributes: {"itemID" => 2})
   end
 
   it "can fetch an item's ItemMatrix" do
@@ -22,10 +22,10 @@ describe Lightspeed::Item do
   end
 
   it "can get the attributes of an item" do
-    expect(subject.attributes).to eq(id: 2)
+    expect(subject.attributes).to eq("itemID" => 2)
   end
 
   it "can show a JSON representation of an item" do
-    expect(subject.to_json).to eq({ id: 2 }.to_json)
+    expect(subject.to_json).to eq({ "itemID" => 2 }.to_json)
   end
 end

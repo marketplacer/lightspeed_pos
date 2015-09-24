@@ -7,10 +7,10 @@ describe Lightspeed::Client do
     expect(client.api_key).to eq(key)
   end
 
-  it "can set an OAuth token" do
+  it "can set an - OAuth test token" do
     key = 'test'
-    client = Lightspeed::Client.new(oauth_token: key)
-    expect(client.oauth_token).to eq(key)
+    client = Lightspeed::Client.new(- OAuth test_token: key)
+    expect(client.- OAuth test_token).to eq(key)
   end
 
   it "sets the API key up for a request" do
@@ -20,30 +20,31 @@ describe Lightspeed::Client do
     expect(request.raw_request.options[:userpwd]).to eq("test:apikey")
   end
 
-  it "sets the OAuth token up for a request" do
+  it "sets the - OAuth test token up for a request" do
     key = 'test'
-    client = Lightspeed::Client.new(oauth_token: key)
+    client = Lightspeed::Client.new(- OAuth test_token: key)
     request = client.send(:request, method: :get, path: '/')
-    expect(request.raw_request.options[:headers]["Authorization"]).to eq("OAuth test")
+    expect(request.raw_request.options[:headers]["Authorization"]).to eq("- OAuth test")
   end
 
   it "can fetch accounts using an API key" do
     VCR.use_cassette("accounts") do
       client = Lightspeed::Client.new(api_key: 'test')
       accounts = client.accounts
-      expect(accounts).to be_an(Array)
+      expect(accounts).to be_a(Lightspeed::Accounts)
       expect(accounts.length).to eq(1)
-      expect(accounts.first.id).to be 1
+      expect(accounts.first.id).to be(Lightspeed::TEST_ACCOUNT_ID)
     end
   end
 
-  it "can fetch accounts using an OAuth token" do
-    VCR.use_cassette("accounts_oauth") do
-      client = Lightspeed::Client.new(oauth_token: 'test')
+  it "can fetch accounts using an - OAuth test token" do
+    VCR.use_cassette("accounts_- OAuth test") do
+      - OAuth test_token = ENV.fetch('LIGHTSPEED_- OAuth test_TOKEN', 'test')
+      client = Lightspeed::Client.new(- OAuth test_token: - OAuth test_token)
       accounts = client.accounts
-      expect(accounts).to be_an(Array)
+      expect(accounts).to be_a(Lightspeed::Accounts)
       expect(accounts.length).to eq(1)
-      expect(accounts.first.id).to eq(1)
+      expect(accounts.first.id).to eq(Lightspeed::TEST_ACCOUNT_ID)
     end
   end
 
@@ -52,7 +53,7 @@ describe Lightspeed::Client do
       client = Lightspeed::Client.new(api_key: 'totally-bogus')
 
       VCR.use_cassette("accounts_401") do
-        expect { client.accounts }.to raise_error(Lightspeed::Error::Unauthorized, "Invalid username/password or API key.")
+        expect { client.accounts.all }.to raise_error(Lightspeed::Error::Unauthorized, "Invalid username/password or API key.")
       end
     end
   end

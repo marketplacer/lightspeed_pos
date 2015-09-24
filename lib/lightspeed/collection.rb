@@ -30,24 +30,28 @@ module Lightspeed
       account.client
     end
 
-    def first(params: {}, request: true)
-      loaded = resources.each_value.first
-      return loaded if loaded || !request
-      first!(params: params)
-    end
-
-    def first!(params: {})
-      params.merge(limit: 1)
+    def first(params: {})
+      params = params.merge(limit: 1)
       instantiate(get(params: params)).first
     end
 
-    def all(params: {}, request: true)
-      return resources.values unless resources.length.zero? || !request
-      all!(params: params)
+    def size(params: {})
+      params = params.merge(limit: 1)
+      get(params: {limit: 1})["@attributes"]["count"].to_i
+    end
+    alias_method :length, :size
+    alias_method :count, :size
+
+    def each_loaded
+      resources.each_value
     end
 
-    def all!(params)
-      pages(params: params).to_a.flatten(1)
+    def all_loaded
+      resources.values
+    end
+
+    def all(params: {})
+      each_page(params: params).to_a.flatten(1)
     end
 
     def each_page(per_page: PER_PAGE, params: {})
@@ -60,33 +64,18 @@ module Lightspeed
       end
     end
 
-    def each(per_page: PER_PAGE, params: {}, request: true)
-      return resources.each_value unless resources.length.zero? || !request
-      return each!(per_page: per_page, params: params)
-    end
-
-    def each!(per_page: PER_PAGE, params: {})
+    def each(per_page: PER_PAGE, params: {})
       Enumerator.new do |yielder|
-        each_page(per_page: per_page, params: params) do |page|
-          dummy_page.each do |resource|
+        each_page(per_page: per_page, params: params).each do |page|
+          page.each do |resource|
             yielder << resource
           end
         end
       end
     end
 
-    def find(id, request: true)
-      return resources[id] if resources[id]
-      return find!(id) if request
-      raise Lightspeed::Error::NotFound, "Could not find a #{resource_name} with id=#{id}"
-    end
-
-    def find!(id)
-      id_field =
-      params = { resource_class.id_field => id }
-      found = first!(params: params)
-      return found if found
-      raise Lightspeed::Error::NotFound, "Could not find a #{resource_name} with id=#{id}"
+    def find(id)
+      first(params: { resource_class.id_field => id }) || handle_not_found(id)
     end
 
     def create(attributes = {})
@@ -123,15 +112,14 @@ module Lightspeed
 
     private
 
-    def page(n, per_page: PER_PAGE, params: {})
-      params.merge!(offset: per_page * n) unless n.zero? # offset of `0` is a BadRequest.
-      params.merge!(limit: per_page)
-      load instantiate(get(params: params))
+    def handle_not_found(id)
+      raise Lightspeed::Error::NotFound, "Could not find a #{resource_name} with #{resource_class.id_field}=#{id}"
     end
 
-    def dummy_page(n, options = {})
-      resources = ((n * PER_PAGE)..((n + 1) * PER_PAGE - 1)).to_a
-      resources = resources.take(10) if n >= 10 # infer last page
+    def page(n, per_page: PER_PAGE, params: {})
+      params = params.merge(offset: per_page * n) unless n.zero? # offset of `0` is a BadRequest.
+      params = params.merge(limit: per_page)
+      instantiate(get(params: params))
     end
 
     def instantiate(response)

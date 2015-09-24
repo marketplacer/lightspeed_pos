@@ -1,12 +1,15 @@
 $LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
 require 'dotenv'
+Dotenv.load
 require 'lightspeed_pos'
 require 'webmock/rspec'
 require 'vcr'
-Dotenv.load
 Dir[File.expand_path('support/**/*.rb', File.dirname(__FILE__))].each do |f|
   require f
 end
+
+Lightspeed::TEST_- OAuth test_TOKEN = ENV.fetch('LIGHTSPEED_- OAuth test_TOKEN', 'test')
+Lightspeed::TEST_ACCOUNT_ID = ENV.fetch('LIGHTSPEED_ACCOUNT_ID', '117102').to_i
 
 VCR.configure do |config|
   config.cassette_library_dir = "spec/fixtures/vcr_cassettes"

@@ -15,7 +15,7 @@ module Lightspeed
 
     def attributes= attributes
       @attributes = attributes
-      self.id = attributes.delete(self.class.id_field).try(:to_i)
+      self.id = attributes.dup.delete(self.class.id_field).try(:to_i)
       attributes.each do |key, value|
         send(:"#{key}=", value) if self.respond_to?(:"#{key}=")
       end
@@ -29,7 +29,7 @@ module Lightspeed
       @client || collection.try(:client) || context.try(:client)
     end
 
-    def load
+    def fetch
       attributes = get[resource_name]
     end
 
@@ -71,7 +71,11 @@ module Lightspeed
     end
 
     def base_path
-      "#{collection.base_path}/#{id}"
+      if collection
+        "#{collection.base_path}/#{id}"
+      elsif context
+        "#{context.base_path}/#{resource_name}/#{id}"
+      end
     end
     private
 
@@ -85,8 +89,6 @@ module Lightspeed
         get_one_to_many_relation(klass, name)
       elsif klass <= Lightspeed::Resource
         get_one_to_one_relation(klass, name)
-      else
-        binding.pry
       end
     end
 

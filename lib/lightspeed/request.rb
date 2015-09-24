@@ -16,9 +16,9 @@ module Lightspeed
         params: params
       )
 
-      if client.oauth_token
+      if client.- OAuth test_token
         @raw_request.options[:headers].merge!(
-          "Authorization" => "OAuth #{client.oauth_token}"
+          "Authorization" => "- OAuth test #{client.- OAuth test_token}"
         )
       end
 

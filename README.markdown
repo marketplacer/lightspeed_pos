@@ -16,10 +16,10 @@ First, intialize a new client:
 client = Lightspeed::Client.new(api_key: "YOUR_API_KEY_HERE")
 ```
 
-**OR** you may also choose to pass through an OAuth access token if you have one:
+**OR** you may also choose to pass through an - OAuth test access token if you have one:
 
 ```ruby
-client = Lightspeed::Client.new(oauth_token: "YOUR_ACCESS_TOKEN_HERE")
+client = Lightspeed::Client.new(- OAuth test_token: "YOUR_ACCESS_TOKEN_HERE")
 ```
 
 Next, make a request for your accounts:

@@ -10,7 +10,7 @@ http_interactions:
       User-Agent:
       - Typhoeus - https://github.com/typhoeus/typhoeus
       Authorization:
-      - OAuth test
+      - - OAuth test
   response:
     status:
       code: 200
@@ -34,4 +34,38 @@ http_interactions:
         Red Small","modelYear":"0","upc":"9300601000003","ean":"","customSku":"1","manufacturerSku":"","createTime":"2015-07-28T04:38:48+00:00","timeStamp":"2015-09-22T11:16:32+00:00","categoryID":"4","taxClassID":"2","departmentID":"0","itemMatrixID":"2","itemAttributesID":"2","manufacturerID":"6","noteID":"2","seasonID":"0","defaultVendorID":"0","itemECommerceID":"0","ItemShops":{"ItemShop":[{"itemShopID":"4","qoh":"0","backorder":"0","componentQoh":"0","componentBackorder":"0","reorderPoint":"0","reorderLevel":"0","timeStamp":"2015-09-23T04:16:32+00:00","itemID":"2","shopID":"1"},{"itemShopID":"6","qoh":"0","backorder":"0","componentQoh":"0","componentBackorder":"0","reorderPoint":"0","reorderLevel":"0","timeStamp":"2015-09-23T04:16:32+00:00","itemID":"2","shopID":"0"}]},"Prices":{"ItemPrice":[{"amount":"20","useType":"Default"},{"amount":"0","useType":"MSRP"}]}}}}'
     http_version:
   recorded_at: Wed, 23 Sep 2015 04:54:45 GMT
+- request:
+    method: get
+    uri: https://api.merchantos.com/API/Account/117102/Inventory.json?inventoryID=2&limit=1&load_relations=all
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Typhoeus - https://github.com/typhoeus/typhoeus
+      Authorization:
+      - - OAuth test
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 24 Sep 2015 03:10:46 GMT
+      Server:
+      - Apache/2.2.15 (CentOS)
+      X-Powered-By:
+      - PHP/5.4.44
+      Content-Encoding:
+      - none
+      Content-Length:
+      - '1147'
+      Content-Type:
+      - application/json
+    body:
+      encoding: UTF-8
+      string: '{"@attributes":{"count":"1","offset":"0","limit":"1"},"Inventory":{"inventoryID":"2","itemID":"2","Item":{"itemID":"2","systemSku":"210000000002","defaultCost":"0","avgCost":"0","discountable":"true","tax":"true","archived":"true","itemType":"default","description":"T-Shirt
+        Red Small","modelYear":"0","upc":"9300601000003","ean":"","customSku":"1","manufacturerSku":"","createTime":"2015-07-28T04:38:48+00:00","timeStamp":"2015-09-22T11:16:32+00:00","categoryID":"4","taxClassID":"2","departmentID":"0","itemMatrixID":"2","itemAttributesID":"2","manufacturerID":"6","noteID":"2","seasonID":"0","defaultVendorID":"0","itemECommerceID":"0","ItemShops":{"ItemShop":[{"itemShopID":"4","qoh":"0","backorder":"0","componentQoh":"0","componentBackorder":"0","reorderPoint":"0","reorderLevel":"0","timeStamp":"2015-09-23T04:16:32+00:00","itemID":"2","shopID":"1"},{"itemShopID":"6","qoh":"0","backorder":"0","componentQoh":"0","componentBackorder":"0","reorderPoint":"0","reorderLevel":"0","timeStamp":"2015-09-23T04:16:32+00:00","itemID":"2","shopID":"0"}]},"Prices":{"ItemPrice":[{"amount":"20","useType":"Default"},{"amount":"0","useType":"MSRP"}]}}}}'
+    http_version:
+  recorded_at: Thu, 24 Sep 2015 03:10:47 GMT
 recorded_with: VCR 2.9.3

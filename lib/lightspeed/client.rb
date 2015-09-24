@@ -5,11 +5,11 @@ require_relative 'request'
 
 module Lightspeed
   class Client
-    attr_accessor :api_key, :oauth_token
+    attr_accessor :api_key, :- OAuth test_token
 
-    def initialize(api_key: nil, oauth_token: nil)
+    def initialize(api_key: nil, - OAuth test_token: nil)
       @api_key = api_key
-      @oauth_token = oauth_token
+      @- OAuth test_token = - OAuth test_token
     end
 
     # Returns a list of accounts that you have access to.
