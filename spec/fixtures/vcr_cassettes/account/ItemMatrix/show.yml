@@ -10,7 +10,7 @@ http_interactions:
       User-Agent:
       - Typhoeus - https://github.com/typhoeus/typhoeus
       Authorization:
-      - - OAuth test
+      - OAuth test
   response:
     status:
       code: 200
@@ -47,7 +47,7 @@ http_interactions:
       User-Agent:
       - Typhoeus - https://github.com/typhoeus/typhoeus
       Authorization:
-      - - OAuth test
+      - OAuth test
   response:
     status:
       code: 200

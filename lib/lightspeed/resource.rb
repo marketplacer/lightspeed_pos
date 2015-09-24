@@ -1,4 +1,5 @@
 require 'active_support/core_ext/string'
+require 'active_support/core_ext/hash/slice'
 
 require_relative 'collection'
 
@@ -103,7 +104,7 @@ module Lightspeed
       elsif attributes[klass.resource_name]
         klass.new(context: self, attributes: attributes[klass.resource_name])
       else
-        account.send(klass.collection_name.underscore.to_sym).find(attributes[klass.id_field])
+        klass.new(context: self, attributes: attributes.slice(klass.id_field)).tap(&:fetch)
       end
       instance_variable_set("@#{name.to_s.underscore}", resource)
     end

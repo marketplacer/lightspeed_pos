@@ -7,10 +7,10 @@ describe Lightspeed::Client do
     expect(client.api_key).to eq(key)
   end
 
-  it "can set an - OAuth test token" do
+  it "can set an oauth token" do
     key = 'test'
-    client = Lightspeed::Client.new(- OAuth test_token: key)
-    expect(client.- OAuth test_token).to eq(key)
+    client = Lightspeed::Client.new(oauth_token: key)
+    expect(client.oauth_token).to eq(key)
   end
 
   it "sets the API key up for a request" do
@@ -20,11 +20,11 @@ describe Lightspeed::Client do
     expect(request.raw_request.options[:userpwd]).to eq("test:apikey")
   end
 
-  it "sets the - OAuth test token up for a request" do
+  it "sets the oauth token up for a request" do
     key = 'test'
-    client = Lightspeed::Client.new(- OAuth test_token: key)
+    client = Lightspeed::Client.new(oauth_token: key)
     request = client.send(:request, method: :get, path: '/')
-    expect(request.raw_request.options[:headers]["Authorization"]).to eq("- OAuth test")
+    expect(request.raw_request.options[:headers]["Authorization"]).to eq("oauth")
   end
 
   it "can fetch accounts using an API key" do
@@ -37,10 +37,10 @@ describe Lightspeed::Client do
     end
   end
 
-  it "can fetch accounts using an - OAuth test token" do
-    VCR.use_cassette("accounts_- OAuth test") do
-      - OAuth test_token = ENV.fetch('LIGHTSPEED_- OAuth test_TOKEN', 'test')
-      client = Lightspeed::Client.new(- OAuth test_token: - OAuth test_token)
+  it "can fetch accounts using an oauth token" do
+    VCR.use_cassette("accounts_oauth") do
+      oauth_token = ENV.fetch('LIGHTSPEED_oauth_TOKEN', 'test')
+      client = Lightspeed::Client.new(oauth_token: oauth_token)
       accounts = client.accounts
       expect(accounts).to be_a(Lightspeed::Accounts)
       expect(accounts.length).to eq(1)

@@ -16,10 +16,10 @@ First, intialize a new client:
 client = Lightspeed::Client.new(api_key: "YOUR_API_KEY_HERE")
 ```
 
-**OR** you may also choose to pass through an - OAuth test access token if you have one:
+**OR** you may also choose to pass through an OAuth access token if you have one:
 
 ```ruby
-client = Lightspeed::Client.new(- OAuth test_token: "YOUR_ACCESS_TOKEN_HERE")
+client = Lightspeed::Client.new(oauth_token: "YOUR_ACCESS_TOKEN_HERE")
 ```
 
 Next, make a request for your accounts:
@@ -80,7 +80,6 @@ account.items.each do |item|
 end
 ```
 
-The pagination methods (`page`, `each_page`) take a `per_page: ` argument that can be set to smaller than the default `100`. The API on lightspeed's end is capped at `100`
 ### Show
 
 You can fetch a particular item by its ID by doing this:
@@ -95,8 +94,6 @@ You can fetch the first item using `first`
 account.items.first
 ```
 
-All of the request methods (except `each_page`) have a bang counterpart that forces a request.
-To force no request, and only use the cached records, you can pass `request: false`
 ```ruby
 account.items.find(1) # will do a request if you don't have a cached item with an ID of 1
 account.items.find!(1) # will do a request, disregarding the cache.

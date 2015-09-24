@@ -8,7 +8,7 @@ Dir[File.expand_path('support/**/*.rb', File.dirname(__FILE__))].each do |f|
   require f
 end
 
-Lightspeed::TEST_- OAuth test_TOKEN = ENV.fetch('LIGHTSPEED_- OAuth test_TOKEN', 'test')
+Lightspeed::TEST_OAUTH_TOKEN = ENV.fetch('LIGHTSPEED_OAUTH_TOKEN', 'test')
 Lightspeed::TEST_ACCOUNT_ID = ENV.fetch('LIGHTSPEED_ACCOUNT_ID', '117102').to_i
 
 VCR.configure do |config|
