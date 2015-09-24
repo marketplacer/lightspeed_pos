@@ -13,7 +13,7 @@ require 'lightspeed_pos'
 Dotenv.load
 
 def client
-  @client ||= Lightspeed::Client.new(- OAuth test_token: ENV.fetch('LIGHTSPEED_- OAuth test_TOKEN', 'abc123'))
+  @client ||= Lightspeed::Client.new(oauth_token: ENV.fetch('LIGHTSPEED_OAUTH_TOKEN', 'abc123'))
 end
 
 def account
