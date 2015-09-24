@@ -25,24 +25,28 @@ client = Lightspeed::Client.new(oauth_token: "YOUR_ACCESS_TOKEN_HERE")
 Next, make a request for your accounts:
 
 ```ruby
-accounts = client.accounts
+accounts = client.accounts.all
 ```
 
 Pick the account you want to use, and then start using it:
 
 ```ruby
 account = accounts.first
-account.items # This will return the first 100 items from the account
+account.items.first
 ```
 
-## Account Resources
+## Resources
 
-Account resources share a common API. Account resources that are currently supported by this library are:
+resources share a common API. Resources that are currently supported by this library are:
 
+* Accounts
 * Categories
 * Items
 * Item Matrices
 * Item Attribute Sets
+* Images
+* Inventories
+* etc...
 
 To work with account resources, you first need to fetch an account. The examples below are for items, but will also work with other types listed above.
 
@@ -60,6 +64,23 @@ You can pass query parameters to this by using the `params` keyword:
 account.items.all(params: { itemMatrixID: 0 })
 ```
 
+You can enumerate over a group of 100 resources at a time (the max in a single request) using `each_page`
+
+```ruby
+account.items.each_page! do |items|
+  # ItemImporter.import(items)
+end
+```
+
+Or enumerate over each resource using #each (this still only does a request for each 100 items)
+
+```ruby
+account.items.each do |item|
+  # ItemImporter.import(item)
+end
+```
+
+The pagination methods (`page`, `each_page`) take a `per_page: ` argument that can be set to smaller than the default `100`. The API on lightspeed's end is capped at `100`
 ### Show
 
 You can fetch a particular item by its ID by doing this:
@@ -67,15 +88,27 @@ You can fetch a particular item by its ID by doing this:
 ```ruby
 account.items.find(1)
 ```
+If item with id of `1` is not there, this will raise `Lightspeed::Error::NotFound`
+
+You can fetch the first item using `first`
+```ruby
+account.items.first
+```
+
+All of the request methods (except `each_page`) have a bang counterpart that forces a request.
+To force no request, and only use the cached records, you can pass `request: false`
+```ruby
+account.items.find(1) # will do a request if you don't have a cached item with an ID of 1
+account.items.find!(1) # will do a request, disregarding the cache.
+account.items.find(1, request: false) # will get the item with ID 1 from the cache, and raise Lightspeed::Error::NotFound if it isn't there.
+```
 
 ### Create
 
 You can create a particular item by calling `create`:
 
 ```ruby
-account.items.create({
-  description: "Onesie"
-})
+account.items.create(description: "Onesie")
 ```
 
 ### Update
@@ -83,23 +116,26 @@ account.items.create({
 You can update a particular item by calling `update`, passing that item's ID and providing a list of attributes to update:
 
 ```ruby
-account.items.update(1, {
-  description: "Onesie"
-})
+account.items.update(1, description: "Onesie")
+# OR
+account.items.find(1).update(description: "Onesie")
 ```
-
-This method isn't available on items themselves because I couldn't work out how to share the account ID easily there.
 
 ### Destroy
 
 You can destroy a particular item by calling `destroy` and passing that item's ID:
 
 ```ruby
-account.items.destroy(1)
+account.images.destroy(1)
+# OR
+account.images.find(1).destroy
 ```
+
 
 For the `Items` resource, this is aliased to `archive`:
 
 ```ruby
 account.items.archive(1)
+# OR
+account.item.find(1).archive
 ```

@@ -16,12 +16,10 @@ module Lightspeed
     # Embedded
     attr_accessor :Prices, :TaxClass, :Manufacturer
 
-    has_one :ItemAttributeSet, :Category
-    has_many :Items
+    relate :ItemAttributeSet, :Category, :Items
 
     def self.collection_name
       'ItemMatrices'
     end
-
   end
 end

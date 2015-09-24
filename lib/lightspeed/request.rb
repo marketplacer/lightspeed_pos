@@ -2,7 +2,7 @@ module Lightspeed
   class Request
     attr_accessor :raw_request
 
-    SECONDS_TO_WAIT_WHEN_THROTTLED = 60 #API requirements.
+    SECONDS_TO_WAIT_WHEN_THROTTLED = 60 # API requirements.
 
     def self.base_url
       "https://api.merchantos.com/API"

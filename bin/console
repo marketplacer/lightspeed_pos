@@ -20,6 +20,5 @@ def account
   client.accounts.first
 end
 
-
 require 'irb'
 IRB.start

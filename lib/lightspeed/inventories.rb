@@ -4,6 +4,5 @@ require_relative 'inventory'
 
 module Lightspeed
   class Inventories < Lightspeed::Collection
-
   end
 end

@@ -6,7 +6,7 @@ module ClientAndAccount
 
     let(:account) do
       Lightspeed::Account.new(client).tap do |account|
-        account.id = ENV.fetch('LIGHTSPEED_ACCOUNT_ID', 117102)
+        account.id = ENV.fetch('LIGHTSPEED_ACCOUNT_ID', 117_102)
       end
     end
   end

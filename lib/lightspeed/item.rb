@@ -6,6 +6,8 @@ require_relative 'images'
 
 module Lightspeed
   class Item < Lightspeed::Resource
+    alias_method :archive, :destroy
+
     attr_accessor :systemSku, :defaultCost, :avgCost, :discountable, :tax,
       :archived, :itemType, :description, :modelYear, :upc, :ean, :customSku,
       :manufacturerSku, :createTime, :timeStamp,
@@ -18,8 +20,6 @@ module Lightspeed
       :ItemAttributes, :ItemShops, :Prices, :Note, :TaxClass,
       :Manufacturer, :ItemVendorNums, :CustomFieldValues, :Tags
 
-    has_one :ItemMatrix, :Category
-    has_many :Images
-
+    relate :ItemMatrix, :Category, :Images
   end
 end

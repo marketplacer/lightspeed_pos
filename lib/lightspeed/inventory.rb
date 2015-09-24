@@ -4,6 +4,6 @@ require_relative 'item'
 
 module Lightspeed
   class Inventory < Lightspeed::Resource
-    has_one :Item
+    relate :Item
   end
 end

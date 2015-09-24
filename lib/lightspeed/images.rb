@@ -4,6 +4,5 @@ require_relative 'image'
 
 module Lightspeed
   class Images < Lightspeed::Collection
-
   end
 end

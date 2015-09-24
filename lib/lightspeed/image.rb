@@ -7,11 +7,10 @@ module Lightspeed
   class Image < Lightspeed::Resource
     attr_accessor :baseImageURL, :publicID
 
-    has_one :Item, :ItemMatrix
+    relate :Item, :ItemMatrix
 
     def url
       "#{baseImageURL}#{publicID}"
     end
-
   end
 end

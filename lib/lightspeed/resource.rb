@@ -3,18 +3,44 @@ require 'active_support/core_ext/string'
 require_relative 'collection'
 
 module Lightspeed
-  class Resource < Lightspeed::Base
+  class Resource
+    attr_accessor :id, :collection, :attributes, :client, :context
 
-    attr_accessor :id, :attributes
+    def initialize(client: nil, collection: nil, context: nil, attributes: {})
+      self.collection = collection
+      self.client = client
+      self.context = context
+      self.attributes = attributes
+    end
 
-    def initialize(owner, data = {})
-      super(owner)
-      @attributes = data
-      self.id = data.delete(self.class.id_field).try(:to_i)
-      data.each do |key, value|
-        self.send(:"#{key}=", value) if self.respond_to?(:"#{key}=")
+    def attributes= attributes
+      @attributes = attributes
+      self.id = attributes.delete(self.class.id_field).try(:to_i)
+      attributes.each do |key, value|
+        send(:"#{key}=", value) if self.respond_to?(:"#{key}=")
       end
     end
+
+    def account
+      collection.try(:account) || context.try(:account)
+    end
+
+    def client
+      @client || collection.try(:client) || context.try(:client)
+    end
+
+    def load
+      attributes = get[resource_name]
+    end
+
+    def update(attributes = {})
+      attributes = put(body: attributes.to_json)[resource_name]
+    end
+
+    def destroy
+      attributes = delete[resource_name]
+    end
+
 
     def self.resource_name
       name.demodulize
@@ -28,48 +54,82 @@ module Lightspeed
       "#{resource_name.camelize(:lower)}ID"
     end
 
-    def self.has_one *class_names
+    def self.relate *class_names
       class_names.each do |name|
         define_method(name.to_s.underscore.to_sym) do
-          klass = Lightspeed.const_get(name)
-          return if attributes[klass.id_field].to_i.zero?
-          ivar = "@#{name.to_s.underscore}"
-          return instance_variable_get(ivar) if instance_variable_get(ivar)
-          instance_variable_set(ivar, get_associated(klass))
-        end
-      end
-    end
-
-    def self.has_many *class_names
-      class_names.each do |name|
-        define_method(name.to_s.underscore.to_sym) do
-          klass = Lightspeed.const_get(name)
-          return if attributes[klass.resources_name].nil?
-          ivar = "@#{name.to_s.underscore}"
-          return instance_variable_get(ivar) if instance_variable_get(ivar)
-          instance_variable_set(ivar, get_associated(klass))
-        end
-      end
-    end
-
-    def get_associated klass
-      if klass.superclass == Lightspeed::Collection
-        account.instantiate(records: attributes[klass.collection_name][klass.resource_name], kind: klass.resource_class, owner: self)
-      elsif klass.superclass == Lightspeed::Resource
-        if attributes[klass.resource_name]
-          account.instantiate(records: attributes[klass.resource_name], kind: klass, owner: self)
-        else
-          account.send(klass.collection_name.underscore.to_sym).find(attributes[klass.id_field])
+          instance_variable_get("@#{name.to_s.underscore}") || get_relation(name)
         end
       end
     end
 
     def inspect
-      "#<#{self.class.name} id=#{id}>"
+      "#<#{self.class.name} API#{base_path}>"
     end
 
     def to_json
       attributes.to_json
     end
+
+    def base_path
+      "#{collection.base_path}/#{id}"
+    end
+    private
+
+    def collection_class
+      Lightspeed.const_get(self.class.collection_name)
+    end
+
+    def get_relation(name)
+      klass = Lightspeed.const_get(name)
+      if klass <= Lightspeed::Collection
+        get_one_to_many_relation(klass, name)
+      elsif klass <= Lightspeed::Resource
+        get_one_to_one_relation(klass, name)
+      else
+        binding.pry
+      end
+    end
+
+    def get_one_to_many_relation(klass, name)
+      resources = klass.new(context: self, attributes: attributes[klass.collection_name])
+      instance_variable_set("@#{name.to_s.underscore}", resources)
+    end
+
+    def get_one_to_one_relation(klass, name)
+      resource = if attributes[klass.id_field].to_i.zero?
+        nil
+      elsif attributes[klass.resource_name]
+        klass.new(context: self, attributes: attributes[klass.resource_name])
+      else
+        account.send(klass.collection_name.underscore.to_sym).find(attributes[klass.id_field])
+      end
+      instance_variable_set("@#{name.to_s.underscore}", resource)
+    end
+
+    def get(params: {})
+      params.merge!(load_relations: "all")
+      client.get(
+        path: resource_path,
+        params: params
+      )
+    end
+
+    def put(body:)
+      client.put(
+        path: resource_path,
+        body: body,
+      )
+    end
+
+    def delete
+      client.delete(
+        path: resource_path
+      )
+    end
+
+    def resource_path
+      "#{base_path}.json"
+    end
+
   end
 end
