@@ -75,7 +75,7 @@ module Lightspeed
       if collection
         "#{collection.base_path}/#{id}"
       elsif context
-        "#{context.base_path}/#{resource_name}/#{id}"
+        "#{context.base_path}/#{self.class.resource_name}/#{id}"
       end
     end
     private
