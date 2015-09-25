@@ -5,6 +5,7 @@ require_relative 'item_matrices'
 require_relative 'item_attribute_sets'
 require_relative 'images'
 require_relative 'inventories'
+require_relative 'shops'
 
 module Lightspeed
   class Account < Lightspeed::Resource
@@ -20,13 +21,13 @@ module Lightspeed
       :ItemMatrices,
       :ItemAttributeSets,
       :Images,
-      :Inventories
+      :Inventories,
+      :Shops
     )
 
     def account
       self
     end
-
 
   end
 end

@@ -93,12 +93,6 @@ You can fetch the first item using `first`
 account.items.first
 ```
 
-```ruby
-account.items.find(1) # will do a request if you don't have a cached item with an ID of 1
-account.items.find!(1) # will do a request, disregarding the cache.
-account.items.find(1, request: false) # will get the item with ID 1 from the cache, and raise Lightspeed::Error::NotFound if it isn't there.
-```
-
 ### Create
 
 You can create a particular item by calling `create`:
@@ -114,7 +108,8 @@ You can update a particular item by calling `update`, passing that item's ID and
 ```ruby
 account.items.update(1, description: "Onesie")
 # OR
-account.items.find(1).update(description: "Onesie")
+account.items.find(1)
+item.update(description: "Onesie")
 ```
 
 ### Destroy
@@ -124,14 +119,8 @@ You can destroy a particular item by calling `destroy` and passing that item's I
 ```ruby
 account.images.destroy(1)
 # OR
-account.images.find(1).destroy
+account.images.find(1)
+item.destroy
 ```
 
-
-For the `Items` resource, this is aliased to `archive`:
-
-```ruby
-account.items.archive(1)
-# OR
-account.item.find(1).archive
-```
+For the `Items` resource, `destroy` is aliased to `archive`:
