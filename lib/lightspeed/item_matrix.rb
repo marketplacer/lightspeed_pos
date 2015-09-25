@@ -6,20 +6,35 @@ require_relative 'items'
 
 module Lightspeed
   class ItemMatrix < Lightspeed::Resource
-    attr_accessor :description, :tax, :defaultCost, :itemType, :modelYear, :archived,
-      :timeStamp
+    fields(
+      itemMatrixID: Lightspeed::ID,
+      description: String,
+      tax: TrueClass,
+      defaultCost: BigDecimal,
+      itemType: String,
+      modelYear: Integer,
+      archived: TrueClass,
+      timeStamp: DateTime,
+      itemAttributeSetID: Lightspeed::ID,
+      manufacturerID: Lightspeed::ID,
+      categoryID: Lightspeed::ID,
+      defaultVendorID: Lightspeed::ID,
+      taxClassID: Lightspeed::ID,
+      seasonID: Lightspeed::ID,
+      departmentID: Lightspeed::ID,
+      itemECommerceID: Lightspeed::ID,
+    )
 
-    # Association keys
-    attr_accessor :manufacturerID, :defaultVendorID,
-      :taxClassID, :seasonID, :departmentID, :itemECommerceID
+    relationships :ItemAttributeSet, :Category, :Items
 
-    # Embedded
-    attr_accessor :Prices, :TaxClass, :Manufacturer
-
-    relate :ItemAttributeSet, :Category, :Items
+    # overrides
 
     def self.collection_name
       'ItemMatrices'
+    end
+
+    def singular_path_parent
+      account
     end
   end
 end

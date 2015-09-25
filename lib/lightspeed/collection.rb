@@ -103,7 +103,7 @@ module Lightspeed
     end
 
     def base_path
-      "#{context.base_path}/#{resource_name}"
+      "#{account.base_path}/#{resource_name}"
     end
 
     def inspect
@@ -125,7 +125,7 @@ module Lightspeed
     def instantiate(response)
       return [] unless response.is_a?(Hash)
       Array.wrap(response[resource_name]).map do |resource|
-        resource = resource_class.new(collection: self, attributes: resource)
+        resource = resource_class.new(context: self, attributes: resource)
         self.resources[resource.id] = resource
       end
     end

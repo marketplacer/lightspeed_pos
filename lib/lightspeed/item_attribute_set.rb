@@ -2,6 +2,12 @@ require_relative 'resource'
 
 module Lightspeed
   class ItemAttributeSet < Lightspeed::Resource
-    attr_accessor :name, :attributeName1, :attributeName2, :attributeName3
+    fields(
+      itemAttributeSetID: Lightspeed::ID,
+      name: String,
+      attributeName1: String,
+      attributeName2: String,
+      attributeName3: String
+    )
   end
 end

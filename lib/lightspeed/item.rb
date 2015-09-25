@@ -1,3 +1,5 @@
+require 'bigdecimal'
+
 require_relative 'resource'
 
 require_relative 'item_matrix'
@@ -8,18 +10,33 @@ module Lightspeed
   class Item < Lightspeed::Resource
     alias_method :archive, :destroy
 
-    attr_accessor :systemSku, :defaultCost, :avgCost, :discountable, :tax,
-      :archived, :itemType, :description, :modelYear, :upc, :ean, :customSku,
-      :manufacturerSku, :createTime, :timeStamp,
+    fields(
+      itemID: Lightspeed::ID,
+      systemSku: String,
+      defaultCost: BigDecimal,
+      avgCost: BigDecimal,
+      discountable: TrueClass,
+      tax: TrueClass,
+      archived: TrueClass,
+      itemType: String,
+      description: String,
+      modelYear: Integer,
+      upc: String,
+      ean: String,
+      customSku: String,
+      manufacturerSku: String,
+      createTime: DateTime,
+      timeStamp: DateTime,
+      categoryID: Lightspeed::ID,
+      taxClassID: Lightspeed::ID,
+      departmentID: Lightspeed::ID,
+      itemMatrixID: Lightspeed::ID,
+      manufacturerID: Lightspeed::ID,
+      seasonID: Lightspeed::ID,
+      defaultVendorID: Lightspeed::ID,
+      itemECommerceID: Lightspeed::ID
+    )
 
-      # Association keys
-      :taxClassID, :departmentID, :manufacturerID, :seasonID,
-      :defaultVendorID, :itemECommerceID,
-
-      # Embedded
-      :ItemAttributes, :ItemShops, :Prices, :Note, :TaxClass,
-      :Manufacturer, :ItemVendorNums, :CustomFieldValues, :Tags
-
-    relate :ItemMatrix, :Category, :Images
+    relationships :ItemMatrix, :Category, :Images
   end
 end

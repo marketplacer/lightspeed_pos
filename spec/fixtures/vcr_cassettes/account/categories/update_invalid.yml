@@ -32,7 +32,7 @@ http_interactions:
       encoding: UTF-8
       string: '{"@attributes":{"count":"1"},"Category":{"categoryID":"28","name":"Category
         to update","nodeDepth":"0","fullPathName":"Category to update","leftNode":"27","rightNode":"28","createTime":"2015-09-22T11:53:19+00:00","timeStamp":"2015-09-22T11:53:19+00:00","parentID":"0"}}'
-    http_version: 
+    http_version:
   recorded_at: Wed, 23 Sep 2015 04:53:41 GMT
 - request:
     method: put
@@ -66,6 +66,6 @@ http_interactions:
       encoding: UTF-8
       string: '{"httpCode":"400","httpMessage":"Bad Request","message":"name cannot
         be blank.","errorClass":"Exception"}'
-    http_version: 
+    http_version:
   recorded_at: Wed, 23 Sep 2015 04:53:41 GMT
 recorded_with: VCR 2.9.3

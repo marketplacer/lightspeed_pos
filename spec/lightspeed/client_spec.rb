@@ -24,7 +24,7 @@ describe Lightspeed::Client do
     key = 'test'
     client = Lightspeed::Client.new(oauth_token: key)
     request = client.send(:request, method: :get, path: '/')
-    expect(request.raw_request.options[:headers]["Authorization"]).to eq("oauth")
+    expect(request.raw_request.options[:headers]["Authorization"]).to eq("OAuth test")
   end
 
   it "can fetch accounts using an API key" do

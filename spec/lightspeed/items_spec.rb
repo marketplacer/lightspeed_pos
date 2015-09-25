@@ -71,13 +71,29 @@ describe Lightspeed::Items do
         end.to raise_error(Lightspeed::Error::BadRequest, "Item not updated. An Item must have a description.")
       end
     end
+
+    it "an item" do
+      VCR.use_cassette("account/items/update") do
+        item = account.items.create(description: 'Item to update')
+        item.update(description: "T-Shirt Red Small")
+        expect(item.description).to eq("T-Shirt Red Small")
+      end
+    end
   end
 
   it "can archive an item" do
     VCR.use_cassette("account/items/archive") do
+      item = account.items.create(description: 'Item to destroy')
+      item.archive
+      expect(item.archived).to be true
+    end
+  end
+
+  it "can archive an item by ID" do
+    VCR.use_cassette("account/items/archive") do
       id = account.items.create(description: 'Item to destroy').id
       item = account.items.archive(id)
-      expect(item.archived).to eq("true")
+      expect(item.archived).to be true
     end
   end
 end

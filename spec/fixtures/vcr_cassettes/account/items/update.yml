@@ -68,4 +68,34 @@ http_interactions:
         Red Small","modelYear":"0","upc":"","ean":"","customSku":"","manufacturerSku":"","createTime":"2015-09-22T11:55:31+00:00","timeStamp":"2015-09-22T11:55:32+00:00","categoryID":"0","taxClassID":"2","departmentID":"0","itemMatrixID":"0","manufacturerID":"0","seasonID":"0","defaultVendorID":"0","itemECommerceID":"0","ItemShops":{"ItemShop":[{"itemShopID":"43","qoh":"0","backorder":"0","componentQoh":"0","componentBackorder":"0","reorderPoint":"0","reorderLevel":"0","timeStamp":"2015-09-22T11:55:32+00:00","itemID":"28","shopID":"1"},{"itemShopID":"44","qoh":"0","backorder":"0","componentQoh":"0","componentBackorder":"0","reorderPoint":"0","reorderLevel":"0","timeStamp":"2015-09-22T11:55:31+00:00","itemID":"28","shopID":"0"}]},"Prices":{"ItemPrice":[{"amount":"0","useType":"Default"},{"amount":"0","useType":"MSRP"}]}}}'
     http_version: 
   recorded_at: Wed, 23 Sep 2015 04:55:54 GMT
+- request:
+    method: put
+    uri: https://api.merchantos.com/API/Account/117102/Item/%7B:description=%3E%22T-Shirt%20Red%20Small%22%7D.json
+    body:
+      encoding: UTF-8
+      string: "{}"
+    headers:
+      User-Agent:
+      - Typhoeus - https://github.com/typhoeus/typhoeus
+      Authorization:
+      - OAuth 1118d2013c4b2b6857fed4e9a922cd6bfc875c9c
+  response:
+    status:
+      code: 400
+      message: Bad request
+    headers:
+      Cache-Control:
+      - no-cache
+      Connection:
+      - close
+      Content-Type:
+      - text/html
+    body:
+      encoding: UTF-8
+      string: |
+        <html><body><h1>400 Bad request</h1>
+        Your browser sent an invalid request.
+        </body></html>
+    http_version: 
+  recorded_at: Fri, 25 Sep 2015 03:11:27 GMT
 recorded_with: VCR 2.9.3
