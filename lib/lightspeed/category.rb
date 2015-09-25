@@ -9,9 +9,10 @@ module Lightspeed
       fullPathName: String,
       leftNode: Integer,
       rightNode: Integer,
+      createTime: DateTime,
       timeStamp: DateTime,
       parentID: Lightspeed::ID,
-      createTime: DateTime
+      Category: Hash
     )
     relationships Parent: :Category
   end

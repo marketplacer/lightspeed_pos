@@ -23,6 +23,17 @@ module Lightspeed
       seasonID: Lightspeed::ID,
       departmentID: Lightspeed::ID,
       itemECommerceID: Lightspeed::ID,
+      itemAttributeSet: Hash,
+      Manufacturer: Hash,
+      Category: Hash,
+      TaxClass: Hash,
+      Season: Hash,
+      Department: Hash,
+      ItemECommerce: Hash,
+      Images: Hash,
+      Items: Hash,
+      CustomFieldValues: Hash,
+      Prices: Hash
     )
 
     relationships :ItemAttributeSet, :Category, :Items

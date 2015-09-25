@@ -11,7 +11,9 @@ module Lightspeed
       filename: String,
       publicID: String, # part of the file path; not a Lightspeed ID
       itemID: Lightspeed::ID,
-      itemMatrixID: Lightspeed::ID
+      itemMatrixID: Lightspeed::ID,
+      Item: Hash,
+      ItemMatrix: Hash
     )
 
     relationships :Item, :ItemMatrix

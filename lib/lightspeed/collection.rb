@@ -17,12 +17,8 @@ module Lightspeed
       context.account
     end
 
-    def resources
-      @resources ||= {}
-    end
-
     def unload
-      self.resources = {}
+      @resources = {}
     end
 
     def client
@@ -43,11 +39,12 @@ module Lightspeed
     alias_method :count, :size
 
     def each_loaded
-      resources.each_value
+      @resources ||= {}
+      @resources.each_value
     end
 
     def all_loaded
-      resources.values
+      each_loaded.to_a
     end
 
     def all(params: {})
@@ -110,6 +107,12 @@ module Lightspeed
       "#<#{self.class.name} API#{base_path}>"
     end
 
+    def to_json
+      all_loaded.map do |resource|
+        resource.to_json
+      end
+    end
+
     private
 
     def handle_not_found(id)
@@ -124,9 +127,9 @@ module Lightspeed
 
     def instantiate(response)
       return [] unless response.is_a?(Hash)
+      @resources ||= {}
       Array.wrap(response[resource_name]).map do |resource|
-        resource = resource_class.new(context: self, attributes: resource)
-        self.resources[resource.id] = resource
+        @resources[resource.id] = resource_class.new(context: self, attributes: resource)
       end
     end
 

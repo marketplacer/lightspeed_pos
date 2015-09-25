@@ -68,7 +68,6 @@ module Lightspeed
 
     def update(attributes = {})
       self.attributes = put(body: attributes.to_json)[resource_name]
-      self
     end
 
     def destroy

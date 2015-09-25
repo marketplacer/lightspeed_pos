@@ -34,7 +34,21 @@ module Lightspeed
       manufacturerID: Lightspeed::ID,
       seasonID: Lightspeed::ID,
       defaultVendorID: Lightspeed::ID,
-      itemECommerceID: Lightspeed::ID
+      itemECommerceID: Lightspeed::ID,
+      Category: Hash,
+      TaxClass: Hash,
+      Department: Hash,
+      ItemAttributes: Hash,
+      ItemMatrix: Hash,
+      Note: Hash,
+      ItemECommerce: Hash,
+      ItemShops: Hash
+      ItemComponents: Hash,
+      ItemShelfLocations: Hash,
+      ItemVendorNums: Hash,
+      CustomFieldValues: Hash,
+      Prices: Hash,
+      Tags: Hash
     )
 
     relationships :ItemMatrix, :Category, :Images
