@@ -107,10 +107,14 @@ module Lightspeed
       "#<#{self.class.name} API#{base_path}>"
     end
 
-    def to_json
+    def to_h
       all_loaded.map do |resource|
-        resource.to_json
+        {resource_name => resource.to_h}
       end
+    end
+
+    def to_json
+      to_h.to_json
     end
 
     private

@@ -5,6 +5,7 @@ require_relative 'collection'
 
 module Lightspeed
   class ID; end
+  class Link; end
   class Resource
     attr_accessor :id, :attributes, :client, :context, :account
 
@@ -27,7 +28,7 @@ module Lightspeed
       @account || context.try(:account)
     end
 
-    def self.fields fields
+    def self.fields(fields = {})
       @fields ||= []
       attr_writer *fields.keys
       fields.each do |name, klass|
@@ -35,6 +36,7 @@ module Lightspeed
           get_transformed_value(name, klass)
         end
       end
+      @fields
     end
 
     def get_transformed_value(name, klass)
@@ -98,6 +100,7 @@ module Lightspeed
           instance_variable_get("@#{method_name}") || get_relation(method_name, relation_name, class_name)
         end
       end
+      @relationships
     end
 
     def inspect
@@ -105,9 +108,11 @@ module Lightspeed
     end
 
     def to_json
-      Hash[attributes.map do |key, value|
-        [key, self.respond_to?(key) ? send(key) : value]
-      end].to_json
+      to_h.to_json
+    end
+
+    def to_h
+      self.class.fields.map { |f| [f, send(f)] }.to_h
     end
 
     def base_path

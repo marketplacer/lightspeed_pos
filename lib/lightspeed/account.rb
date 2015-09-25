@@ -13,7 +13,7 @@ module Lightspeed
     fields(
       accountID: Lightspeed::ID,
       name: String,
-      link: URI
+      link: Hash
     )
     relationships(
       :Items,
@@ -27,6 +27,14 @@ module Lightspeed
 
     def account
       self
+    end
+
+    def link
+      if @link.is_a?(Hash)
+        @link["@attributes"]["href"]
+      else
+        @link
+      end
     end
 
   end
