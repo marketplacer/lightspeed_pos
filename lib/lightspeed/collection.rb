@@ -129,7 +129,8 @@ module Lightspeed
       return [] unless response.is_a?(Hash)
       @resources ||= {}
       Array.wrap(response[resource_name]).map do |resource|
-        @resources[resource.id] = resource_class.new(context: self, attributes: resource)
+        resource = resource_class.new(context: self, attributes: resource)
+        @resources[resource.id] = resource
       end
     end
 

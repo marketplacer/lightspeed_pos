@@ -1,11 +1,12 @@
 require_relative 'resource'
 
+require 'bigdecimal'
 module Lightspeed
   class Shop < Lightspeed::Resource
     fields(
       shopID: Lightspeed::ID,
       name: String,
-      serviceRate:
+      serviceRate: BigDecimal,
       timeZone: String,
       taxLabor: TrueClass,
       labelTitle: String,

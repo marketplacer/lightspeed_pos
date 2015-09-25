@@ -42,7 +42,7 @@ module Lightspeed
       ItemMatrix: Hash,
       Note: Hash,
       ItemECommerce: Hash,
-      ItemShops: Hash
+      ItemShops: Hash,
       ItemComponents: Hash,
       ItemShelfLocations: Hash,
       ItemVendorNums: Hash,
