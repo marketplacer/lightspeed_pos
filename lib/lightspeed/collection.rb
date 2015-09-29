@@ -38,6 +38,7 @@ module Lightspeed
       params = params.merge(limit: 1)
       get(params: params)['@attributes']['count'].to_i
     end
+    alias_method :length, :size
 
     def each_loaded
       @resources ||= {}
@@ -55,6 +56,7 @@ module Lightspeed
     def size_loaded
       @resources.size
     end
+    alias_method :length_loaded, :size
 
     def all(params: {})
       each_page(params: params).to_a.flatten(1)
@@ -117,6 +119,7 @@ module Lightspeed
     end
 
     def to_h
+      return if all_loaded.empty?
       { resource_name => all_loaded.map(&:to_h) }
     end
 

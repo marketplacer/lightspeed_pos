@@ -76,7 +76,7 @@ http_interactions:
       User-Agent:
       - Typhoeus - https://github.com/typhoeus/typhoeus
       Authorization:
-      - OAuth 1118d2013c4b2b6857fed4e9a922cd6bfc875c9c
+      - OAuth test
   response:
     status:
       code: 200

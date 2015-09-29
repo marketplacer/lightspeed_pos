@@ -113,8 +113,7 @@ module Lightspeed
     end
 
     def to_h
-      (self.class.fields.map { |f| [f, send(f)] } +
-       self.class.relationships.map { |r| [r.to_s.camelize, send(r).to_h] }).to_h
+      fields_to_h.merge(relationships_to_h).reject { |_, v| v.nil? || v == {} }
     end
 
     def base_path
@@ -135,6 +134,14 @@ module Lightspeed
 
     private
 
+    def fields_to_h
+      self.class.fields.map { |f| [f, send(f)] }.to_h
+    end
+
+    def relationships_to_h
+      self.class.relationships.map { |r| [r.to_s.camelize, send(r).to_h] }.to_h
+    end
+
     def collection_class
       "Lightspeed::#{self.class.collection_name}".constantize
     end
@@ -154,7 +161,7 @@ module Lightspeed
 
     def get_resource_relation(method_name, relation_name, klass)
       id_field = "#{relation_name.to_s.camelize(:lower)}ID" # parentID != #categoryID, so we can't use klass.id_field
-      resource = if send(id_field).nonzero?
+      resource = if send(id_field).to_i.nonzero?
         rel_attributes = attributes[klass.resource_name] || { klass.id_field => send(id_field) }
         klass.new(context: self, attributes: rel_attributes).tap(&:load)
       end
