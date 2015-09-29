@@ -148,15 +148,15 @@ module Lightspeed
     end
 
     def get_collection_relation(method_name, relation_name, klass)
-      resources = klass.new(context: self, attributes: attributes[relation_name])
-      instance_variable_set("@#{method_name}", resources)
+      collection = klass.new(context: self, attributes: attributes[relation_name.to_s])
+      instance_variable_set("@#{method_name}", collection)
     end
 
     def get_resource_relation(method_name, relation_name, klass)
       id_field = "#{relation_name.to_s.camelize(:lower)}ID" # parentID != #categoryID, so we can't use klass.id_field
-      resource = if send(id_field)
-                   rel_attributes = attributes[klass.resource_name] || { klass.id_field => send(id_field) }
-                   klass.new(context: self, account: account, attributes: rel_attributes).tap(&:load)
+      resource = if send(id_field).nonzero?
+        rel_attributes = attributes[klass.resource_name] || { klass.id_field => send(id_field) }
+        klass.new(context: self, attributes: rel_attributes).tap(&:load)
       end
       instance_variable_set("@#{method_name}", resource)
     end
