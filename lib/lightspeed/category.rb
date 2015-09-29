@@ -3,16 +3,16 @@ require_relative 'resource'
 module Lightspeed
   class Category < Lightspeed::Resource
     fields(
-      categoryID: Lightspeed::ID,
-      name: String,
-      nodeDepth: Numeric,
-      fullPathName: String,
-      leftNode: Integer,
-      rightNode: Integer,
-      createTime: DateTime,
-      timeStamp: DateTime,
-      parentID: Lightspeed::ID,
-      Category: Hash
+      categoryID: :id,
+      name: :string,
+      nodeDepth: :integer,
+      fullPathName: :string,
+      leftNode: :integer,
+      rightNode: :integer,
+      createTime: :datetime,
+      timeStamp: :datetime,
+      parentID: :id,
+      Category: :hash
     )
     relationships Parent: :Category
   end

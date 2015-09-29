@@ -9,11 +9,10 @@ require_relative 'shops'
 
 module Lightspeed
   class Account < Lightspeed::Resource
-
     fields(
-      accountID: Lightspeed::ID,
-      name: String,
-      link: Hash
+      accountID: :id,
+      name: :string,
+      link: :hash
     )
     relationships(
       :Items,
@@ -31,11 +30,10 @@ module Lightspeed
 
     def link
       if @link.is_a?(Hash)
-        @link["@attributes"]["href"]
+        @link['@attributes']['href']
       else
         @link
       end
     end
-
   end
 end

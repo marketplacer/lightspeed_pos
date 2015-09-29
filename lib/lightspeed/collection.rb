@@ -3,12 +3,11 @@ require 'active_support/core_ext/array/wrap'
 
 module Lightspeed
   class Collection
-
     PER_PAGE = 100 # the max page of records returned in a request
 
     attr_accessor :context, :resources
 
-    def initialize(context: , attributes: nil)
+    def initialize(context:, attributes: nil)
       self.context = context
       instantiate(attributes)
     end
@@ -19,6 +18,10 @@ module Lightspeed
 
     def unload
       @resources = {}
+    end
+
+    def load_json(json)
+      instantiate(JSON.parse(json))
     end
 
     def client
@@ -33,10 +36,8 @@ module Lightspeed
 
     def size(params: {})
       params = params.merge(limit: 1)
-      get(params: {limit: 1})["@attributes"]["count"].to_i
+      get(params: params)['@attributes']['count'].to_i
     end
-    alias_method :length, :size
-    alias_method :count, :size
 
     def each_loaded
       @resources ||= {}
@@ -45,6 +46,14 @@ module Lightspeed
 
     def all_loaded
       each_loaded.to_a
+    end
+
+    def first_loaded
+      each_loaded.first
+    end
+
+    def size_loaded
+      @resources.size
     end
 
     def all(params: {})
@@ -108,13 +117,16 @@ module Lightspeed
     end
 
     def to_h
-      all_loaded.map do |resource|
-        {resource_name => resource.to_h}
-      end
+      { resource_name => all_loaded.map(&:to_h) }
     end
 
     def to_json
       to_h.to_json
+    end
+
+    def page(n, per_page: PER_PAGE, params: {})
+      params = params.merge(limit: per_page, offset: per_page * n)
+      instantiate(get(params: params))
     end
 
     private
@@ -123,10 +135,13 @@ module Lightspeed
       raise Lightspeed::Error::NotFound, "Could not find a #{resource_name} with #{resource_class.id_field}=#{id}"
     end
 
-    def page(n, per_page: PER_PAGE, params: {})
-      params = params.merge(offset: per_page * n) unless n.zero? # offset of `0` is a BadRequest.
-      params = params.merge(limit: per_page)
-      instantiate(get(params: params))
+    def context_params
+      if context.class.respond_to?(:id_field) &&
+         resource_class.method_defined?(context.class.id_field.to_sym)
+        { context.class.id_field => context.id }
+      else
+        {}
+      end
     end
 
     def instantiate(response)
@@ -147,7 +162,7 @@ module Lightspeed
     end
 
     def get(params: {})
-      params.merge!(load_relations: "all")
+      params = { load_relations: 'all' }.merge(context_params).merge(params)
       client.get(
         path: collection_path,
         params: params
@@ -164,7 +179,7 @@ module Lightspeed
     def put(id, body:)
       client.put(
         path: resource_path(id),
-        body: body,
+        body: body
       )
     end
 

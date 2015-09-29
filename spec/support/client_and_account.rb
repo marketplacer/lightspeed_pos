@@ -9,7 +9,7 @@ module ClientAndAccount
     end
 
     let(:account) do
-      Lightspeed::Account.new(client: client, context: accounts, attributes: {"accountID" => Lightspeed::TEST_ACCOUNT_ID})
+      Lightspeed::Account.new(client: client, context: accounts, attributes: { "accountID" => Lightspeed::TEST_ACCOUNT_ID })
     end
   end
 end

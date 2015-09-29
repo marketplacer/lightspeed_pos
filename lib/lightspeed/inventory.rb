@@ -5,7 +5,7 @@ require_relative 'item'
 module Lightspeed
   class Inventory < Lightspeed::Resource
     fields(
-      inventoryID: Integer
+      inventoryID: :integer
     )
     relationships :Item
   end

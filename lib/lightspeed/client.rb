@@ -14,8 +14,16 @@ module Lightspeed
 
     # Returns a list of accounts that you have access to.
     def accounts
-      @accounts = Lightspeed::Accounts.new(context: self)
+      @accounts ||= Lightspeed::Accounts.new(context: self)
     end
+
+    # def load_json(json)
+    #   data = JSON.parse(json)
+    #   Array.wrap(data).map do |resource|
+    #     resource = resource_class.new(context: self, attributes: resource)
+    #     @resources[resource.id] = resource
+    #   end
+    # end
 
     def get(**args)
       request(args.merge(method: :get)).perform

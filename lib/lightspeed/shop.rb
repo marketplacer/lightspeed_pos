@@ -1,29 +1,28 @@
 require_relative 'resource'
 
-require 'bigdecimal'
 module Lightspeed
   class Shop < Lightspeed::Resource
     fields(
-      shopID: Lightspeed::ID,
-      name: String,
-      serviceRate: BigDecimal,
-      timeZone: String,
-      taxLabor: TrueClass,
-      labelTitle: String,
-      labelMsrp: TrueClass,
-      archived: TrueClass,
-      contactID: Lightspeed::ID,
-      taxCategoryID: Lightspeed::ID,
-      receiptSetupID: Lightspeed::ID,
-      ccGatewayID: Lightspeed::ID,
-      priceLevelID: Lightspeed::ID,
-      Contact: Hash,
-      TaxCategory: Hash, #requestable object.
-      ReceiptSetup: Hash,
-      CCGateway: Hash, #requestable object
-      PriceLevel: Hash, #requestable object.
-      ShelfLocations: Hash,
-      Registers: Hash
+      shopID: :id,
+      name: :string,
+      serviceRate: :decimal,
+      timeZone: :string,
+      taxLabor: :boolean,
+      labelTitle: :string,
+      labelMsrp: :boolean,
+      archived: :boolean,
+      contactID: :id,
+      taxCategoryID: :id,
+      receiptSetupID: :id,
+      ccGatewayID: :id,
+      priceLevelID: :id,
+      Contact: :hash,
+      TaxCategory: :hash, # requestable object.
+      ReceiptSetup: :hash,
+      CCGateway: :hash, # requestable object
+      PriceLevel: :hash, # requestable object.
+      ShelfLocations: :hash,
+      Registers: :hash
     )
 
     relationships :Items

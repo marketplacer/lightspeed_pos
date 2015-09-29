@@ -3,7 +3,8 @@
 require 'bundler/setup'
 require 'dotenv'
 require 'lightspeed_pos'
-
+Lightspeed::Request.verbose = true
+# Typhoeus::Config.verbose = true
 # You can add fixtures and/or initialization code here to make experimenting
 # with your gem easier. You can also use a different console, if you like.
 
@@ -11,7 +12,6 @@ require 'lightspeed_pos'
 # require "pry"
 # Pry.start
 Dotenv.load
-
 def client
   @client ||= Lightspeed::Client.new(oauth_token: ENV.fetch('LIGHTSPEED_OAUTH_TOKEN', 'abc123'))
 end

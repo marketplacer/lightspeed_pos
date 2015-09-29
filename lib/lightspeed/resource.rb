@@ -1,21 +1,22 @@
+require 'bigdecimal'
 require 'active_support/core_ext/string'
 require 'active_support/core_ext/hash/slice'
 
 require_relative 'collection'
 
 module Lightspeed
-  class ID; end
+  class ID < Integer; end
   class Link; end
   class Resource
     attr_accessor :id, :attributes, :client, :context, :account
 
-    def initialize(client: nil, account: nil, context: nil, attributes: {})
+    def initialize(client: nil, context: nil, attributes: {})
       self.client = client
       self.context = context
       self.attributes = attributes
     end
 
-    def attributes= attributes
+    def attributes=(attributes)
       @attributes = attributes
       attributes.each do |key, value|
         send(:"#{key}=", value) if self.respond_to?(:"#{key}=")
@@ -30,7 +31,7 @@ module Lightspeed
 
     def self.fields(fields = {})
       @fields ||= []
-      attr_writer *fields.keys
+      attr_writer(*fields.keys)
       fields.each do |name, klass|
         @fields << define_method(name) do
           get_transformed_value(name, klass)
@@ -39,17 +40,19 @@ module Lightspeed
       @fields
     end
 
-    def get_transformed_value(name, klass)
+    def get_transformed_value(name, kind)
       value = instance_variable_get("@#{name}")
       if value.is_a?(String)
-        case
-        when klass <= String then value
-        when klass <= Integer then value.to_i
-        when klass <= Lightspeed::ID then value == "0" ? nil : value.to_i
-        when klass <= DateTime then DateTime.parse(value)
-        when klass <= URI then URI.parse(value)
-        when klass <= TrueClass, klass <= FalseClass then value == "true"
-        else klass.new(value)
+        case kind
+        when :string then value
+        when :integer then value.to_i
+        when :id then value.to_i
+        when :datetime then DateTime.parse(value)
+        when :boolean then value == 'true'
+        when :decimal then BigDecimal.new(value)
+        when :hash then Hash.new(value)
+        else
+          raise ArgumentError, "Could not transform value #{value} to a #{kind}"
         end
       else
         value
@@ -61,7 +64,7 @@ module Lightspeed
     end
 
     def load
-      self.attributes = get[resource_name] if (self.attributes.keys - [self.class.id_field]).empty?
+      self.attributes = get[resource_name] if (attributes.keys - [self.class.id_field]).empty?
     end
 
     def reload
@@ -77,7 +80,6 @@ module Lightspeed
       self
     end
 
-
     def self.resource_name
       name.demodulize
     end
@@ -90,11 +92,10 @@ module Lightspeed
       "#{resource_name.camelize(:lower)}ID"
     end
 
-    def self.relationships *args
+    def self.relationships(*args)
       @relationships ||= []
-      args.map do |arg|
-        arg.is_a?(Hash) ? arg.to_a : [[arg, arg]]
-      end.flatten(1).each do |(relation_name, class_name)|
+      paired_args = args.flat_map { |r| r.is_a?(Hash) ? r.to_a : [[r, r]] }
+      paired_args.each do |(relation_name, class_name)|
         method_name = relation_name.to_s.underscore.to_sym
         @relationships << define_method(method_name) do
           instance_variable_get("@#{method_name}") || get_relation(method_name, relation_name, class_name)
@@ -112,7 +113,8 @@ module Lightspeed
     end
 
     def to_h
-      self.class.fields.map { |f| [f, send(f)] }.to_h
+      (self.class.fields.map { |f| [f, send(f)] } +
+       self.class.relationships.map { |r| [r.to_s.camelize, send(r).to_h] }).to_h
     end
 
     def base_path
@@ -151,16 +153,25 @@ module Lightspeed
     end
 
     def get_resource_relation(method_name, relation_name, klass)
-      id_field = "#{relation_name.to_s.camelize(:lower)}ID" #parentID != #categoryID, so we can't use klass.id_field
+      id_field = "#{relation_name.to_s.camelize(:lower)}ID" # parentID != #categoryID, so we can't use klass.id_field
       resource = if send(id_field)
-        rel_attributes = attributes[klass.resource_name] || { klass.id_field => send(id_field) }
-        klass.new(context: self, account: account, attributes: rel_attributes).tap(&:load)
+                   rel_attributes = attributes[klass.resource_name] || { klass.id_field => send(id_field) }
+                   klass.new(context: self, account: account, attributes: rel_attributes).tap(&:load)
       end
       instance_variable_set("@#{method_name}", resource)
     end
 
+    def context_params
+      if context.respond_to?(:id_field) &&
+         respond_to?(context.id_field.to_sym)
+        { context.id_field => context.id }
+      else
+        {}
+      end
+    end
+
     def get(params: {})
-      params.merge!(load_relations: "all") # may be able to be pickier with this.
+      params = { load_relations: 'all' }.merge(context_params).merge(params)
       client.get(
         path: resource_path,
         params: params
@@ -170,7 +181,7 @@ module Lightspeed
     def put(body:)
       client.put(
         path: resource_path,
-        body: body,
+        body: body
       )
     end
 
@@ -183,6 +194,5 @@ module Lightspeed
     def resource_path
       "#{base_path}.json"
     end
-
   end
 end

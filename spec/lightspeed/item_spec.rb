@@ -4,7 +4,7 @@ describe Lightspeed::Item do
   setup_client_and_account
 
   subject do
-    Lightspeed::Item.new(context: account, attributes: {"itemID" => 2})
+    Lightspeed::Item.new(context: account, attributes: { "itemID" => 2 })
   end
 
   it "can fetch an item's ItemMatrix" do
