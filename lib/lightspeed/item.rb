@@ -48,7 +48,8 @@ module Lightspeed
       ItemVendorNums: Hash,
       CustomFieldValues: Hash,
       Prices: Hash,
-      Tags: Hash
+      Tags: Hash,
+      Manufacturer: Hash
     )
 
     relationships :ItemMatrix, :Category, :Images
