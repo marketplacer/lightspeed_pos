@@ -4,6 +4,7 @@ require_relative 'resource'
 require_relative 'item_matrix'
 require_relative 'category'
 require_relative 'images'
+require_relative 'prices'
 
 module Lightspeed
   class Item < Lightspeed::Resource
@@ -40,6 +41,7 @@ module Lightspeed
       ItemAttributes: :hash,
       # ItemMatrix: :hash,
       # Images: :hash,
+      Manufacturer: :hash,
       Note: :hash,
       ItemECommerce: :hash,
       ItemShops: :hash,
@@ -52,5 +54,9 @@ module Lightspeed
     )
 
     relationships :ItemMatrix, :Category, :Images
+
+    def prices
+      @prices ||= Lightspeed::Prices.new(self.Prices)
+    end
   end
 end
