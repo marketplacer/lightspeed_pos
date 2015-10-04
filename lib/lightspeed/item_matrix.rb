@@ -47,5 +47,9 @@ module Lightspeed
     def singular_path_parent
       account
     end
+
+    def prices
+      @prices ||= Lightspeed::Prices.new(self.Prices)
+    end
   end
 end
