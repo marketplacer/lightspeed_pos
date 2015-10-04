@@ -7,8 +7,16 @@ module Lightspeed
       '/Account'
     end
 
-    def accounts
-      first
+    def account
+      first_loaded || first
+    end
+
+    def page(n, *args)
+      # turns out lightspeed doesn't respect pagination for accounts.
+      # so page(1) is identical to page(0).
+      # they should be different, thus.
+      # if someone has more than 100 store accounts, well, good for them.
+      n.zero? ? super : []
     end
   end
 end

@@ -92,6 +92,10 @@ module Lightspeed
       "#{resource_name.camelize(:lower)}ID"
     end
 
+    def id_params
+      { self.class.id_field => id }
+    end
+
     def self.relationships(*args)
       @relationships ||= []
       paired_args = args.flat_map { |r| r.is_a?(Hash) ? r.to_a : [[r, r]] }

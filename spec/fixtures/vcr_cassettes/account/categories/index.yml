@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://api.merchantos.com/API/Account/117102/Category.json?limit=100&load_relations=all
+    uri: https://api.merchantos.com/API/Account/117102/Category.json?limit=100
     body:
       encoding: US-ASCII
       string: ''
@@ -37,11 +37,11 @@ http_interactions:
         One","nodeDepth":"0","fullPathName":"Category One","leftNode":"7","rightNode":"8","createTime":"2015-09-22T10:34:54+00:00","timeStamp":"2015-09-22T11:03:55+00:00","parentID":"0"},{"categoryID":"10","name":"Category
         One","nodeDepth":"0","fullPathName":"Category One","leftNode":"5","rightNode":"6","createTime":"2015-09-22T11:00:56+00:00","timeStamp":"2015-09-22T11:03:55+00:00","parentID":"0"},{"categoryID":"11","name":"Category
         One","nodeDepth":"0","fullPathName":"Category One","leftNode":"3","rightNode":"4","createTime":"2015-09-22T11:03:55+00:00","timeStamp":"2015-09-22T11:03:55+00:00","parentID":"0"}]}'
-    http_version: 
+    http_version:
   recorded_at: Wed, 23 Sep 2015 04:09:02 GMT
 - request:
     method: get
-    uri: https://api.merchantos.com/API/Account/117102/Category.json?limit=100&load_relations=all&offset=0
+    uri: https://api.merchantos.com/API/Account/117102/Category.json?limit=100&offset=0
     body:
       encoding: US-ASCII
       string: ''
@@ -87,6 +87,5 @@ http_interactions:
         One","nodeDepth":"0","fullPathName":"Category One","leftNode":"3","rightNode":"4","createTime":"2015-09-22T11:52:14+00:00","timeStamp":"2015-09-22T11:52:14+00:00","parentID":"0"},{"categoryID":"27","name":"Category
         Two","nodeDepth":"0","fullPathName":"Category Two","leftNode":"25","rightNode":"26","createTime":"2015-09-22T11:52:16+00:00","timeStamp":"2015-09-22T11:53:19+00:00","parentID":"0"},{"categoryID":"28","name":"Category
         to update","nodeDepth":"0","fullPathName":"Category to update","leftNode":"27","rightNode":"28","createTime":"2015-09-22T11:53:19+00:00","timeStamp":"2015-09-22T11:53:19+00:00","parentID":"0"}]}'
-    http_version: 
+    http_version:
   recorded_at: Tue, 29 Sep 2015 02:03:15 GMT
-recorded_with: VCR 2.9.3

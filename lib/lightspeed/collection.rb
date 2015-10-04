@@ -35,7 +35,7 @@ module Lightspeed
     end
 
     def size(params: {})
-      params = params.merge(limit: 1)
+      params = params.merge(limit: 1, load_relations: nil)
       get(params: params)['@attributes']['count'].to_i
     end
     alias_method :length, :size
@@ -56,30 +56,35 @@ module Lightspeed
     def size_loaded
       @resources.size
     end
-    alias_method :length_loaded, :size
 
     def all(params: {})
-      each_page(params: params).to_a.flatten(1)
+      enum_page(params: params).to_a.flatten(1)
     end
 
-    def each_page(per_page: PER_PAGE, params: {})
+    def each_page(per_page: PER_PAGE, params: {}, &block)
+      enum_page(per_page: per_page, params: params).each(&block)
+    end
+
+    def enum_page(per_page: PER_PAGE, params: {})
       Enumerator.new do |yielder|
         loop.with_index do |_, n|
           resources = page(n, per_page: per_page, params: params)
           yielder << resources
-          break if resources.length < per_page
+          raise StopIteration if resources.length < per_page
         end
       end
     end
 
-    def each(per_page: PER_PAGE, params: {})
+    def enum(per_page: PER_PAGE, params: {})
       Enumerator.new do |yielder|
-        each_page(per_page: per_page, params: params).each do |page|
-          page.each do |resource|
-            yielder << resource
-          end
+        each_page(per_page: per_page, params: params) do |page|
+          page.each { |resource| yielder << resource }
         end
       end
+    end
+
+    def each(per_page: PER_PAGE, params: {}, &block)
+      enum(per_page: per_page, params: params).each(&block)
     end
 
     def find(id)
@@ -132,6 +137,10 @@ module Lightspeed
       instantiate(get(params: params))
     end
 
+    def load_relations_default
+      'all'
+    end
+
     private
 
     def handle_not_found(id)
@@ -165,7 +174,10 @@ module Lightspeed
     end
 
     def get(params: {})
-      params = { load_relations: 'all' }.merge(context_params).merge(params)
+      params = { load_relations: load_relations_default }
+        .merge(context_params)
+        .merge(params)
+        .reject { |_, v| v.nil? }
       client.get(
         path: collection_path,
         params: params

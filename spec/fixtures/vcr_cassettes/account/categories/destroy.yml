@@ -70,7 +70,7 @@ http_interactions:
   recorded_at: Wed, 23 Sep 2015 04:51:33 GMT
 - request:
     method: get
-    uri: https://api.merchantos.com/API/Account/117102/Category.json?categoryID=25&load_relations=all
+    uri: https://api.merchantos.com/API/Account/117102/Category.json?categoryID=25
     body:
       encoding: US-ASCII
       string: ''
@@ -103,7 +103,7 @@ http_interactions:
   recorded_at: Wed, 23 Sep 2015 04:52:35 GMT
 - request:
     method: get
-    uri: https://api.merchantos.com/API/Account/117102/Category.json?categoryID=25&limit=1&load_relations=all
+    uri: https://api.merchantos.com/API/Account/117102/Category.json?categoryID=25&limit=1
     body:
       encoding: US-ASCII
       string: ''
@@ -134,4 +134,3 @@ http_interactions:
       string: '{"@attributes":{"count":"0"}}'
     http_version:
   recorded_at: Thu, 24 Sep 2015 03:10:46 GMT
-recorded_with: VCR 2.9.3
