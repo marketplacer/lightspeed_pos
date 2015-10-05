@@ -6,7 +6,7 @@ require_relative 'item_matrix'
 module Lightspeed
   class Image < Lightspeed::Resource
     fields(
-      imageId: :id,
+      imageID: :id,
       description: :string,
       filename: :string,
       publicID: :string, # part of the file path; not a Lightspeed ID
