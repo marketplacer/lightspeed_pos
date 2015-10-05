@@ -9,6 +9,7 @@ module Lightspeed
       imageID: :id,
       description: :string,
       filename: :string,
+      baseImageURL: :string,
       publicID: :string, # part of the file path; not a Lightspeed ID
       itemID: :id,
       itemMatrixID: :id,
