@@ -1,6 +1,6 @@
 require 'typhoeus'
 require 'json'
-require 'pry'
+require 'pry' if Rails.env.development?
 
 module Lightspeed
 end
