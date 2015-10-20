@@ -23,7 +23,7 @@ sudo -u postgres createuser --superuser root
 createdb lightspeed-bridge_test -e utf8
 
 echo "--- bundle install"
-bundle check --path /cache/bundler || bundle install --deployment --path /cache/bundler -j 8
+bundle check --path /cache/bundler || bundle install -j 8
 
 echo "--- rspec"
 time bundle exec rspec spec
