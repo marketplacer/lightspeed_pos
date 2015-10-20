@@ -1,0 +1,29 @@
+#!/bin/bash
+
+# This script is ran within the Docker teg-ci image
+
+set -e
+set -x
+
+echo "--- docker environment"
+
+export RAILS_ENV=test
+export CI=yup
+export TZ=Australia/Melbourne
+export LC_ALL=en_AU.UTF-8
+export LANG=en_AU.UTF-8
+export LANGUAGE=en_AU.UTF-8
+rsync -a /source/ /build/ --exclude .git --exclude log --exclude tmp --exclude .zeus.sock
+
+cd /build
+rm -rf .bundle #if not on ci machine the wrong bundler paths get cached
+
+/etc/init.d/postgresql start
+sudo -u postgres createuser --superuser root
+createdb lightspeed-bridge_test -e utf8
+
+echo "--- bundle install"
+bundle check --path /cache/bundler || bundle install --deployment --path /cache/bundler -j 8
+
+echo "--- rspec"
+time bundle exec rspec spec

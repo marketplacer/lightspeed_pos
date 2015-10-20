@@ -1,0 +1,11 @@
+#!/bin/bash
+
+set -e
+set -x
+
+set
+echo $PWD
+
+REAL_CORES=`cat /proc/cpuinfo | grep "core id" | sort | uniq | wc -l`
+
+docker run --rm=true -e "PARALLEL_TEST_PROCESSORS=$REAL_CORES" -v $PWD:/source -v ~/.buildbox/be-bundle-cache:/cache -v /tmp/ramdisk:/tmp/ramdisk -t marketplacer/ci /source/script/docker_tests
