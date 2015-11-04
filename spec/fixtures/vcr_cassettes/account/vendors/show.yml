@@ -1,0 +1,44 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.merchantos.com/API/Account/120645/Vendor.json?limit=1&load_relations=all&vendorID=1
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Typhoeus - https://github.com/typhoeus/typhoeus
+      Authorization:
+      - OAuth OAuth Token
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Wed, 04 Nov 2015 21:34:45 GMT
+      Server:
+      - Apache/2.2.15 (CentOS)
+      X-Powered-By:
+      - PHP/5.4.44
+      X-Ls-Oauth-Client-Id:
+      - '19570'
+      X-Ls-Acct-Id:
+      - '120645'
+      Content-Encoding:
+      - none
+      Content-Length:
+      - '897'
+      Content-Type:
+      - application/json
+    body:
+      encoding: UTF-8
+      string: '{"@attributes":{"count":"1","offset":"0","limit":"1"},"Vendor":{"vendorID":"1","name":"Byron
+        Fuels","archived":"false","accountNumber":"","priceLevel":"default","updatePrice":"false","updateCost":"false","updateDescription":"false","shareSellThrough":"false","timeStamp":"2015-11-04T20:28:14+00:00","Contact":{"contactID":"3","custom":"custom
+        field value.","noEmail":"false","noPhone":"false","noMail":"false","timeStamp":"2015-11-04T20:28:14+00:00","Addresses":{"ContactAddress":{"address1":"123
+        Main St.","city":"Los Angeles","state":"CA","zip":"91604","country":"USA"}},"Phones":{"ContactPhone":{"number":"555
+        555 1212","useType":"Work"}},"Emails":{"ContactEmail":[{"address":"test@example.com","useType":"Primary"},{"address":"test2@example.com","useType":"Secondary"}]},"Websites":{"ContactWebsite":{"url":"http:\/\/example.com"}}},"Reps":{"VendorRep":{"firstName":"Test","lastName":"Rep"}}}}'
+    http_version: 
+  recorded_at: Wed, 04 Nov 2015 21:34:47 GMT
+recorded_with: VCR 2.9.3

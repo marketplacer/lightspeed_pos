@@ -58,5 +58,10 @@ module Lightspeed
     def prices
       @prices ||= Lightspeed::Prices.new(self.Prices)
     end
+
+    def default_vendor
+      @default_vendor ||= account.vendors.find(self.defaultVendorID) unless self.defaultVendorID == 0
+    end
+
   end
 end
