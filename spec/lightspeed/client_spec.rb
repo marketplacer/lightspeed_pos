@@ -39,7 +39,7 @@ describe Lightspeed::Client do
 
   it "can fetch accounts using an oauth token" do
     VCR.use_cassette("accounts_oauth") do
-      oauth_token = ENV.fetch('LIGHTSPEED_oauth_TOKEN', 'test')
+      oauth_token = ENV.fetch('LIGHTSPEED_OAUTH_TOKEN', 'test')
       client = Lightspeed::Client.new(oauth_token: oauth_token)
       accounts = client.accounts
       expect(accounts).to be_a(Lightspeed::Accounts)
