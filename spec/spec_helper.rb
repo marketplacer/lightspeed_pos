@@ -22,6 +22,13 @@ VCR.configure do |config|
     call_1 == call_2
   end
 
+  unless Lightspeed::TEST_OAUTH_TOKEN.blank?
+    config.filter_sensitive_data('OAuth Token') { Lightspeed::TEST_OAUTH_TOKEN }
+  end
+  unless Lightspeed::TEST_API_KEY.blank?
+    config.filter_sensitive_data('ApiKey') { Lightspeed::TEST_API_KEY }
+  end
+
   config.cassette_library_dir = "spec/fixtures/vcr_cassettes"
   config.hook_into :webmock
   config.default_cassette_options = {
