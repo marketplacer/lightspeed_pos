@@ -6,6 +6,7 @@ require_relative 'item_attribute_sets'
 require_relative 'images'
 require_relative 'inventories'
 require_relative 'shops'
+require_relative 'vendors'
 
 module Lightspeed
   class Account < Lightspeed::Resource
@@ -21,7 +22,8 @@ module Lightspeed
       :ItemAttributeSets,
       :Images,
       :Inventories,
-      :Shops
+      :Shops,
+      :Vendors
     )
 
     def account

@@ -1,0 +1,189 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.merchantos.com/API/Account/120645/Vendor.json
+    body:
+      encoding: UTF-8
+      string: '{"accountNumber":"testAccountNumber456"}'
+    headers:
+      User-Agent:
+      - Typhoeus - https://github.com/typhoeus/typhoeus
+      Authorization:
+      - OAuth OAuth Token
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Wed, 04 Nov 2015 21:35:47 GMT
+      Server:
+      - Apache/2.2.15 (CentOS)
+      X-Powered-By:
+      - PHP/5.4.44
+      X-Ls-Oauth-Client-Id:
+      - '19570'
+      X-Ls-Acct-Id:
+      - '120645'
+      Content-Encoding:
+      - none
+      Content-Length:
+      - '278'
+      Content-Type:
+      - application/json
+    body:
+      encoding: UTF-8
+      string: '{"@attributes":{"count":"1"},"Vendor":{"vendorID":"68","name":"","archived":"false","accountNumber":"testAccountNumber456","priceLevel":"","updatePrice":"false","updateCost":"false","updateDescription":"false","shareSellThrough":"false","timeStamp":"2015-11-04T21:35:47+00:00"}}'
+    http_version: 
+  recorded_at: Wed, 04 Nov 2015 21:35:49 GMT
+- request:
+    method: put
+    uri: https://api.merchantos.com/API/Account/120645/Vendor/68.json
+    body:
+      encoding: UTF-8
+      string: '{"accountNumber":"testAccountNumber789"}'
+    headers:
+      User-Agent:
+      - Typhoeus - https://github.com/typhoeus/typhoeus
+      Authorization:
+      - OAuth OAuth Token
+  response:
+    status:
+      code: 429
+      message: Too Many Requests
+    headers:
+      Date:
+      - Wed, 04 Nov 2015 21:35:47 GMT
+      Server:
+      - Apache/2.2.15 (CentOS)
+      X-Powered-By:
+      - PHP/5.4.44
+      Content-Encoding:
+      - none
+      Content-Length:
+      - '320'
+      X-Ls-Acct-Id:
+      - '0'
+      Content-Type:
+      - text/html; charset=UTF-8
+    body:
+      encoding: UTF-8
+      string: '{"httpCode":"429","httpMessage":"Too Many Requests","message":"Rate
+        Limit Exceeded: Please decrease your request volume. To eliminate this message,
+        keep your request rate below 0.5 requests per second. Clients that continue
+        to receive this response may have their traffic throttled.","errorClass":"RateLimitedException"}'
+    http_version: 
+  recorded_at: Wed, 04 Nov 2015 21:35:50 GMT
+- request:
+    method: put
+    uri: https://api.merchantos.com/API/Account/120645/Vendor/68.json
+    body:
+      encoding: UTF-8
+      string: '{"accountNumber":"testAccountNumber789"}'
+    headers:
+      User-Agent:
+      - Typhoeus - https://github.com/typhoeus/typhoeus
+      Authorization:
+      - OAuth OAuth Token
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Wed, 04 Nov 2015 21:36:48 GMT
+      Server:
+      - Apache/2.2.15 (CentOS)
+      X-Powered-By:
+      - PHP/5.4.44
+      X-Ls-Oauth-Client-Id:
+      - '19570'
+      X-Ls-Acct-Id:
+      - '120645'
+      Content-Encoding:
+      - none
+      Content-Length:
+      - '278'
+      Content-Type:
+      - application/json
+    body:
+      encoding: UTF-8
+      string: '{"@attributes":{"count":"1"},"Vendor":{"vendorID":"68","name":"","archived":"false","accountNumber":"testAccountNumber789","priceLevel":"","updatePrice":"false","updateCost":"false","updateDescription":"false","shareSellThrough":"false","timeStamp":"2015-11-04T21:36:48+00:00"}}'
+    http_version: 
+  recorded_at: Wed, 04 Nov 2015 21:36:50 GMT
+- request:
+    method: post
+    uri: https://api.merchantos.com/API/Account/120645/Vendor.json
+    body:
+      encoding: UTF-8
+      string: '{"accountNumber":"testAccountNumber000"}'
+    headers:
+      User-Agent:
+      - Typhoeus - https://github.com/typhoeus/typhoeus
+      Authorization:
+      - OAuth OAuth Token
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Wed, 04 Nov 2015 21:36:48 GMT
+      Server:
+      - Apache/2.2.15 (CentOS)
+      X-Powered-By:
+      - PHP/5.4.44
+      X-Ls-Oauth-Client-Id:
+      - '19570'
+      X-Ls-Acct-Id:
+      - '120645'
+      Content-Encoding:
+      - none
+      Content-Length:
+      - '278'
+      Content-Type:
+      - application/json
+    body:
+      encoding: UTF-8
+      string: '{"@attributes":{"count":"1"},"Vendor":{"vendorID":"69","name":"","archived":"false","accountNumber":"testAccountNumber000","priceLevel":"","updatePrice":"false","updateCost":"false","updateDescription":"false","shareSellThrough":"false","timeStamp":"2015-11-04T21:36:48+00:00"}}'
+    http_version: 
+  recorded_at: Wed, 04 Nov 2015 21:36:51 GMT
+- request:
+    method: put
+    uri: https://api.merchantos.com/API/Account/120645/Vendor/69.json
+    body:
+      encoding: UTF-8
+      string: '{"accountNumber":"testAccountNumber111"}'
+    headers:
+      User-Agent:
+      - Typhoeus - https://github.com/typhoeus/typhoeus
+      Authorization:
+      - OAuth OAuth Token
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Wed, 04 Nov 2015 21:36:48 GMT
+      Server:
+      - Apache/2.2.15 (CentOS)
+      X-Powered-By:
+      - PHP/5.4.44
+      X-Ls-Oauth-Client-Id:
+      - '19570'
+      X-Ls-Acct-Id:
+      - '120645'
+      Content-Encoding:
+      - none
+      Content-Length:
+      - '278'
+      Content-Type:
+      - application/json
+    body:
+      encoding: UTF-8
+      string: '{"@attributes":{"count":"1"},"Vendor":{"vendorID":"69","name":"","archived":"false","accountNumber":"testAccountNumber111","priceLevel":"","updatePrice":"false","updateCost":"false","updateDescription":"false","shareSellThrough":"false","timeStamp":"2015-11-04T21:36:49+00:00"}}'
+    http_version: 
+  recorded_at: Wed, 04 Nov 2015 21:36:51 GMT
+recorded_with: VCR 2.9.3
