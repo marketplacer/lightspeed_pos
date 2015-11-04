@@ -33,7 +33,7 @@ describe Lightspeed::Client do
       accounts = client.accounts
       expect(accounts).to be_a(Lightspeed::Accounts)
       expect(accounts.length).to eq(1)
-      expect(accounts.first.id).to be(Lightspeed::TEST_ACCOUNT_ID)
+      expect(accounts.first.id).to be(117102)
     end
   end
 
@@ -44,7 +44,7 @@ describe Lightspeed::Client do
       accounts = client.accounts
       expect(accounts).to be_a(Lightspeed::Accounts)
       expect(accounts.length).to eq(1)
-      expect(accounts.first.id).to eq(Lightspeed::TEST_ACCOUNT_ID)
+      expect(accounts.first.id).to eq(117102)
     end
   end
 
