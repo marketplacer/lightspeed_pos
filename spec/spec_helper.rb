@@ -17,7 +17,7 @@ VCR.configure do |config|
     call_1, call_2 = reqs.map do |req|
       # if the path includes an account number, only use path fragment after it
       # if the path does not include an account number, use the whole path
-      URI(req.uri).path.scan(/^\/.*\/\d+\/(.*)$/).flatten.first || URI(req.uri).path
+      URI(req.uri).path.scan(/^\/API\/Account\/\d+\/(.*)$/).flatten.first || URI(req.uri).path
     end
     call_1 == call_2
   end
