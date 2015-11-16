@@ -22,16 +22,20 @@ describe Lightspeed::Sales do
   end
 
   context "creating" do
-    it "with valid information" do
-      # VCR.use_cassette("account/Sales/create") do
-      #   # provide items?
-      #   sale = account.sales.create()
-      #   expect(sale).to be_a(Lightspeed::Sale)
-      #   expect(sale.id).not_to be_nil
-      # end
+    it "with minimum required information" do
+      VCR.use_cassette("account/Sales/create") do
+        sale = account.sales.create(
+          taxCategoryID: 0,
+          employeeID: 1,
+          shopID: 1,
+          registerID: 1
+        )
+        expect(sale).to be_a(Lightspeed::Sale)
+        expect(sale.id).not_to be_nil
+      end
     end
 
-    it "with an saleCode instead of saleID" do
+    it "with an itemCode instead of saleID" do
       # VCR.use_cassette("account/Sales/create_with_itemcode") do
       #   # provide items?
       #   sale = account.sales.create()
