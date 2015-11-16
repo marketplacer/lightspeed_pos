@@ -1,4 +1,5 @@
 require_relative 'resource'
+require_relative 'item'
 
 module Lightspeed
   class SaleLine < Lightspeed::Resource
