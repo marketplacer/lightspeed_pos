@@ -5,6 +5,7 @@ require_relative 'item_matrices'
 require_relative 'item_attribute_sets'
 require_relative 'images'
 require_relative 'inventories'
+require_relative 'sales'
 require_relative 'shops'
 require_relative 'vendors'
 
