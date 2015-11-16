@@ -23,6 +23,7 @@ module Lightspeed
       :ItemAttributeSets,
       :Images,
       :Inventories,
+      :Sales,
       :Shops,
       :Vendors
     )
