@@ -5,7 +5,7 @@ require_relative 'request'
 
 module Lightspeed
   class Client
-    attr_accessor :api_key, :oauth_token
+    attr_accessor :api_key, :oauth_token, :bucket_level, :bucket_max
 
     def initialize(api_key: nil, oauth_token: nil)
       @api_key = api_key
@@ -26,22 +26,29 @@ module Lightspeed
     end
 
     def get(**args)
-      request(args.merge(method: :get)).perform
+      perform_request(:get, args)
     end
 
     def post(**args)
-      request(args.merge(method: :post)).perform
+      perform_request(:post, args)
     end
 
     def put(**args)
-      request(args.merge(method: :put)).perform
+      perform_request(:put, args)
     end
 
     def delete(**args)
-      request(args.merge(method: :delete)).perform
+      perform_request(:delete, args)
     end
 
     private
+
+    def perform_request(method, **args)
+      req = request(args.merge(method: method))
+      response = req.perform
+      self.bucket_max, self.bucket_level = req.bucket_max, req.bucket_level
+      response
+    end
 
     def request(**args)
       Lightspeed::Request.new(self, **args)

@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://api.merchantos.com/API/Account.json
+    uri: https://api.merchantos.com/API/Account.json?limit=1&load_relations=all
     body:
       encoding: US-ASCII
       string: ''
@@ -17,13 +17,13 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Thu, 19 Nov 2015 23:45:48 GMT
+      - Fri, 20 Nov 2015 06:21:31 GMT
       Server:
       - Apache/2.2.15 (CentOS)
       X-Powered-By:
       - PHP/5.4.44
       X-Ls-Api-Bucket-Level:
-      - 1/60
+      - 1/180
       X-Ls-Oauth-Client-Id:
       - '19570'
       X-Ls-Acct-Id:
@@ -35,12 +35,12 @@ http_interactions:
       Content-Type:
       - application/json
       X-Lightspeed-Url-Whitelist:
-      - 192.83.146.26
+      - 67.169.116.105
       - Ref:LCO-2036
     body:
       encoding: UTF-8
       string: '{"@attributes":{"count":"1"},"Account":{"accountID":"120645","name":"Kit
         Kraft Sandbox","link":{"@attributes":{"href":"\/API\/Account\/120645"}}}}'
     http_version: 
-  recorded_at: Thu, 19 Nov 2015 23:45:48 GMT
+  recorded_at: Fri, 20 Nov 2015 06:21:31 GMT
 recorded_with: VCR 2.9.3

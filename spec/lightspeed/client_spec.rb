@@ -53,10 +53,9 @@ describe Lightspeed::Client do
 
     it "can extract limits from API responses" do
       VCR.use_cassette("accounts_rate_limit") do
-        request = client.send(:request, method: :get, path: '/Account.json')
-        request.perform
-        expect(request.bucket_max).to eq 60
-        expect(request.bucket_amount).to eq 1
+        client.accounts.first
+        expect(client.bucket_max).to eq 180
+        expect(client.bucket_level).to eq 1
       end
     end
 
