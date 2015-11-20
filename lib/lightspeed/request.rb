@@ -1,7 +1,7 @@
 require 'pp'
 module Lightspeed
   class Request
-    attr_accessor :raw_request
+    attr_accessor :raw_request, :bucket_max, :bucket_level
 
     SECONDS_TO_WAIT_WHEN_THROTTLED = 60 # API requirements.
 
@@ -36,6 +36,7 @@ module Lightspeed
 
     def perform
       response = raw_request.run
+      extract_rate_limits(response)
       if response.code == 200
         handle_success(response)
       else
@@ -71,5 +72,12 @@ module Lightspeed
       end
       raise error.new(data["message"]) # rubocop:disable RaiseArgs
     end
+
+    def extract_rate_limits(response)
+      if bucket_headers = response.headers["X-LS-API-Bucket-Level"]
+        self.bucket_level, self.bucket_max = bucket_headers.split("/").map &:to_i
+      end
+    end
+
   end
 end
