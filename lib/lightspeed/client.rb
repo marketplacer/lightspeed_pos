@@ -29,19 +29,19 @@ module Lightspeed
     end
 
     def get(**args)
-      perform_request(:get, 1, args)
+      perform_request(:get, 1, **args)
     end
 
     def post(**args)
-      perform_request(:post, 10, args)
+      perform_request(:post, 10, **args)
     end
 
     def put(**args)
-      perform_request(:put, 10, args)
+      perform_request(:put, 10, **args)
     end
 
     def delete(**args)
-      perform_request(:delete, 10, args)
+      perform_request(:delete, 10, **args)
     end
 
     private
