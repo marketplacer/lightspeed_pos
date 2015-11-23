@@ -1,0 +1,45 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.merchantos.com/API/Account/120645/Order.json?limit=1&load_relations=all&orderID=4
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Typhoeus - https://github.com/typhoeus/typhoeus
+      Authorization:
+      - OAuth OAuth Token
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 23 Nov 2015 18:55:28 GMT
+      Server:
+      - Apache/2.2.15 (CentOS)
+      X-Powered-By:
+      - PHP/5.4.44
+      X-Ls-Api-Bucket-Level:
+      - 1.771106004715/30
+      X-Ls-Oauth-Client-Id:
+      - '19570'
+      X-Ls-Acct-Id:
+      - '120645'
+      Content-Encoding:
+      - none
+      Content-Length:
+      - '1164'
+      Content-Type:
+      - application/json
+    body:
+      encoding: UTF-8
+      string: '{"@attributes":{"count":"1","offset":"0","limit":"1"},"Order":{"orderID":"4","shipInstructions":"","stockInstructions":"","shipCost":"0","otherCost":"0","complete":"false","archived":"false","discount":"0","totalDiscount":"0","totalQuantity":"0","timeStamp":"2015-11-13T23:00:27+00:00","vendorID":"2","noteID":"13","shopID":"1","Vendor":{"vendorID":"2","name":"Great
+        Planes","archived":"false","accountNumber":"","integrationName":"","integrationLogin":"","integrationPassword":"","integrationAccount":"","integrationEnabled":"0","priceLevel":"","updatePrice":"false","updateCost":"false","updateDescription":"false","shareSellThrough":"false","timeStamp":"2015-11-13T23:00:27+00:00","contactID":"7"},"Note":{"noteID":"13","note":"","isPublic":"false","timeStamp":"2015-11-13T23:00:27+00:00"},"Shop":{"shopID":"1","name":"Kit
+        Kraft Sandbox","serviceRate":"0","timeZone":"US\/Pacific","taxLabor":"false","labelTitle":"Shop
+        Name","labelMsrp":"false","archived":"false","timeStamp":"2015-11-04T20:26:24+00:00","companyRegistrationNumber":"","vatNumber":"","contactID":"2","taxCategoryID":"1","receiptSetupID":"1","vendorID":"0","ccGatewayID":"1","priceLevelID":"1"}}}'
+    http_version: 
+  recorded_at: Mon, 23 Nov 2015 18:55:28 GMT
+recorded_with: VCR 2.9.3
