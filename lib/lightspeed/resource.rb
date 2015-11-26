@@ -114,6 +114,7 @@ module Lightspeed
       "#<#{self.class.name} API#{base_path}>"
     end
 
+
     def to_json(*args)
       as_json.to_json(*args)
     end
@@ -137,6 +138,14 @@ module Lightspeed
 
     def resource_name
       self.class.resource_name
+    end
+
+    def read_attribute_for_serialization(method_name)
+      method_name = method_name.to_sym
+
+      if self.class.fields.include?(method_name) || self.class.relationships.include?(method_name)
+        send(method_name)
+      end
     end
 
     private

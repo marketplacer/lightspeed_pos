@@ -1,0 +1,43 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.merchantos.com/API/Account/-/Employee.json?limit=100&load_relations=all&offset=0
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Typhoeus - https://github.com/typhoeus/typhoeus
+      Authorization:
+      - OAuth OAuth Token
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 10 Dec 2015 14:08:17 GMT
+      Server:
+      - Apache/2.2.15 (CentOS)
+      X-Powered-By:
+      - PHP/5.4.44
+      X-Ls-Api-Bucket-Level:
+      - 1/90
+      X-Ls-Oauth-Client-Id:
+      - '20367'
+      X-Ls-Acct-Id:
+      - '121415'
+      Content-Length:
+      - '6709'
+      Vary:
+      - Accept-Encoding
+      Content-Type:
+      - application/json
+    body:
+      encoding: UTF-8
+      string: '{"@attributes":{"count":"3","offset":"0","limit":"100"},"Employee":[{"employeeID":"1","firstName":"Andy","lastName":"Gauth","accessPin":"","lockOut":"false","archived":"false","timeStamp":"2015-11-25T11:57:19+00:00","contactID":"1","clockInEmployeeHoursID":"0","employeeRoleID":"4","limitToShopID":"0","lastShopID":"1","lastSaleID":"4","lastRegisterID":"1","Contact":{"contactID":"1","custom":"","noEmail":"false","noPhone":"false","noMail":"false","timeStamp":"2015-11-20T14:28:31+00:00","Addresses":"","Phones":{"ContactPhone":{"number":"(819)\u00a0572-3151","useType":"Work"}},"Emails":{"ContactEmail":{"address":"test@example.com","useType":"Primary"}},"Websites":""},"EmployeeRole":{"employeeRoleID":"4","name":"Owner","EmployeeRights":{"EmployeeRight":[{"employeeRightID":"4","name":"allow_login"},{"employeeRightID":"8","name":"register"},{"employeeRightID":"12","name":"register_refund"},{"employeeRightID":"16","name":"register_open"},{"employeeRightID":"20","name":"register_withdraw"},{"employeeRightID":"24","name":"register_close"},{"employeeRightID":"27","name":"register_price"},{"employeeRightID":"31","name":"register_reopen"},{"employeeRightID":"35","name":"register_catalogs"},{"employeeRightID":"39","name":"register_layaway"},{"employeeRightID":"43","name":"register_line_discount"},{"employeeRightID":"47","name":"register_transaction_discount"},{"employeeRightID":"51","name":"inventory"},{"employeeRightID":"55","name":"inventory_base"},{"employeeRightID":"59","name":"product_cost"},{"employeeRightID":"63","name":"prouct_edit"},{"employeeRightID":"67","name":"purchase_orders"},{"employeeRightID":"71","name":"special_orders"},{"employeeRightID":"75","name":"transfers"},{"employeeRightID":"79","name":"inventory_counts"},{"employeeRightID":"82","name":"vendors"},{"employeeRightID":"85","name":"inventory_taxonomy"},{"employeeRightID":"89","name":"vendor_returns"},{"employeeRightID":"92","name":"reports"},{"employeeRightID":"94","name":"admin"},{"employeeRightID":"96","name":"admin_shops"},{"employeeRightID":"98","name":"admin_employees"},{"employeeRightID":"100","name":"admin_purchases"},{"employeeRightID":"102","name":"admin_void_sale"},{"employeeRightID":"104","name":"admin_inventory"},{"employeeRightID":"108","name":"workbench"},{"employeeRightID":"112","name":"change_password"},{"employeeRightID":"116","name":"messages_read"},{"employeeRightID":"120","name":"messages_send"},{"employeeRightID":"124","name":"customers"},{"employeeRightID":"126","name":"inventory_import"},{"employeeRightID":"129","name":"customers_credit_limit"}]}}},{"employeeID":"2","firstName":"Math","lastName":"Dean","accessPin":"","lockOut":"false","archived":"false","timeStamp":"2015-11-27T17:37:07+00:00","contactID":"3","clockInEmployeeHoursID":"0","employeeRoleID":"2","limitToShopID":"0","lastShopID":"0","lastSaleID":"0","lastRegisterID":"0","Contact":{"contactID":"3","custom":"","noEmail":"false","noPhone":"false","noMail":"false","timeStamp":"2015-11-27T17:37:07+00:00","Addresses":"","Phones":"","Emails":"","Websites":""},"EmployeeRole":{"employeeRoleID":"2","name":"Manager","EmployeeRights":{"EmployeeRight":[{"employeeRightID":"2","name":"allow_login"},{"employeeRightID":"6","name":"register"},{"employeeRightID":"10","name":"register_refund"},{"employeeRightID":"14","name":"register_open"},{"employeeRightID":"18","name":"register_withdraw"},{"employeeRightID":"22","name":"register_close"},{"employeeRightID":"25","name":"register_price"},{"employeeRightID":"29","name":"register_reopen"},{"employeeRightID":"33","name":"register_catalogs"},{"employeeRightID":"37","name":"register_layaway"},{"employeeRightID":"41","name":"register_line_discount"},{"employeeRightID":"45","name":"register_transaction_discount"},{"employeeRightID":"49","name":"inventory"},{"employeeRightID":"53","name":"inventory_base"},{"employeeRightID":"57","name":"product_cost"},{"employeeRightID":"61","name":"prouct_edit"},{"employeeRightID":"65","name":"purchase_orders"},{"employeeRightID":"69","name":"special_orders"},{"employeeRightID":"73","name":"transfers"},{"employeeRightID":"77","name":"inventory_counts"},{"employeeRightID":"80","name":"vendors"},{"employeeRightID":"83","name":"inventory_taxonomy"},{"employeeRightID":"87","name":"vendor_returns"},{"employeeRightID":"90","name":"reports"},{"employeeRightID":"106","name":"workbench"},{"employeeRightID":"110","name":"change_password"},{"employeeRightID":"114","name":"messages_read"},{"employeeRightID":"118","name":"messages_send"},{"employeeRightID":"122","name":"customers"},{"employeeRightID":"127","name":"customers_credit_limit"}]}}},{"employeeID":"3","firstName":"Charles","lastName":"Watson","accessPin":"","lockOut":"false","archived":"false","timeStamp":"2015-11-27T18:09:14+00:00","contactID":"4","clockInEmployeeHoursID":"0","employeeRoleID":"1","limitToShopID":"0","lastShopID":"0","lastSaleID":"0","lastRegisterID":"0","Contact":{"contactID":"4","custom":"","noEmail":"false","noPhone":"false","noMail":"false","timeStamp":"2015-11-27T18:09:14+00:00","Addresses":"","Phones":{"ContactPhone":[{"number":"(819)
+        111-1111","useType":"Home"},{"number":"819-222-2222","useType":"Work"},{"number":"819-333-3333","useType":"Mobile"}]},"Emails":{"ContactEmail":[{"address":"charles@example.com","useType":"Primary"},{"address":"charles2@example.com","useType":"Secondary"}]},"Websites":""},"EmployeeRole":{"employeeRoleID":"1","name":"Associate","EmployeeRights":{"EmployeeRight":[{"employeeRightID":"1","name":"allow_login"},{"employeeRightID":"5","name":"register"},{"employeeRightID":"9","name":"register_refund"},{"employeeRightID":"13","name":"register_open"},{"employeeRightID":"17","name":"register_withdraw"},{"employeeRightID":"21","name":"register_close"},{"employeeRightID":"28","name":"register_reopen"},{"employeeRightID":"32","name":"register_catalogs"},{"employeeRightID":"36","name":"register_layaway"},{"employeeRightID":"40","name":"register_line_discount"},{"employeeRightID":"44","name":"register_transaction_discount"},{"employeeRightID":"48","name":"inventory"},{"employeeRightID":"52","name":"inventory_base"},{"employeeRightID":"56","name":"product_cost"},{"employeeRightID":"60","name":"prouct_edit"},{"employeeRightID":"64","name":"purchase_orders"},{"employeeRightID":"68","name":"special_orders"},{"employeeRightID":"72","name":"transfers"},{"employeeRightID":"76","name":"inventory_counts"},{"employeeRightID":"86","name":"vendor_returns"},{"employeeRightID":"105","name":"workbench"},{"employeeRightID":"109","name":"change_password"},{"employeeRightID":"113","name":"messages_read"},{"employeeRightID":"117","name":"messages_send"},{"employeeRightID":"121","name":"customers"}]}}}]}'
+    http_version:
+  recorded_at: Thu, 10 Dec 2015 14:08:17 GMT
+recorded_with: VCR 2.9.3
