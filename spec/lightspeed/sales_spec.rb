@@ -69,7 +69,27 @@ describe Lightspeed::Sales do
     end
   end
 
-  # TODO updating and archiving
+  context "updating" do
+    it "adding an item" do
+      VCR.use_cassette("account/Sales/update") do
+        sale = account.sales.update 1, {
+          SaleLines: [
+            { SaleLine: {
+              itemID: 1,
+              unitQuantity: 1,
+              unitPrice: "0.01",
+              tax: false
+            }}
+          ]
+        }
+        expect(sale).to be_a(Lightspeed::Sale)
+        expect(sale.id).not_to be_nil
+        expect(sale.total).to eq(5.16)
+      end
+    end
+  end
+
+  # TODO archiving
 
 end
 
