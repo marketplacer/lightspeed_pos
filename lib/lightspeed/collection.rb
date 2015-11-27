@@ -1,5 +1,7 @@
 require 'active_support/core_ext/string'
 require 'active_support/core_ext/array/wrap'
+require 'active_support/json'
+require 'active_support/core_ext/object/json'
 
 module Lightspeed
   class Collection
@@ -123,13 +125,14 @@ module Lightspeed
       "#<#{self.class.name} API#{base_path}>"
     end
 
-    def to_h
+    def as_json(*args)
       return if all_loaded.empty?
-      { resource_name => all_loaded.map(&:to_h) }
+      { resource_name => all_loaded.as_json(*args) }
     end
+    alias_method :to_h, :as_json
 
     def to_json(*args)
-      to_h.to_json(*args)
+      as_json.to_json(*args)
     end
 
     def page(n, per_page: PER_PAGE, params: {})

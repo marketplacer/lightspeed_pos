@@ -1,6 +1,8 @@
 require 'bigdecimal'
 require 'active_support/core_ext/string'
 require 'active_support/core_ext/hash/slice'
+require 'active_support/json'
+require 'active_support/core_ext/object/json'
 
 require_relative 'collection'
 
@@ -113,12 +115,13 @@ module Lightspeed
     end
 
     def to_json(*args)
-      to_h.to_json(*args)
+      as_json.to_json(*args)
     end
 
-    def to_h
-      fields_to_h.merge(relationships_to_h).reject { |_, v| v.nil? || v == {} }
+    def as_json(*args)
+      fields_to_h.merge(relationships_to_h).reject { |_, v| v.nil? || v == {} }.as_json(*args)
     end
+    alias_method :to_h, :as_json
 
     def base_path
       if context.is_a?(Lightspeed::Collection)
