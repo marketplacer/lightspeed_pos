@@ -128,8 +128,8 @@ module Lightspeed
       { resource_name => all_loaded.map(&:to_h) }
     end
 
-    def to_json
-      to_h.to_json
+    def to_json(*args)
+      to_h.to_json(*args)
     end
 
     def page(n, per_page: PER_PAGE, params: {})
