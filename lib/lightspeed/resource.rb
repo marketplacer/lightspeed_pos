@@ -112,8 +112,8 @@ module Lightspeed
       "#<#{self.class.name} API#{base_path}>"
     end
 
-    def to_json
-      to_h.to_json
+    def to_json(*args)
+      to_h.to_json(*args)
     end
 
     def to_h
