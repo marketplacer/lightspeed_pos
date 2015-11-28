@@ -7,8 +7,8 @@ module Lightspeed
 
     fields(
       saleLineID: :id,
-      createTime: :timeStamp,
-      timeStamp: :timeStamp,
+      createTime: :datetime,
+      timeStamp: :datetime,
       unitQuantity: :integer,
       unitPrice: :decimal,
       normalUnitPrice: :decimal,
