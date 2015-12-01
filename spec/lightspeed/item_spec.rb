@@ -21,6 +21,19 @@ describe Lightspeed::Item do
     expect(subject.item_matrix).to be_nil
   end
 
+  it "can fetch an item's default Vendor" do
+    subject.defaultVendorID = "1"
+    VCR.use_cassette("account/vendors/show") do
+      vendor = subject.default_vendor
+      expect(vendor).to be_a(Lightspeed::Vendor)
+    end
+  end
+
+  it "does not fetch an item's default vendor if defaultVendorID is nil" do
+    subject.defaultVendorID = "0"
+    expect(subject.default_vendor).to be_nil
+  end
+
   it "can get the attributes of an item" do
     expect(subject.attributes).to eq("itemID" => 2)
   end
