@@ -69,7 +69,7 @@ module Lightspeed
       when /5../ then Lightspeed::Error::InternalServerError
       else Lightspeed::Error
       end
-      raise error.new(data["message"]) # rubocop:disable RaiseArgs
+      raise error, data["message"]
     end
   end
 end
