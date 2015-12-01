@@ -13,13 +13,8 @@ Lightspeed::TEST_API_KEY = ENV.fetch('LIGHTSPEED_API_KEY', '')
 Lightspeed::TEST_ACCOUNT_ID = ENV.fetch('LIGHTSPEED_ACCOUNT_ID', '117102').to_i
 
 VCR.configure do |config|
-  config.register_request_matcher :api_endpoint do |*reqs|
-    call_1, call_2 = reqs.map do |req|
-      # if the path includes an account number, only use path fragment after it
-      # if the path does not include an account number, use the whole path
-      URI(req.uri).path.scan(/^\/API\/Account\/\d+\/(.*)$/).flatten.first || URI(req.uri).path
-    end
-    call_1 == call_2
+  config.register_request_matcher :anonymised_request_path do |*reqs|
+    reqs.map { |req| URI(req.uri).path.sub(%r{(/Account/\d*/)}, '/Account/-/') }.uniq.size == 1
   end
 
   unless Lightspeed::TEST_OAUTH_TOKEN.blank?
@@ -33,6 +28,6 @@ VCR.configure do |config|
   config.hook_into :webmock
   config.default_cassette_options = {
     record: :new_episodes,
-    match_requests_on: [:api_endpoint, :method, :body]
+    match_requests_on: [:anonymised_request_path, :method, :body]
   }
 end
