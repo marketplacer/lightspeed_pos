@@ -66,4 +66,3 @@ describe Lightspeed::Vendors do
     end
   end
 end
-
