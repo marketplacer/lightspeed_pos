@@ -77,7 +77,7 @@ module Lightspeed
 
     def extract_rate_limits(response)
       if bucket_headers = response.headers["X-LS-API-Bucket-Level"]
-        @bucket_level, @bucket_max = bucket_headers.split("/").map(&:to_i)
+        @bucket_level, @bucket_max = bucket_headers.split("/").map(&:to_f)
       end
     end
 
