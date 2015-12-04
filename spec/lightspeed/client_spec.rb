@@ -48,20 +48,6 @@ describe Lightspeed::Client do
     end
   end
 
-  context "rate limits" do
-    let(:client) { Lightspeed::Client.new(oauth_token: ENV.fetch('LIGHTSPEED_OAUTH_TOKEN', 'test')) }
-
-    it "can extract limits from API responses" do
-      VCR.use_cassette("accounts_rate_limit") do
-        client.accounts.first
-        expect(client.bucket_max).to eq 180
-        expect(client.bucket_level).to eq 1
-      end
-    end
-
-    pending "can slow down to avoid hitting the limit"
-  end
-
   context "errors" do
     it "401" do
       client = Lightspeed::Client.new(api_key: 'totally-bogus')
