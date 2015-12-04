@@ -5,6 +5,7 @@ require_relative 'item_matrices'
 require_relative 'item_attribute_sets'
 require_relative 'images'
 require_relative 'inventories'
+require_relative 'orders'
 require_relative 'shops'
 require_relative 'vendors'
 
@@ -22,6 +23,7 @@ module Lightspeed
       :ItemAttributeSets,
       :Images,
       :Inventories,
+      :Orders,
       :Shops,
       :Vendors
     )
