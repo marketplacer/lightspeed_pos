@@ -1,7 +1,7 @@
 require 'pp'
 module Lightspeed
   class Request
-    attr_accessor :raw_request
+    attr_accessor :raw_request, :bucket_max, :bucket_level
 
     SECONDS_TO_WAIT_WHEN_THROTTLED = 60 # API requirements.
 
@@ -18,6 +18,8 @@ module Lightspeed
     end
 
     def initialize(client, method:, path:, params: nil, body: nil)
+      @bucket_max = Float::INFINITY
+      @bucket_level = 0
       @raw_request = Typhoeus::Request.new(
         self.class.base_url + path,
         method: method,
@@ -36,6 +38,7 @@ module Lightspeed
 
     def perform
       response = raw_request.run
+      extract_rate_limits(response)
       if response.code == 200
         handle_success(response)
       else
@@ -71,5 +74,12 @@ module Lightspeed
       end
       raise error, data["message"]
     end
+
+    def extract_rate_limits(response)
+      if bucket_headers = response.headers["X-LS-API-Bucket-Level"]
+        @bucket_level, @bucket_max = bucket_headers.split("/").map(&:to_f)
+      end
+    end
+
   end
 end

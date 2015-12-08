@@ -2,14 +2,16 @@ require 'active_support/core_ext/array/wrap'
 
 require_relative 'accounts'
 require_relative 'request'
+require_relative 'request_throttler'
 
 module Lightspeed
   class Client
-    attr_accessor :api_key, :oauth_token
+    attr_accessor :api_key, :oauth_token, :throttler
 
     def initialize(api_key: nil, oauth_token: nil)
       @api_key = api_key
       @oauth_token = oauth_token
+      @throttler = Lightspeed::RequestThrottler.new
     end
 
     # Returns a list of accounts that you have access to.
@@ -26,25 +28,30 @@ module Lightspeed
     end
 
     def get(**args)
-      request(args.merge(method: :get)).perform
+      perform_request(args.merge(method: :get))
     end
 
     def post(**args)
-      request(args.merge(method: :post)).perform
+      perform_request(args.merge(method: :post))
     end
 
     def put(**args)
-      request(args.merge(method: :put)).perform
+      perform_request(args.merge(method: :put))
     end
 
     def delete(**args)
-      request(args.merge(method: :delete)).perform
+      perform_request(args.merge(method: :delete))
     end
 
     private
 
-    def request(**args)
+    def perform_request(**args)
+      @throttler.perform_request request(**args)
+    end
+
+    def request **args
       Lightspeed::Request.new(self, **args)
     end
+
   end
 end
