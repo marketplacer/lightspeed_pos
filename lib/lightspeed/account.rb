@@ -8,6 +8,7 @@ require_relative 'inventories'
 require_relative 'orders'
 require_relative 'shops'
 require_relative 'vendors'
+require_relative 'employees'
 
 module Lightspeed
   class Account < Lightspeed::Resource
@@ -25,7 +26,8 @@ module Lightspeed
       :Inventories,
       :Orders,
       :Shops,
-      :Vendors
+      :Vendors,
+      :Employees
     )
 
     def account
