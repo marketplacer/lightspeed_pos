@@ -3,7 +3,6 @@ require_relative 'item'
 
 module Lightspeed
   class SaleLine < Lightspeed::Resource
-    alias_method :archive, :destroy
 
     fields(
       saleLineID: :id,
