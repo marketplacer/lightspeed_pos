@@ -1,0 +1,44 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.merchantos.com/API/Account/-/SaleLine.json?limit=1&load_relations=all&saleID=2
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Typhoeus - https://github.com/typhoeus/typhoeus
+      Authorization:
+      - OAuth OAuth Token
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Fri, 18 Dec 2015 02:48:26 GMT
+      Server:
+      - Apache/2.2.15 (CentOS)
+      X-Powered-By:
+      - PHP/5.4.44
+      X-Ls-Api-Bucket-Level:
+      - 1/180
+      X-Ls-Oauth-Client-Id:
+      - '19570'
+      X-Ls-Acct-Id:
+      - '120645'
+      Content-Length:
+      - '1681'
+      Vary:
+      - Accept-Encoding
+      Content-Type:
+      - application/json
+    body:
+      encoding: UTF-8
+      string: '{"@attributes":{"count":"1","offset":"0","limit":"1"},"SaleLine":{"saleLineID":"1","createTime":"2015-11-06T01:51:52+00:00","timeStamp":"2015-11-06T01:52:46+00:00","unitQuantity":"90090","unitPrice":"7","normalUnitPrice":"0","discountAmount":"0","discountPercent":"0","avgCost":"2","fifoCost":"2","tax":"true","tax1Rate":"0.09","tax2Rate":"0","isLayaway":"false","isWorkorder":"false","isSpecialOrder":"false","displayableSubtotal":"630630","displayableUnitPrice":"7","calcLineDiscount":"0","calcTransactionDiscount":"0","calcTotal":"687386.7","calcSubtotal":"630630","calcTax1":"56756.7","calcTax2":"0","taxClassID":"1","customerID":"0","discountID":"0","employeeID":"1","itemID":"1","noteID":"0","parentSaleLineID":"0","shopID":"1","taxCategoryID":"1","saleID":"2","TaxClass":{"taxClassID":"1","name":"Item","timeStamp":"2015-11-04T18:41:22+00:00"},"Item":{"itemID":"1","systemSku":"210000000001","defaultCost":"2","avgCost":"2","discountable":"true","tax":"true","archived":"true","itemType":"default","description":"Test
+        Item 001","modelYear":"0","upc":"","ean":"","customSku":"testitem1","manufacturerSku":"","createTime":"2015-11-04T22:22:19+00:00","timeStamp":"2015-11-23T22:51:02+00:00","categoryID":"0","taxClassID":"1","departmentID":"0","itemMatrixID":"0","itemAttributesID":"0","manufacturerID":"0","noteID":"2","seasonID":"0","defaultVendorID":"55","itemECommerceID":"0","Prices":{"ItemPrice":[{"amount":"0","useTypeID":"1","useType":"Default"},{"amount":"0","useTypeID":"2","useType":"MSRP"}]}},"TaxCategory":{"taxCategoryID":"1","isTaxInclusive":"false","tax1Name":"Sales
+        Tax","tax2Name":"","tax1Rate":"0.09","tax2Rate":"0","timeStamp":"2015-11-04T18:42:42+00:00"}}}'
+    http_version: 
+  recorded_at: Fri, 18 Dec 2015 02:48:27 GMT
+recorded_with: VCR 2.9.3
