@@ -1,14 +1,15 @@
 require 'uri'
 require_relative 'categories'
+require_relative 'employees'
 require_relative 'items'
 require_relative 'item_matrices'
 require_relative 'item_attribute_sets'
 require_relative 'images'
 require_relative 'inventories'
 require_relative 'orders'
+require_relative 'sales'
 require_relative 'shops'
 require_relative 'vendors'
-require_relative 'employees'
 
 module Lightspeed
   class Account < Lightspeed::Resource
@@ -18,16 +19,17 @@ module Lightspeed
       link: :hash
     )
     relationships(
-      :Items,
       :Categories,
-      :ItemMatrices,
-      :ItemAttributeSets,
+      :Employees,
       :Images,
       :Inventories,
+      :ItemMatrices,
+      :ItemAttributeSets,
+      :Items,
       :Orders,
+      :Sales,
       :Shops,
-      :Vendors,
-      :Employees
+      :Vendors
     )
 
     def account

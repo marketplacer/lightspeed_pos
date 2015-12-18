@@ -1,0 +1,85 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.merchantos.com/API/Account/120645/Sale.json
+    body:
+      encoding: UTF-8
+      string: '{"taxCategoryID":0,"employeeID":1,"shopID":1,"registerID":1}'
+    headers:
+      User-Agent:
+      - Typhoeus - https://github.com/typhoeus/typhoeus
+      Authorization:
+      - OAuth OAuth Token
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 16 Nov 2015 22:12:05 GMT
+      Server:
+      - Apache/2.2.15 (CentOS)
+      X-Powered-By:
+      - PHP/5.4.44
+      X-Ls-Api-Bucket-Level:
+      - 10/30
+      X-Ls-Oauth-Client-Id:
+      - '19570'
+      X-Ls-Acct-Id:
+      - '120645'
+      Content-Encoding:
+      - none
+      Content-Length:
+      - '1157'
+      Content-Type:
+      - application/json
+    body:
+      encoding: UTF-8
+      string: '{"@attributes":{"count":"1"},"Sale":{"saleID":"14","timeStamp":"2015-11-16T22:12:05+00:00","discountPercent":"0","completed":"false","archived":"false","voided":"false","enablePromotions":"false","isTaxInclusive":"false","referenceNumber":"","referenceNumberSource":"","tax1Rate":"0","tax2Rate":"0","change":"0","receiptPreference":"printed","displayableSubtotal":"0","ticketNumber":"220000000014","calcDiscount":"0","calcTotal":"0","calcSubtotal":"0","calcTaxable":"0","calcNonTaxable":"0","calcAvgCost":"0","calcFIFOCost":"0","calcTax1":"0","calcTax2":"0","calcPayments":"0","total":"0","totalDue":"0","displayableTotal":"0","balance":"0","customerID":"0","discountID":"0","employeeID":"1","quoteID":"0","registerID":"1","shipToID":"0","shopID":"1","taxCategoryID":"0","Shop":{"shopID":"1","name":"Kit
+        Kraft Sandbox","serviceRate":"0","timeZone":"US\/Pacific","taxLabor":"false","labelTitle":"Shop
+        Name","labelMsrp":"false","archived":"false","timeStamp":"2015-11-04T20:26:24+00:00","companyRegistrationNumber":"","vatNumber":"","contactID":"2","taxCategoryID":"1","receiptSetupID":"1","vendorID":"0","ccGatewayID":"1","priceLevelID":"1"},"taxTotal":"0"}}'
+    http_version: 
+  recorded_at: Mon, 16 Nov 2015 22:12:05 GMT
+- request:
+    method: post
+    uri: https://api.merchantos.com/API/Account/120645/Sale.json
+    body:
+      encoding: UTF-8
+      string: '{"taxCategoryID":0,"employeeID":1,"shopID":1,"registerID":1,"SaleLines":[{"SaleLine":{"itemID":1,"unitQuantity":2,"unitPrice":"1.23","tax":true}}]}'
+    headers:
+      User-Agent:
+      - Typhoeus - https://github.com/typhoeus/typhoeus
+      Authorization:
+      - OAuth OAuth Token
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 16 Nov 2015 22:31:46 GMT
+      Server:
+      - Apache/2.2.15 (CentOS)
+      X-Powered-By:
+      - PHP/5.4.44
+      X-Ls-Api-Bucket-Level:
+      - 10/30
+      X-Ls-Oauth-Client-Id:
+      - '19570'
+      X-Ls-Acct-Id:
+      - '120645'
+      Content-Length:
+      - '1876'
+      Vary:
+      - Accept-Encoding
+      Content-Type:
+      - application/json
+    body:
+      encoding: UTF-8
+      string: '{"@attributes":{"count":"1"},"Sale":{"saleID":"20","timeStamp":"2015-11-16T22:31:46+00:00","discountPercent":"0","completed":"false","archived":"false","voided":"false","enablePromotions":"false","isTaxInclusive":"false","referenceNumber":"","referenceNumberSource":"","tax1Rate":"0","tax2Rate":"0","change":"0","receiptPreference":"printed","displayableSubtotal":"2.46","ticketNumber":"220000000020","calcDiscount":"0","calcTotal":"2.46","calcSubtotal":"2.46","calcTaxable":"0","calcNonTaxable":"2.46","calcAvgCost":"4","calcFIFOCost":"4","calcTax1":"0","calcTax2":"0","calcPayments":"0","total":"2.46","totalDue":"2.46","displayableTotal":"2.46","balance":"2.46","customerID":"0","discountID":"0","employeeID":"1","quoteID":"0","registerID":"1","shipToID":"0","shopID":"1","taxCategoryID":"0","Shop":{"shopID":"1","name":"Kit
+        Kraft Sandbox","serviceRate":"0","timeZone":"US\/Pacific","taxLabor":"false","labelTitle":"Shop
+        Name","labelMsrp":"false","archived":"false","timeStamp":"2015-11-04T20:26:24+00:00","companyRegistrationNumber":"","vatNumber":"","contactID":"2","taxCategoryID":"1","receiptSetupID":"1","vendorID":"0","ccGatewayID":"1","priceLevelID":"1"},"SaleLines":{"SaleLine":{"saleLineID":"8","createTime":"2015-11-16T22:31:46+00:00","timeStamp":"2015-11-16T22:31:46+00:00","unitQuantity":"2","unitPrice":"1.23","normalUnitPrice":"0","discountAmount":"0","discountPercent":"0","avgCost":"2","fifoCost":"2","tax":"false","tax1Rate":"0","tax2Rate":"0","isLayaway":"false","isWorkorder":"false","isSpecialOrder":"false","displayableSubtotal":"2.46","displayableUnitPrice":"1.23","calcLineDiscount":"0","calcTransactionDiscount":"0","calcTotal":"2.46","calcSubtotal":"2.46","calcTax1":"0","calcTax2":"0","taxClassID":"1","customerID":"0","discountID":"0","employeeID":"1","itemID":"1","noteID":"0","parentSaleLineID":"0","shopID":"1","saleID":"20"}},"taxTotal":"0"}}'
+    http_version: 
+  recorded_at: Mon, 16 Nov 2015 22:31:47 GMT
+recorded_with: VCR 2.9.3
