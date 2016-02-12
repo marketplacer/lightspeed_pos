@@ -13,12 +13,6 @@ Most definitely not production ready yet, but you can help by submitting pull re
 First, intialize a new client:
 
 ```ruby
-client = Lightspeed::Client.new(api_key: "YOUR_API_KEY_HERE")
-```
-
-**OR** you may also choose to pass through an OAuth access token if you have one:
-
-```ruby
 client = Lightspeed::Client.new(oauth_token: "YOUR_ACCESS_TOKEN_HERE")
 ```
 

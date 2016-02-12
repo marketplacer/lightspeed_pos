@@ -38,7 +38,6 @@ module Lightspeed
       @raw_request.body = body if body
       @raw_request.set_form_data(params) if params
       @raw_request["Authorization"] = "OAuth #{client.oauth_token}" if client.oauth_token
-      @raw_request.basic_auth("", "#{client.api_key}:apikey") if client.api_key
     end
 
     def perform
