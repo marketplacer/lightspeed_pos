@@ -25,7 +25,7 @@ describe Lightspeed::Vendors do
   context "creating" do
     it "with valid information" do
       VCR.use_cassette("account/vendors/create") do
-        vendor = account.vendors.create(accountNumber: "testAccountNumber123")
+        vendor = account.vendors.create(accountNumber: "testAccountNumber123", name: 'Test Vendor 1')
         expect(vendor).to be_a(Lightspeed::Vendor)
         expect(vendor.id).not_to be_nil
       end
@@ -35,7 +35,7 @@ describe Lightspeed::Vendors do
   context "updating" do
     it "with valid information" do
       VCR.use_cassette("account/vendors/update") do
-        id = account.vendors.create(accountNumber: 'testAccountNumber456').id
+        id = account.vendors.create(accountNumber: 'testAccountNumber456', name: 'Test Vendor 2').id
         vendor = account.vendors.update(id, accountNumber: "testAccountNumber789")
         expect(vendor.accountNumber).to eq("testAccountNumber789")
       end
@@ -43,7 +43,7 @@ describe Lightspeed::Vendors do
 
     it "a vendor" do
       VCR.use_cassette("account/vendors/update") do
-        vendor = account.vendors.create(accountNumber: 'testAccountNumber000')
+        vendor = account.vendors.create(accountNumber: 'testAccountNumber000', name: 'Test Vendor 3')
         vendor.update(accountNumber: "testAccountNumber111")
         expect(vendor.accountNumber).to eq("testAccountNumber111")
       end
@@ -52,7 +52,7 @@ describe Lightspeed::Vendors do
 
   it "can archive a vendor" do
     VCR.use_cassette("account/vendors/archive") do
-      vendor = account.vendors.create(accountNumber: 'bornToDie')
+      vendor = account.vendors.create(accountNumber: 'bornToDie', name: 'Test Vendor 4')
       vendor.archive
       expect(vendor.archived).to be true
     end
@@ -60,7 +60,7 @@ describe Lightspeed::Vendors do
 
   it "can archive a vendor by ID" do
     VCR.use_cassette("account/vendors/archive") do
-      id = account.vendors.create(accountNumber: 'destroyMe').id
+      id = account.vendors.create(accountNumber: 'destroyMe', name: 'Test Vendor 5').id
       vendor = account.vendors.archive(id)
       expect(vendor.archived).to be true
     end
