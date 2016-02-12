@@ -19,7 +19,7 @@ module Lightspeed
     private
 
     def units request
-      if request.raw_request.options[:method] == :get then 1 else 10 end
+      if request.raw_request.is_a? Net::HTTP::Get then 1 else 10 end
     end
 
     def extract_rate_limits request

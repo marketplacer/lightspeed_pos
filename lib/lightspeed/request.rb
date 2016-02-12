@@ -1,4 +1,6 @@
 require 'pp'
+require 'net/http'
+
 module Lightspeed
   class Request
     attr_accessor :raw_request, :bucket_max, :bucket_level
@@ -13,31 +15,34 @@ module Lightspeed
       !! @verbose
     end
 
-    def self.base_url
-      "https://api.merchantos.com/API"
+    def self.base_host
+      "api.merchantos.com"
+    end
+
+    def self.base_path
+      "/API"
     end
 
     def initialize(client, method:, path:, params: nil, body: nil)
       @bucket_max = Float::INFINITY
       @bucket_level = 0
-      @raw_request = Typhoeus::Request.new(
-        self.class.base_url + path,
-        method: method,
-        body: body,
-        params: params
-      )
-
-      if client.oauth_token
-        @raw_request.options[:headers].merge!(
-          "Authorization" => "OAuth #{client.oauth_token}"
-        )
+      @http = Net::HTTP.new(self.class.base_host, 443)
+      @http.use_ssl = true
+      klass = case method
+      when :get then Net::HTTP::Get
+      when :put then Net::HTTP::Put
+      when :post then Net::HTTP::Post
+      when :delete then Net::HTTP::Delete
       end
-
-      @raw_request.options[:userpwd] = "#{client.api_key}:apikey" if client.api_key
+      @raw_request = klass.new(self.class.base_path + path)
+      @raw_request.body = body if body
+      @raw_request.set_form_data(params) if params
+      @raw_request["Authorization"] = "OAuth #{client.oauth_token}" if client.oauth_token
+      @raw_request.basic_auth("", "#{client.api_key}:apikey") if client.api_key
     end
 
     def perform
-      response = raw_request.run
+      response = @http.request(raw_request)
       extract_rate_limits(response)
       if response.code == 200
         handle_success(response)
@@ -76,7 +81,7 @@ module Lightspeed
     end
 
     def extract_rate_limits(response)
-      if bucket_headers = response.headers["X-LS-API-Bucket-Level"]
+      if bucket_headers = response["X-LS-API-Bucket-Level"]
         @bucket_level, @bucket_max = bucket_headers.split("/").map(&:to_f)
       end
     end
