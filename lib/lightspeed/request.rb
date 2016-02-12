@@ -24,26 +24,23 @@ module Lightspeed
     end
 
     def initialize(client, method:, path:, params: nil, body: nil)
+      @method = method
+      @params = params
+      @path = path
       @bucket_max = Float::INFINITY
       @bucket_level = 0
       @http = Net::HTTP.new(self.class.base_host, 443)
       @http.use_ssl = true
-      klass = case method
-      when :get then Net::HTTP::Get
-      when :put then Net::HTTP::Put
-      when :post then Net::HTTP::Post
-      when :delete then Net::HTTP::Delete
-      end
-      @raw_request = klass.new(self.class.base_path + path)
+      @raw_request = request_class.new(uri)
       @raw_request.body = body if body
-      @raw_request.set_form_data(params) if params
+      @raw_request.set_form_data(@params) if @params && @method != :get
       @raw_request["Authorization"] = "OAuth #{client.oauth_token}" if client.oauth_token
     end
 
     def perform
       response = @http.request(raw_request)
       extract_rate_limits(response)
-      if response.code == 200
+      if response.code == "200"
         handle_success(response)
       else
         handle_error(response)
@@ -82,6 +79,21 @@ module Lightspeed
     def extract_rate_limits(response)
       if bucket_headers = response["X-LS-API-Bucket-Level"]
         @bucket_level, @bucket_max = bucket_headers.split("/").map(&:to_f)
+      end
+    end
+
+    def uri
+      uri = self.class.base_path + @path
+      uri += "?" + URI.encode_www_form(@params) if @params && @method == :get
+      uri
+    end
+
+    def request_class
+      case @method
+      when :get then Net::HTTP::Get
+      when :put then Net::HTTP::Put
+      when :post then Net::HTTP::Post
+      when :delete then Net::HTTP::Delete
       end
     end
 
