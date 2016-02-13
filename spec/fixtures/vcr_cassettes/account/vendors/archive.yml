@@ -5,10 +5,14 @@ http_interactions:
     uri: https://api.merchantos.com/API/Account/-/Vendor.json
     body:
       encoding: UTF-8
-      string: '{"accountNumber":"bornToDie"}'
+      string: '{"accountNumber":"bornToDie","name":"Test Vendor 4"}'
     headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
       User-Agent:
-      - Typhoeus - https://github.com/typhoeus/typhoeus
+      - Ruby
       Authorization:
       - OAuth OAuth Token
   response:
@@ -17,7 +21,175 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Fri, 18 Dec 2015 00:17:41 GMT
+      - Sat, 13 Feb 2016 00:49:52 GMT
+      Server:
+      - Apache/2.2.15 (CentOS)
+      X-Powered-By:
+      - PHP/5.4.44
+      X-Ls-Api-Bucket-Level:
+      - 47.604025125503/90
+      X-Ls-Oauth-Client-Id:
+      - '19570'
+      X-Ls-Acct-Id:
+      - '120645'
+      Content-Length:
+      - '281'
+      Content-Type:
+      - application/json
+    body:
+      encoding: UTF-8
+      string: '{"@attributes":{"count":"1"},"Vendor":{"vendorID":"712","name":"Test
+        Vendor 4","archived":"false","accountNumber":"bornToDie","priceLevel":"","updatePrice":"false","updateCost":"false","updateDescription":"false","shareSellThrough":"false","timeStamp":"2016-02-13T00:49:52+00:00"}}'
+    http_version: 
+  recorded_at: Sat, 13 Feb 2016 00:49:52 GMT
+- request:
+    method: delete
+    uri: https://api.merchantos.com/API/Account/-/Vendor/712.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Authorization:
+      - OAuth OAuth Token
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Sat, 13 Feb 2016 00:49:52 GMT
+      Server:
+      - Apache/2.2.15 (CentOS)
+      X-Powered-By:
+      - PHP/5.4.44
+      X-Ls-Api-Bucket-Level:
+      - 57.06778717041/90
+      X-Ls-Oauth-Client-Id:
+      - '19570'
+      X-Ls-Acct-Id:
+      - '120645'
+      Content-Length:
+      - '280'
+      Content-Type:
+      - application/json
+    body:
+      encoding: UTF-8
+      string: '{"@attributes":{"count":"1"},"Vendor":{"vendorID":"712","name":"Test
+        Vendor 4","archived":"true","accountNumber":"bornToDie","priceLevel":"","updatePrice":"false","updateCost":"false","updateDescription":"false","shareSellThrough":"false","timeStamp":"2016-02-13T00:49:52+00:00"}}'
+    http_version: 
+  recorded_at: Sat, 13 Feb 2016 00:49:53 GMT
+- request:
+    method: post
+    uri: https://api.merchantos.com/API/Account/-/Vendor.json
+    body:
+      encoding: UTF-8
+      string: '{"accountNumber":"destroyMe","name":"Test Vendor 5"}'
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Authorization:
+      - OAuth OAuth Token
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Sat, 13 Feb 2016 00:49:53 GMT
+      Server:
+      - Apache/2.2.15 (CentOS)
+      X-Powered-By:
+      - PHP/5.4.44
+      X-Ls-Api-Bucket-Level:
+      - 66.554564237594/90
+      X-Ls-Oauth-Client-Id:
+      - '19570'
+      X-Ls-Acct-Id:
+      - '120645'
+      Content-Length:
+      - '281'
+      Content-Type:
+      - application/json
+    body:
+      encoding: UTF-8
+      string: '{"@attributes":{"count":"1"},"Vendor":{"vendorID":"713","name":"Test
+        Vendor 5","archived":"false","accountNumber":"destroyMe","priceLevel":"","updatePrice":"false","updateCost":"false","updateDescription":"false","shareSellThrough":"false","timeStamp":"2016-02-13T00:49:53+00:00"}}'
+    http_version: 
+  recorded_at: Sat, 13 Feb 2016 00:49:53 GMT
+- request:
+    method: delete
+    uri: https://api.merchantos.com/API/Account/-/Vendor/713.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Authorization:
+      - OAuth OAuth Token
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Sat, 13 Feb 2016 00:49:53 GMT
+      Server:
+      - Apache/2.2.15 (CentOS)
+      X-Powered-By:
+      - PHP/5.4.44
+      X-Ls-Api-Bucket-Level:
+      - 76.04011440277/90
+      X-Ls-Oauth-Client-Id:
+      - '19570'
+      X-Ls-Acct-Id:
+      - '120645'
+      Content-Length:
+      - '280'
+      Content-Type:
+      - application/json
+    body:
+      encoding: UTF-8
+      string: '{"@attributes":{"count":"1"},"Vendor":{"vendorID":"713","name":"Test
+        Vendor 5","archived":"true","accountNumber":"destroyMe","priceLevel":"","updatePrice":"false","updateCost":"false","updateDescription":"false","shareSellThrough":"false","timeStamp":"2016-02-13T00:49:53+00:00"}}'
+    http_version: 
+  recorded_at: Sat, 13 Feb 2016 00:49:54 GMT
+- request:
+    method: post
+    uri: https://api.merchantos.com/API/Account/-/Vendor.json
+    body:
+      encoding: UTF-8
+      string: '{"accountNumber":"bornToDie","name":"Test Vendor 4D"}'
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Authorization:
+      - OAuth OAuth Token
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Sat, 13 Feb 2016 00:55:15 GMT
       Server:
       - Apache/2.2.15 (CentOS)
       X-Powered-By:
@@ -28,26 +200,29 @@ http_interactions:
       - '19570'
       X-Ls-Acct-Id:
       - '120645'
-      Content-Encoding:
-      - none
       Content-Length:
-      - '268'
+      - '282'
       Content-Type:
       - application/json
     body:
       encoding: UTF-8
-      string: '{"@attributes":{"count":"1"},"Vendor":{"vendorID":"705","name":"","archived":"false","accountNumber":"bornToDie","priceLevel":"","updatePrice":"false","updateCost":"false","updateDescription":"false","shareSellThrough":"false","timeStamp":"2015-12-18T00:17:41+00:00"}}'
+      string: '{"@attributes":{"count":"1"},"Vendor":{"vendorID":"714","name":"Test
+        Vendor 4D","archived":"false","accountNumber":"bornToDie","priceLevel":"","updatePrice":"false","updateCost":"false","updateDescription":"false","shareSellThrough":"false","timeStamp":"2016-02-13T00:55:15+00:00"}}'
     http_version: 
-  recorded_at: Fri, 18 Dec 2015 00:17:42 GMT
+  recorded_at: Sat, 13 Feb 2016 00:55:15 GMT
 - request:
     method: delete
-    uri: https://api.merchantos.com/API/Account/-/Vendor/705.json
+    uri: https://api.merchantos.com/API/Account/-/Vendor/714.json
     body:
       encoding: US-ASCII
       string: ''
     headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
       User-Agent:
-      - Typhoeus - https://github.com/typhoeus/typhoeus
+      - Ruby
       Authorization:
       - OAuth OAuth Token
   response:
@@ -56,37 +231,40 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Fri, 18 Dec 2015 00:17:41 GMT
+      - Sat, 13 Feb 2016 00:55:16 GMT
       Server:
       - Apache/2.2.15 (CentOS)
       X-Powered-By:
       - PHP/5.4.44
       X-Ls-Api-Bucket-Level:
-      - 19.640768051147/90
+      - 19.412362098694/90
       X-Ls-Oauth-Client-Id:
       - '19570'
       X-Ls-Acct-Id:
       - '120645'
-      Content-Encoding:
-      - none
       Content-Length:
-      - '267'
+      - '281'
       Content-Type:
       - application/json
     body:
       encoding: UTF-8
-      string: '{"@attributes":{"count":"1"},"Vendor":{"vendorID":"705","name":"","archived":"true","accountNumber":"bornToDie","priceLevel":"","updatePrice":"false","updateCost":"false","updateDescription":"false","shareSellThrough":"false","timeStamp":"2015-12-18T00:17:41+00:00"}}'
+      string: '{"@attributes":{"count":"1"},"Vendor":{"vendorID":"714","name":"Test
+        Vendor 4D","archived":"true","accountNumber":"bornToDie","priceLevel":"","updatePrice":"false","updateCost":"false","updateDescription":"false","shareSellThrough":"false","timeStamp":"2016-02-13T00:55:15+00:00"}}'
     http_version: 
-  recorded_at: Fri, 18 Dec 2015 00:17:42 GMT
+  recorded_at: Sat, 13 Feb 2016 00:55:16 GMT
 - request:
     method: post
     uri: https://api.merchantos.com/API/Account/-/Vendor.json
     body:
       encoding: UTF-8
-      string: '{"accountNumber":"destroyMe"}'
+      string: '{"accountNumber":"destroyMe","name":"Test Vendor 5E"}'
     headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
       User-Agent:
-      - Typhoeus - https://github.com/typhoeus/typhoeus
+      - Ruby
       Authorization:
       - OAuth OAuth Token
   response:
@@ -95,37 +273,40 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Fri, 18 Dec 2015 00:17:41 GMT
+      - Sat, 13 Feb 2016 00:55:16 GMT
       Server:
       - Apache/2.2.15 (CentOS)
       X-Powered-By:
       - PHP/5.4.44
       X-Ls-Api-Bucket-Level:
-      - 29.191214084625/90
+      - 28.892040014267/90
       X-Ls-Oauth-Client-Id:
       - '19570'
       X-Ls-Acct-Id:
       - '120645'
-      Content-Encoding:
-      - none
       Content-Length:
-      - '268'
+      - '282'
       Content-Type:
       - application/json
     body:
       encoding: UTF-8
-      string: '{"@attributes":{"count":"1"},"Vendor":{"vendorID":"706","name":"","archived":"false","accountNumber":"destroyMe","priceLevel":"","updatePrice":"false","updateCost":"false","updateDescription":"false","shareSellThrough":"false","timeStamp":"2015-12-18T00:17:42+00:00"}}'
+      string: '{"@attributes":{"count":"1"},"Vendor":{"vendorID":"715","name":"Test
+        Vendor 5E","archived":"false","accountNumber":"destroyMe","priceLevel":"","updatePrice":"false","updateCost":"false","updateDescription":"false","shareSellThrough":"false","timeStamp":"2016-02-13T00:55:16+00:00"}}'
     http_version: 
-  recorded_at: Fri, 18 Dec 2015 00:17:43 GMT
+  recorded_at: Sat, 13 Feb 2016 00:55:17 GMT
 - request:
     method: delete
-    uri: https://api.merchantos.com/API/Account/-/Vendor/706.json
+    uri: https://api.merchantos.com/API/Account/-/Vendor/715.json
     body:
       encoding: US-ASCII
       string: ''
     headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
       User-Agent:
-      - Typhoeus - https://github.com/typhoeus/typhoeus
+      - Ruby
       Authorization:
       - OAuth OAuth Token
   response:
@@ -134,26 +315,25 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Fri, 18 Dec 2015 00:17:42 GMT
+      - Sat, 13 Feb 2016 00:55:17 GMT
       Server:
       - Apache/2.2.15 (CentOS)
       X-Powered-By:
       - PHP/5.4.44
       X-Ls-Api-Bucket-Level:
-      - 38.581247091293/90
+      - 38.339410066605/90
       X-Ls-Oauth-Client-Id:
       - '19570'
       X-Ls-Acct-Id:
       - '120645'
-      Content-Encoding:
-      - none
       Content-Length:
-      - '267'
+      - '281'
       Content-Type:
       - application/json
     body:
       encoding: UTF-8
-      string: '{"@attributes":{"count":"1"},"Vendor":{"vendorID":"706","name":"","archived":"true","accountNumber":"destroyMe","priceLevel":"","updatePrice":"false","updateCost":"false","updateDescription":"false","shareSellThrough":"false","timeStamp":"2015-12-18T00:17:42+00:00"}}'
+      string: '{"@attributes":{"count":"1"},"Vendor":{"vendorID":"715","name":"Test
+        Vendor 5E","archived":"true","accountNumber":"destroyMe","priceLevel":"","updatePrice":"false","updateCost":"false","updateDescription":"false","shareSellThrough":"false","timeStamp":"2016-02-13T00:55:16+00:00"}}'
     http_version: 
-  recorded_at: Fri, 18 Dec 2015 00:17:43 GMT
+  recorded_at: Sat, 13 Feb 2016 00:55:17 GMT
 recorded_with: VCR 2.9.3

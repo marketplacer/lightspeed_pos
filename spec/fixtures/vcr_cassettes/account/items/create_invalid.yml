@@ -2,36 +2,44 @@
 http_interactions:
 - request:
     method: post
-    uri: https://api.merchantos.com/API/Account/117102/Item.json
+    uri: https://api.merchantos.com/API/Account/-/Item.json
     body:
       encoding: UTF-8
       string: '{"description":""}'
     headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
       User-Agent:
-      - Typhoeus - https://github.com/typhoeus/typhoeus
+      - Ruby
       Authorization:
-      - OAuth test
+      - OAuth OAuth Token
   response:
     status:
       code: 400
       message: Bad Request
     headers:
       Date:
-      - Wed, 23 Sep 2015 04:55:31 GMT
+      - Sat, 13 Feb 2016 00:47:22 GMT
       Server:
       - Apache/2.2.15 (CentOS)
       X-Powered-By:
       - PHP/5.4.44
-      Content-Encoding:
-      - none
+      X-Ls-Api-Bucket-Level:
+      - 91.672517538069/90
+      X-Ls-Oauth-Client-Id:
+      - '19570'
       Content-Length:
       - '134'
+      X-Ls-Acct-Id:
+      - '120645'
       Content-Type:
       - text/html; charset=UTF-8
     body:
       encoding: UTF-8
       string: '{"httpCode":"400","httpMessage":"Bad Request","message":"Item not created.
         An Item must have a description.","errorClass":"Exception"}'
-    http_version:
-  recorded_at: Wed, 23 Sep 2015 04:55:53 GMT
+    http_version: 
+  recorded_at: Sat, 13 Feb 2016 00:47:22 GMT
 recorded_with: VCR 2.9.3

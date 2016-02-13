@@ -7,8 +7,8 @@ describe Lightspeed::RequestThrottler do
   it "can extract limits from API responses" do
     VCR.use_cassette("request_throttler/bucket_limits") do
       client.accounts.first
-      expect(client.throttler.bucket_max).to eq 60.0
-      expect(client.throttler.bucket_level).to eq 1
+      expect(client.throttler.bucket_max).to eq 90.0
+      expect(client.throttler.bucket_level).to eq 9.2179536819447
     end
   end
 

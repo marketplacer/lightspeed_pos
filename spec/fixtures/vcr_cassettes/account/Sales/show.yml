@@ -2,13 +2,17 @@
 http_interactions:
 - request:
     method: get
-    uri: https://api.merchantos.com/API/Account/120645/Sale.json?limit=1&load_relations=all&saleID=4
+    uri: https://api.merchantos.com/API/Account/-/Sale.json?limit=1&load_relations=all&saleID=4
     body:
       encoding: US-ASCII
       string: ''
     headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
       User-Agent:
-      - Typhoeus - https://github.com/typhoeus/typhoeus
+      - Ruby
       Authorization:
       - OAuth OAuth Token
   response:
@@ -17,19 +21,17 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Mon, 16 Nov 2015 19:00:50 GMT
+      - Sat, 13 Feb 2016 00:49:36 GMT
       Server:
       - Apache/2.2.15 (CentOS)
       X-Powered-By:
       - PHP/5.4.44
       X-Ls-Api-Bucket-Level:
-      - 1/30
+      - 4.6125388145434/90
       X-Ls-Oauth-Client-Id:
       - '19570'
       X-Ls-Acct-Id:
       - '120645'
-      Content-Encoding:
-      - none
       Content-Length:
       - '984'
       Content-Type:
@@ -39,5 +41,5 @@ http_interactions:
       string: '{"@attributes":{"count":"1","offset":"0","limit":"1"},"Sale":{"saleID":"4","timeStamp":"2015-11-06T01:53:19+00:00","discountPercent":"0","completed":"false","archived":"false","voided":"false","enablePromotions":"true","isTaxInclusive":"false","referenceNumber":"","referenceNumberSource":"","tax1Rate":"0.09","tax2Rate":"0","change":"0","receiptPreference":"printed","displayableSubtotal":"0","ticketNumber":"220000000004","calcDiscount":"0","calcTotal":"0","calcSubtotal":"0","calcTaxable":"0","calcNonTaxable":"0","calcAvgCost":"0","calcFIFOCost":"0","calcTax1":"0","calcTax2":"0","calcPayments":"0","total":"0","totalDue":"0","displayableTotal":"0","balance":"0","customerID":"0","discountID":"0","employeeID":"1","quoteID":"0","registerID":"1","shipToID":"0","shopID":"1","taxCategoryID":"1","TaxCategory":{"taxCategoryID":"1","isTaxInclusive":"false","tax1Name":"Sales
         Tax","tax2Name":"","tax1Rate":"0.09","tax2Rate":"0","timeStamp":"2015-11-04T18:42:42+00:00"},"taxTotal":"0"}}'
     http_version: 
-  recorded_at: Mon, 16 Nov 2015 19:00:51 GMT
+  recorded_at: Sat, 13 Feb 2016 00:49:36 GMT
 recorded_with: VCR 2.9.3

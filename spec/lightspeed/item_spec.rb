@@ -8,7 +8,7 @@ describe Lightspeed::Item do
   end
 
   it "can fetch an item's ItemMatrix" do
-    subject.itemMatrixID = 2
+    subject.itemMatrixID = 1
     VCR.use_cassette("account/ItemMatrix/show") do
       matrix = subject.item_matrix
       expect(matrix).to be_a(Lightspeed::ItemMatrix)

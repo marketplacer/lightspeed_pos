@@ -2,90 +2,51 @@
 http_interactions:
 - request:
     method: get
-    uri: https://api.merchantos.com/API/Account/117102/Category.json?limit=100
+    uri: https://api.merchantos.com/API/Account/-/Category.json?limit=100&offset=0
     body:
       encoding: US-ASCII
       string: ''
     headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
       User-Agent:
-      - Typhoeus - https://github.com/typhoeus/typhoeus
+      - Ruby
       Authorization:
-      - OAuth test
+      - OAuth OAuth Token
   response:
     status:
       code: 200
       message: OK
     headers:
       Date:
-      - Wed, 23 Sep 2015 04:08:40 GMT
+      - Sat, 13 Feb 2016 00:46:29 GMT
       Server:
       - Apache/2.2.15 (CentOS)
       X-Powered-By:
       - PHP/5.4.44
-      Content-Length:
-      - '1360'
+      X-Ls-Api-Bucket-Level:
+      - 1/90
+      X-Ls-Oauth-Client-Id:
+      - '19570'
+      X-Ls-Acct-Id:
+      - '120645'
       Vary:
       - Accept-Encoding
+      Content-Length:
+      - '332'
       Content-Type:
       - application/json
     body:
-      encoding: UTF-8
-      string: '{"@attributes":{"count":"6","offset":"0","limit":"100"},"Category":[{"categoryID":"4","name":"Bike
-        T-Shirts","nodeDepth":"0","fullPathName":"Bike T-Shirts","leftNode":"1","rightNode":"2","createTime":"2015-08-13T01:34:50+00:00","timeStamp":"2015-08-12T08:35:06+00:00","parentID":"0"},{"categoryID":"5","name":"Category
-        One","nodeDepth":"0","fullPathName":"Category One","leftNode":"11","rightNode":"12","createTime":"2015-09-22T09:30:25+00:00","timeStamp":"2015-09-22T11:03:55+00:00","parentID":"0"},{"categoryID":"7","name":"Category
-        One","nodeDepth":"0","fullPathName":"Category One","leftNode":"9","rightNode":"10","createTime":"2015-09-22T09:44:17+00:00","timeStamp":"2015-09-22T11:03:55+00:00","parentID":"0"},{"categoryID":"8","name":"Category
-        One","nodeDepth":"0","fullPathName":"Category One","leftNode":"7","rightNode":"8","createTime":"2015-09-22T10:34:54+00:00","timeStamp":"2015-09-22T11:03:55+00:00","parentID":"0"},{"categoryID":"10","name":"Category
-        One","nodeDepth":"0","fullPathName":"Category One","leftNode":"5","rightNode":"6","createTime":"2015-09-22T11:00:56+00:00","timeStamp":"2015-09-22T11:03:55+00:00","parentID":"0"},{"categoryID":"11","name":"Category
-        One","nodeDepth":"0","fullPathName":"Category One","leftNode":"3","rightNode":"4","createTime":"2015-09-22T11:03:55+00:00","timeStamp":"2015-09-22T11:03:55+00:00","parentID":"0"}]}'
-    http_version:
-  recorded_at: Wed, 23 Sep 2015 04:09:02 GMT
-- request:
-    method: get
-    uri: https://api.merchantos.com/API/Account/117102/Category.json?limit=100&offset=0
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      User-Agent:
-      - Typhoeus - https://github.com/typhoeus/typhoeus
-      Authorization:
-      - OAuth test
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Date:
-      - Tue, 29 Sep 2015 02:03:19 GMT
-      Server:
-      - Apache/2.2.15 (CentOS)
-      X-Powered-By:
-      - PHP/5.4.44
-      Content-Length:
-      - '3796'
-      Vary:
-      - Accept-Encoding
-      Content-Type:
-      - application/json
-    body:
-      encoding: UTF-8
-      string: '{"@attributes":{"count":"17","offset":"0","limit":"100"},"Category":[{"categoryID":"4","name":"Bike
-        T-Shirts","nodeDepth":"0","fullPathName":"Bike T-Shirts","leftNode":"1","rightNode":"2","createTime":"2015-08-13T01:34:50+00:00","timeStamp":"2015-08-12T08:35:06+00:00","parentID":"0"},{"categoryID":"5","name":"Category
-        One","nodeDepth":"0","fullPathName":"Category One","leftNode":"17","rightNode":"18","createTime":"2015-09-22T09:30:25+00:00","timeStamp":"2015-09-22T11:52:14+00:00","parentID":"0"},{"categoryID":"7","name":"Category
-        One","nodeDepth":"0","fullPathName":"Category One","leftNode":"15","rightNode":"16","createTime":"2015-09-22T09:44:17+00:00","timeStamp":"2015-09-22T11:52:14+00:00","parentID":"0"},{"categoryID":"8","name":"Category
-        One","nodeDepth":"0","fullPathName":"Category One","leftNode":"13","rightNode":"14","createTime":"2015-09-22T10:34:54+00:00","timeStamp":"2015-09-22T11:52:14+00:00","parentID":"0"},{"categoryID":"10","name":"Category
-        One","nodeDepth":"0","fullPathName":"Category One","leftNode":"11","rightNode":"12","createTime":"2015-09-22T11:00:56+00:00","timeStamp":"2015-09-22T11:52:14+00:00","parentID":"0"},{"categoryID":"11","name":"Category
-        One","nodeDepth":"0","fullPathName":"Category One","leftNode":"9","rightNode":"10","createTime":"2015-09-22T11:03:55+00:00","timeStamp":"2015-09-22T11:52:14+00:00","parentID":"0"},{"categoryID":"12","name":"Category
-        One","nodeDepth":"0","fullPathName":"Category One","leftNode":"7","rightNode":"8","createTime":"2015-09-22T11:08:41+00:00","timeStamp":"2015-09-22T11:52:14+00:00","parentID":"0"},{"categoryID":"14","name":"Category
-        Two","nodeDepth":"0","fullPathName":"Category Two","leftNode":"19","rightNode":"20","createTime":"2015-09-22T11:14:29+00:00","timeStamp":"2015-09-22T11:52:14+00:00","parentID":"0"},{"categoryID":"15","name":"Category
-        to update","nodeDepth":"0","fullPathName":"Category to update","leftNode":"33","rightNode":"34","createTime":"2015-09-22T11:15:33+00:00","timeStamp":"2015-09-22T11:53:19+00:00","parentID":"0"},{"categoryID":"17","name":"Category
-        Two","nodeDepth":"0","fullPathName":"Category Two","leftNode":"21","rightNode":"22","createTime":"2015-09-22T11:34:02+00:00","timeStamp":"2015-09-22T11:52:14+00:00","parentID":"0"},{"categoryID":"18","name":"Category
-        to update","nodeDepth":"0","fullPathName":"Category to update","leftNode":"31","rightNode":"32","createTime":"2015-09-22T11:34:03+00:00","timeStamp":"2015-09-22T11:53:19+00:00","parentID":"0"},{"categoryID":"20","name":"Category
-        One","nodeDepth":"0","fullPathName":"Category One","leftNode":"5","rightNode":"6","createTime":"2015-09-22T11:36:47+00:00","timeStamp":"2015-09-22T11:52:14+00:00","parentID":"0"},{"categoryID":"21","name":"Category
-        Two","nodeDepth":"0","fullPathName":"Category Two","leftNode":"23","rightNode":"24","createTime":"2015-09-22T11:37:50+00:00","timeStamp":"2015-09-22T11:52:14+00:00","parentID":"0"},{"categoryID":"22","name":"Category
-        to update","nodeDepth":"0","fullPathName":"Category to update","leftNode":"29","rightNode":"30","createTime":"2015-09-22T11:38:52+00:00","timeStamp":"2015-09-22T11:53:19+00:00","parentID":"0"},{"categoryID":"26","name":"Category
-        One","nodeDepth":"0","fullPathName":"Category One","leftNode":"3","rightNode":"4","createTime":"2015-09-22T11:52:14+00:00","timeStamp":"2015-09-22T11:52:14+00:00","parentID":"0"},{"categoryID":"27","name":"Category
-        Two","nodeDepth":"0","fullPathName":"Category Two","leftNode":"25","rightNode":"26","createTime":"2015-09-22T11:52:16+00:00","timeStamp":"2015-09-22T11:53:19+00:00","parentID":"0"},{"categoryID":"28","name":"Category
-        to update","nodeDepth":"0","fullPathName":"Category to update","leftNode":"27","rightNode":"28","createTime":"2015-09-22T11:53:19+00:00","timeStamp":"2015-09-22T11:53:19+00:00","parentID":"0"}]}'
-    http_version:
-  recorded_at: Tue, 29 Sep 2015 02:03:15 GMT
+      encoding: ASCII-8BIT
+      string: '{"@attributes":{"count":"7","offset":"0","limit":"100"},"Category":[{"categoryID":"2","name":"Category
+        One","nodeDepth":"0","fullPathName":"Category One","leftNode":"3","rightNode":"4","createTime":"2015-11-13T22:28:15+00:00","timeStamp":"2016-02-12T06:02:35+00:00","parentID":"0"},{"categoryID":"3","name":"CategoryTwo","nodeDepth":"0","fullPathName":"CategoryTwo","leftNode":"13","rightNode":"14","createTime":"2015-11-13T22:29:02+00:00","timeStamp":"2016-02-12T17:53:23+00:00","parentID":"0"},{"categoryID":"4","name":"Category
+        Two","nodeDepth":"0","fullPathName":"Category Two","leftNode":"5","rightNode":"6","createTime":"2015-11-13T22:29:16+00:00","timeStamp":"2016-02-12T06:02:35+00:00","parentID":"0"},{"categoryID":"5","name":"Category
+        to update","nodeDepth":"0","fullPathName":"Category to update","leftNode":"11","rightNode":"12","createTime":"2015-11-13T22:30:17+00:00","timeStamp":"2016-02-12T17:53:23+00:00","parentID":"0"},{"categoryID":"7","name":"Category
+        One","nodeDepth":"0","fullPathName":"Category One","leftNode":"1","rightNode":"2","createTime":"2016-02-12T06:02:35+00:00","timeStamp":"2016-02-12T06:02:35+00:00","parentID":"0"},{"categoryID":"8","name":"Category
+        Two","nodeDepth":"0","fullPathName":"Category Two","leftNode":"9","rightNode":"10","createTime":"2016-02-12T06:02:36+00:00","timeStamp":"2016-02-12T17:53:25+00:00","parentID":"0"},{"categoryID":"9","name":"Category
+        to update","nodeDepth":"0","fullPathName":"Category to update","leftNode":"7","rightNode":"8","createTime":"2016-02-12T06:02:36+00:00","timeStamp":"2016-02-12T17:53:23+00:00","parentID":"0"}]}'
+    http_version: 
+  recorded_at: Sat, 13 Feb 2016 00:46:30 GMT
+recorded_with: VCR 2.9.3

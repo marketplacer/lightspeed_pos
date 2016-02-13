@@ -21,7 +21,7 @@ describe Lightspeed::Client do
       accounts = client.accounts
       expect(accounts).to be_a(Lightspeed::Accounts)
       expect(accounts.length).to eq(1)
-      expect(accounts.first.id).to eq(117102)
+      expect(accounts.first.id).to eq(120645)
     end
   end
 

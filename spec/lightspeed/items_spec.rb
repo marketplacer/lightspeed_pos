@@ -11,7 +11,7 @@ describe Lightspeed::Items do
 
       item = items.first
       expect(item).to be_a(Lightspeed::Item)
-      expect(item.id).to eq(4)
+      expect(item.id).to eq(135)
     end
   end
 
@@ -23,14 +23,14 @@ describe Lightspeed::Items do
 
       item = items.first
       expect(item).to be_a(Lightspeed::Item)
-      expect(item.id).to eq(6)
+      expect(item.id).to eq(135)
       expect(item.item_matrix).to be_nil
     end
   end
 
   it "can fetch an item by ID" do
     VCR.use_cassette("account/items/show") do
-      item = account.items.find(4)
+      item = account.items.find(417)
       expect(item).to be_a(Lightspeed::Item)
     end
   end

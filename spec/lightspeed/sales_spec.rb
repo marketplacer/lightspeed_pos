@@ -84,7 +84,7 @@ describe Lightspeed::Sales do
         }
         expect(sale).to be_a(Lightspeed::Sale)
         expect(sale.id).not_to be_nil
-        expect(sale.total).to eq(5.16)
+        expect(sale.total).to eq(5.18)
       end
     end
   end
