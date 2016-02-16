@@ -1,3 +1,5 @@
+require 'active_support/core_ext/string'
+
 $LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
 require 'dotenv'
 Dotenv.load
@@ -9,7 +11,6 @@ Dir[File.expand_path('support/**/*.rb', File.dirname(__FILE__))].each do |f|
 end
 
 Lightspeed::TEST_OAUTH_TOKEN = ENV['LIGHTSPEED_OAUTH_TOKEN']
-Lightspeed::TEST_API_KEY = ENV['LIGHTSPEED_API_KEY']
 Lightspeed::TEST_ACCOUNT_ID = ENV['LIGHTSPEED_ACCOUNT_ID'].to_i
 
 VCR.configure do |config|
@@ -23,9 +24,6 @@ VCR.configure do |config|
 
   unless Lightspeed::TEST_OAUTH_TOKEN.blank?
     config.filter_sensitive_data('OAuth Token') { Lightspeed::TEST_OAUTH_TOKEN }
-  end
-  unless Lightspeed::TEST_API_KEY.blank?
-    config.filter_sensitive_data('ApiKey') { Lightspeed::TEST_API_KEY }
   end
   unless Lightspeed::TEST_ACCOUNT_ID.blank?
     config.filter_sensitive_data('/API/Account/-') { "/API/Account/#{Lightspeed::TEST_ACCOUNT_ID}" }

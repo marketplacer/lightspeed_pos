@@ -2,96 +2,120 @@
 http_interactions:
 - request:
     method: post
-    uri: https://api.merchantos.com/API/Account/117102/Category.json
+    uri: https://api.merchantos.com/API/Account/-/Category.json
     body:
       encoding: UTF-8
       string: '{"name":"Category to delete"}'
     headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
       User-Agent:
-      - Typhoeus - https://github.com/typhoeus/typhoeus
+      - Ruby
       Authorization:
-      - OAuth test
+      - OAuth OAuth Token
   response:
     status:
       code: 200
       message: OK
     headers:
       Date:
-      - Wed, 23 Sep 2015 04:51:11 GMT
+      - Sat, 13 Feb 2016 00:46:30 GMT
       Server:
       - Apache/2.2.15 (CentOS)
       X-Powered-By:
       - PHP/5.4.44
-      Content-Encoding:
-      - none
+      X-Ls-Api-Bucket-Level:
+      - 10.480180025101/90
+      X-Ls-Oauth-Client-Id:
+      - '19570'
+      X-Ls-Acct-Id:
+      - '120645'
       Content-Length:
       - '269'
       Content-Type:
       - application/json
     body:
       encoding: UTF-8
-      string: '{"@attributes":{"count":"1"},"Category":{"categoryID":"25","name":"Category
-        to delete","nodeDepth":"0","fullPathName":"Category to delete","leftNode":"23","rightNode":"24","createTime":"2015-09-22T11:51:11+00:00","timeStamp":"2015-09-22T11:51:11+00:00","parentID":"0"}}'
-    http_version:
-  recorded_at: Wed, 23 Sep 2015 04:51:33 GMT
+      string: '{"@attributes":{"count":"1"},"Category":{"categoryID":"10","name":"Category
+        to delete","nodeDepth":"0","fullPathName":"Category to delete","leftNode":"11","rightNode":"12","createTime":"2016-02-13T00:46:30+00:00","timeStamp":"2016-02-13T00:46:30+00:00","parentID":"0"}}'
+    http_version: 
+  recorded_at: Sat, 13 Feb 2016 00:46:30 GMT
 - request:
     method: delete
-    uri: https://api.merchantos.com/API/Account/117102/Category/25.json
+    uri: https://api.merchantos.com/API/Account/-/Category/10.json
     body:
       encoding: US-ASCII
       string: ''
     headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
       User-Agent:
-      - Typhoeus - https://github.com/typhoeus/typhoeus
+      - Ruby
       Authorization:
-      - OAuth test
+      - OAuth OAuth Token
   response:
     status:
       code: 200
       message: OK
     headers:
       Date:
-      - Wed, 23 Sep 2015 04:51:11 GMT
+      - Sat, 13 Feb 2016 00:46:31 GMT
       Server:
       - Apache/2.2.15 (CentOS)
       X-Powered-By:
       - PHP/5.4.44
-      Content-Encoding:
-      - none
+      X-Ls-Api-Bucket-Level:
+      - 19.859433889389/90
+      X-Ls-Oauth-Client-Id:
+      - '19570'
+      X-Ls-Acct-Id:
+      - '120645'
       Content-Length:
       - '269'
       Content-Type:
       - application/json
     body:
       encoding: UTF-8
-      string: '{"@attributes":{"count":"1"},"Category":{"categoryID":"25","name":"Category
-        to delete","nodeDepth":"0","fullPathName":"Category to delete","leftNode":"23","rightNode":"24","createTime":"2015-09-22T11:51:11+00:00","timeStamp":"2015-09-22T11:51:11+00:00","parentID":"0"}}'
-    http_version:
-  recorded_at: Wed, 23 Sep 2015 04:51:33 GMT
+      string: '{"@attributes":{"count":"1"},"Category":{"categoryID":"10","name":"Category
+        to delete","nodeDepth":"0","fullPathName":"Category to delete","leftNode":"11","rightNode":"12","createTime":"2016-02-13T00:46:30+00:00","timeStamp":"2016-02-13T00:46:30+00:00","parentID":"0"}}'
+    http_version: 
+  recorded_at: Sat, 13 Feb 2016 00:46:31 GMT
 - request:
     method: get
-    uri: https://api.merchantos.com/API/Account/117102/Category.json?categoryID=25
+    uri: https://api.merchantos.com/API/Account/-/Category.json?categoryID=10&limit=1
     body:
       encoding: US-ASCII
       string: ''
     headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
       User-Agent:
-      - Typhoeus - https://github.com/typhoeus/typhoeus
+      - Ruby
       Authorization:
-      - OAuth test
+      - OAuth OAuth Token
   response:
     status:
       code: 200
       message: OK
     headers:
       Date:
-      - Wed, 23 Sep 2015 04:52:13 GMT
+      - Sat, 13 Feb 2016 00:46:31 GMT
       Server:
       - Apache/2.2.15 (CentOS)
       X-Powered-By:
       - PHP/5.4.44
-      Content-Encoding:
-      - none
+      X-Ls-Api-Bucket-Level:
+      - 19.924640893936/90
+      X-Ls-Oauth-Client-Id:
+      - '19570'
+      X-Ls-Acct-Id:
+      - '120645'
       Content-Length:
       - '29'
       Content-Type:
@@ -99,38 +123,6 @@ http_interactions:
     body:
       encoding: UTF-8
       string: '{"@attributes":{"count":"0"}}'
-    http_version:
-  recorded_at: Wed, 23 Sep 2015 04:52:35 GMT
-- request:
-    method: get
-    uri: https://api.merchantos.com/API/Account/117102/Category.json?categoryID=25&limit=1
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      User-Agent:
-      - Typhoeus - https://github.com/typhoeus/typhoeus
-      Authorization:
-      - OAuth test
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Date:
-      - Thu, 24 Sep 2015 03:10:45 GMT
-      Server:
-      - Apache/2.2.15 (CentOS)
-      X-Powered-By:
-      - PHP/5.4.44
-      Content-Encoding:
-      - none
-      Content-Length:
-      - '29'
-      Content-Type:
-      - application/json
-    body:
-      encoding: UTF-8
-      string: '{"@attributes":{"count":"0"}}'
-    http_version:
-  recorded_at: Thu, 24 Sep 2015 03:10:46 GMT
+    http_version: 
+  recorded_at: Sat, 13 Feb 2016 00:46:32 GMT
+recorded_with: VCR 2.9.3

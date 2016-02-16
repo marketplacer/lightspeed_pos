@@ -2,13 +2,17 @@
 http_interactions:
 - request:
     method: put
-    uri: https://api.merchantos.com/API/Account/120645/Sale/1.json
+    uri: https://api.merchantos.com/API/Account/-/Sale/1.json
     body:
       encoding: UTF-8
       string: '{"SaleLines":[{"SaleLine":{"itemID":1,"unitQuantity":1,"unitPrice":"0.01","tax":false}}]}'
     headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
       User-Agent:
-      - Typhoeus - https://github.com/typhoeus/typhoeus
+      - Ruby
       Authorization:
       - OAuth OAuth Token
   response:
@@ -17,29 +21,29 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Fri, 27 Nov 2015 04:53:03 GMT
+      - Sat, 13 Feb 2016 00:49:39 GMT
       Server:
       - Apache/2.2.15 (CentOS)
       X-Powered-By:
       - PHP/5.4.44
       X-Ls-Api-Bucket-Level:
-      - 10/180
+      - 41.276129961013/90
       X-Ls-Oauth-Client-Id:
       - '19570'
       X-Ls-Acct-Id:
       - '120645'
-      Content-Length:
-      - '4080'
       Vary:
       - Accept-Encoding
+      Content-Length:
+      - '948'
       Content-Type:
       - application/json
     body:
-      encoding: UTF-8
-      string: '{"@attributes":{"count":"1"},"Sale":{"saleID":"1","timeStamp":"2015-11-27T04:53:04+00:00","discountPercent":"0","completed":"false","archived":"false","voided":"false","enablePromotions":"true","isTaxInclusive":"false","referenceNumber":"","referenceNumberSource":"","tax1Rate":"0.09","tax2Rate":"0","change":"0","receiptPreference":"printed","displayableSubtotal":"4.94","ticketNumber":"220000000001","calcDiscount":"0","calcTotal":"5.16","calcSubtotal":"4.94","calcTaxable":"2.46","calcNonTaxable":"2.48","calcAvgCost":"12","calcFIFOCost":"12","calcTax1":"0.22","calcTax2":"0","calcPayments":"0","total":"5.16","totalDue":"5.16","displayableTotal":"5.16","balance":"5.16","customerID":"0","discountID":"0","employeeID":"1","quoteID":"0","registerID":"1","shipToID":"0","shopID":"1","taxCategoryID":"1","Shop":{"shopID":"1","name":"Kit
+      encoding: ASCII-8BIT
+      string: '{"@attributes":{"count":"1"},"Sale":{"saleID":"1","timeStamp":"2016-02-13T00:49:39+00:00","discountPercent":"0","completed":"false","archived":"false","voided":"false","enablePromotions":"true","isTaxInclusive":"false","referenceNumber":"","referenceNumberSource":"","tax1Rate":"0.09","tax2Rate":"0","change":"0","receiptPreference":"printed","displayableSubtotal":"4.96","ticketNumber":"220000000001","calcDiscount":"0","calcTotal":"5.18","calcSubtotal":"4.96","calcTaxable":"2.46","calcNonTaxable":"2.5","calcAvgCost":"16","calcFIFOCost":"16","calcTax1":"0.22","calcTax2":"0","calcPayments":"0","total":"5.18","totalDue":"5.18","displayableTotal":"5.18","balance":"5.18","customerID":"0","discountID":"0","employeeID":"1","quoteID":"0","registerID":"1","shipToID":"0","shopID":"1","taxCategoryID":"1","Shop":{"shopID":"1","name":"Kit
         Kraft Sandbox","serviceRate":"0","timeZone":"US\/Pacific","taxLabor":"false","labelTitle":"Shop
         Name","labelMsrp":"false","archived":"false","timeStamp":"2015-11-04T20:26:24+00:00","companyRegistrationNumber":"","vatNumber":"","contactID":"2","taxCategoryID":"1","receiptSetupID":"1","vendorID":"0","ccGatewayID":"1","priceLevelID":"1"},"TaxCategory":{"taxCategoryID":"1","isTaxInclusive":"false","tax1Name":"Sales
-        Tax","tax2Name":"","tax1Rate":"0.09","tax2Rate":"0","timeStamp":"2015-11-04T18:42:42+00:00"},"SaleLines":{"SaleLine":[{"saleLineID":"12","createTime":"2015-11-27T04:44:26+00:00","timeStamp":"2015-11-27T04:44:26+00:00","unitQuantity":"2","unitPrice":"1.23","normalUnitPrice":"0","discountAmount":"0","discountPercent":"0","avgCost":"2","fifoCost":"2","tax":"true","tax1Rate":"0.09","tax2Rate":"0","isLayaway":"false","isWorkorder":"false","isSpecialOrder":"false","displayableSubtotal":"2.46","displayableUnitPrice":"1.23","calcLineDiscount":"0","calcTransactionDiscount":"0","calcTotal":"2.6814","calcSubtotal":"2.46","calcTax1":"0.2214","calcTax2":"0","taxClassID":"1","customerID":"0","discountID":"0","employeeID":"1","itemID":"1","noteID":"0","parentSaleLineID":"0","shopID":"1","saleID":"1"},{"saleLineID":"13","createTime":"2015-11-27T04:48:19+00:00","timeStamp":"2015-11-27T04:48:19+00:00","unitQuantity":"2","unitPrice":"1.23","normalUnitPrice":"0","discountAmount":"0","discountPercent":"0","avgCost":"2","fifoCost":"2","tax":"false","tax1Rate":"0","tax2Rate":"0","isLayaway":"false","isWorkorder":"false","isSpecialOrder":"false","displayableSubtotal":"2.46","displayableUnitPrice":"1.23","calcLineDiscount":"0","calcTransactionDiscount":"0","calcTotal":"2.46","calcSubtotal":"2.46","calcTax1":"0","calcTax2":"0","taxClassID":"1","customerID":"0","discountID":"0","employeeID":"1","itemID":"1","noteID":"0","parentSaleLineID":"0","shopID":"1","saleID":"1"},{"saleLineID":"14","createTime":"2015-11-27T04:51:02+00:00","timeStamp":"2015-11-27T04:51:02+00:00","unitQuantity":"1","unitPrice":"0.01","normalUnitPrice":"0","discountAmount":"0","discountPercent":"0","avgCost":"2","fifoCost":"2","tax":"false","tax1Rate":"0","tax2Rate":"0","isLayaway":"false","isWorkorder":"false","isSpecialOrder":"false","displayableSubtotal":"0.01","displayableUnitPrice":"0.01","calcLineDiscount":"0","calcTransactionDiscount":"0","calcTotal":"0.01","calcSubtotal":"0.01","calcTax1":"0","calcTax2":"0","taxClassID":"1","customerID":"0","discountID":"0","employeeID":"1","itemID":"1","noteID":"0","parentSaleLineID":"0","shopID":"1","saleID":"1"},{"saleLineID":"15","createTime":"2015-11-27T04:53:04+00:00","timeStamp":"2015-11-27T04:53:04+00:00","unitQuantity":"1","unitPrice":"0.01","normalUnitPrice":"0","discountAmount":"0","discountPercent":"0","avgCost":"2","fifoCost":"2","tax":"false","tax1Rate":"0","tax2Rate":"0","isLayaway":"false","isWorkorder":"false","isSpecialOrder":"false","displayableSubtotal":"0.01","displayableUnitPrice":"0.01","calcLineDiscount":"0","calcTransactionDiscount":"0","calcTotal":"0.01","calcSubtotal":"0.01","calcTax1":"0","calcTax2":"0","taxClassID":"1","customerID":"0","discountID":"0","employeeID":"1","itemID":"1","noteID":"0","parentSaleLineID":"0","shopID":"1","saleID":"1"}]},"taxTotal":"0.22"}}'
+        Tax","tax2Name":"","tax1Rate":"0.09","tax2Rate":"0","timeStamp":"2015-11-04T18:42:42+00:00"},"SaleLines":{"SaleLine":[{"saleLineID":"12","createTime":"2015-11-27T04:44:26+00:00","timeStamp":"2015-11-27T04:44:26+00:00","unitQuantity":"2","unitPrice":"1.23","normalUnitPrice":"0","discountAmount":"0","discountPercent":"0","avgCost":"2","fifoCost":"2","tax":"true","tax1Rate":"0.09","tax2Rate":"0","isLayaway":"false","isWorkorder":"false","isSpecialOrder":"false","displayableSubtotal":"2.46","displayableUnitPrice":"1.23","calcLineDiscount":"0","calcTransactionDiscount":"0","calcTotal":"2.6814","calcSubtotal":"2.46","calcTax1":"0.2214","calcTax2":"0","taxClassID":"1","customerID":"0","discountID":"0","employeeID":"1","itemID":"1","noteID":"0","parentSaleLineID":"0","shopID":"1","saleID":"1"},{"saleLineID":"13","createTime":"2015-11-27T04:48:19+00:00","timeStamp":"2015-11-27T04:48:19+00:00","unitQuantity":"2","unitPrice":"1.23","normalUnitPrice":"0","discountAmount":"0","discountPercent":"0","avgCost":"2","fifoCost":"2","tax":"false","tax1Rate":"0","tax2Rate":"0","isLayaway":"false","isWorkorder":"false","isSpecialOrder":"false","displayableSubtotal":"2.46","displayableUnitPrice":"1.23","calcLineDiscount":"0","calcTransactionDiscount":"0","calcTotal":"2.46","calcSubtotal":"2.46","calcTax1":"0","calcTax2":"0","taxClassID":"1","customerID":"0","discountID":"0","employeeID":"1","itemID":"1","noteID":"0","parentSaleLineID":"0","shopID":"1","saleID":"1"},{"saleLineID":"14","createTime":"2015-11-27T04:51:02+00:00","timeStamp":"2015-11-27T04:51:02+00:00","unitQuantity":"1","unitPrice":"0.01","normalUnitPrice":"0","discountAmount":"0","discountPercent":"0","avgCost":"2","fifoCost":"2","tax":"false","tax1Rate":"0","tax2Rate":"0","isLayaway":"false","isWorkorder":"false","isSpecialOrder":"false","displayableSubtotal":"0.01","displayableUnitPrice":"0.01","calcLineDiscount":"0","calcTransactionDiscount":"0","calcTotal":"0.01","calcSubtotal":"0.01","calcTax1":"0","calcTax2":"0","taxClassID":"1","customerID":"0","discountID":"0","employeeID":"1","itemID":"1","noteID":"0","parentSaleLineID":"0","shopID":"1","saleID":"1"},{"saleLineID":"15","createTime":"2015-11-27T04:53:04+00:00","timeStamp":"2015-11-27T04:53:04+00:00","unitQuantity":"1","unitPrice":"0.01","normalUnitPrice":"0","discountAmount":"0","discountPercent":"0","avgCost":"2","fifoCost":"2","tax":"false","tax1Rate":"0","tax2Rate":"0","isLayaway":"false","isWorkorder":"false","isSpecialOrder":"false","displayableSubtotal":"0.01","displayableUnitPrice":"0.01","calcLineDiscount":"0","calcTransactionDiscount":"0","calcTotal":"0.01","calcSubtotal":"0.01","calcTax1":"0","calcTax2":"0","taxClassID":"1","customerID":"0","discountID":"0","employeeID":"1","itemID":"1","noteID":"0","parentSaleLineID":"0","shopID":"1","saleID":"1"},{"saleLineID":"202","createTime":"2016-02-12T06:05:35+00:00","timeStamp":"2016-02-12T06:05:35+00:00","unitQuantity":"1","unitPrice":"0.01","normalUnitPrice":"0","discountAmount":"0","discountPercent":"0","avgCost":"2","fifoCost":"2","tax":"false","tax1Rate":"0","tax2Rate":"0","isLayaway":"false","isWorkorder":"false","isSpecialOrder":"false","displayableSubtotal":"0.01","displayableUnitPrice":"0.01","calcLineDiscount":"0","calcTransactionDiscount":"0","calcTotal":"0.01","calcSubtotal":"0.01","calcTax1":"0","calcTax2":"0","taxClassID":"1","customerID":"0","discountID":"0","employeeID":"1","itemID":"1","noteID":"0","parentSaleLineID":"0","shopID":"1","saleID":"1"},{"saleLineID":"205","createTime":"2016-02-13T00:49:39+00:00","timeStamp":"2016-02-13T00:49:39+00:00","unitQuantity":"1","unitPrice":"0.01","normalUnitPrice":"0","discountAmount":"0","discountPercent":"0","avgCost":"2","fifoCost":"2","tax":"false","tax1Rate":"0","tax2Rate":"0","isLayaway":"false","isWorkorder":"false","isSpecialOrder":"false","displayableSubtotal":"0.01","displayableUnitPrice":"0.01","calcLineDiscount":"0","calcTransactionDiscount":"0","calcTotal":"0.01","calcSubtotal":"0.01","calcTax1":"0","calcTax2":"0","taxClassID":"1","customerID":"0","discountID":"0","employeeID":"1","itemID":"1","noteID":"0","parentSaleLineID":"0","shopID":"1","saleID":"1"}]},"taxTotal":"0.22"}}'
     http_version: 
-  recorded_at: Fri, 27 Nov 2015 04:53:04 GMT
+  recorded_at: Sat, 13 Feb 2016 00:49:40 GMT
 recorded_with: VCR 2.9.3

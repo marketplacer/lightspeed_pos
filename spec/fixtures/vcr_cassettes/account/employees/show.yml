@@ -7,8 +7,12 @@ http_interactions:
       encoding: US-ASCII
       string: ''
     headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
       User-Agent:
-      - Typhoeus - https://github.com/typhoeus/typhoeus
+      - Ruby
       Authorization:
       - OAuth OAuth Token
   response:
@@ -17,26 +21,27 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Thu, 10 Dec 2015 14:08:17 GMT
+      - Sat, 13 Feb 2016 00:46:38 GMT
       Server:
       - Apache/2.2.15 (CentOS)
       X-Powered-By:
       - PHP/5.4.44
       X-Ls-Api-Bucket-Level:
-      - 1.7337079048157/90
+      - 77.444746732711/90
       X-Ls-Oauth-Client-Id:
-      - '20367'
+      - '19570'
       X-Ls-Acct-Id:
-      - '121415'
-      Content-Length:
-      - '2578'
+      - '120645'
       Vary:
       - Accept-Encoding
+      Content-Length:
+      - '763'
       Content-Type:
       - application/json
     body:
-      encoding: UTF-8
-      string: '{"@attributes":{"count":"1","offset":"0","limit":"1"},"Employee":{"employeeID":"1","firstName":"Andy","lastName":"Gauth","accessPin":"","lockOut":"false","archived":"false","timeStamp":"2015-11-25T14:57:19+00:00","contactID":"1","clockInEmployeeHoursID":"0","employeeRoleID":"4","limitToShopID":"0","lastShopID":"1","lastSaleID":"4","lastRegisterID":"1","Contact":{"contactID":"1","custom":"","noEmail":"false","noPhone":"false","noMail":"false","timeStamp":"2015-11-20T14:28:31+00:00","Addresses":"","Phones":{"ContactPhone":{"number":"(819)\u00a0111-1111","useType":"Work"}},"Emails":{"ContactEmail":{"address":"test@example.com","useType":"Primary"}},"Websites":""},"EmployeeRole":{"employeeRoleID":"4","name":"Owner","EmployeeRights":{"EmployeeRight":[{"employeeRightID":"4","name":"allow_login"},{"employeeRightID":"8","name":"register"},{"employeeRightID":"12","name":"register_refund"},{"employeeRightID":"16","name":"register_open"},{"employeeRightID":"20","name":"register_withdraw"},{"employeeRightID":"24","name":"register_close"},{"employeeRightID":"27","name":"register_price"},{"employeeRightID":"31","name":"register_reopen"},{"employeeRightID":"35","name":"register_catalogs"},{"employeeRightID":"39","name":"register_layaway"},{"employeeRightID":"43","name":"register_line_discount"},{"employeeRightID":"47","name":"register_transaction_discount"},{"employeeRightID":"51","name":"inventory"},{"employeeRightID":"55","name":"inventory_base"},{"employeeRightID":"59","name":"product_cost"},{"employeeRightID":"63","name":"prouct_edit"},{"employeeRightID":"67","name":"purchase_orders"},{"employeeRightID":"71","name":"special_orders"},{"employeeRightID":"75","name":"transfers"},{"employeeRightID":"79","name":"inventory_counts"},{"employeeRightID":"82","name":"vendors"},{"employeeRightID":"85","name":"inventory_taxonomy"},{"employeeRightID":"89","name":"vendor_returns"},{"employeeRightID":"92","name":"reports"},{"employeeRightID":"94","name":"admin"},{"employeeRightID":"96","name":"admin_shops"},{"employeeRightID":"98","name":"admin_employees"},{"employeeRightID":"100","name":"admin_purchases"},{"employeeRightID":"102","name":"admin_void_sale"},{"employeeRightID":"104","name":"admin_inventory"},{"employeeRightID":"108","name":"workbench"},{"employeeRightID":"112","name":"change_password"},{"employeeRightID":"116","name":"messages_read"},{"employeeRightID":"120","name":"messages_send"},{"employeeRightID":"124","name":"customers"},{"employeeRightID":"126","name":"inventory_import"},{"employeeRightID":"129","name":"customers_credit_limit"}]}}}}'
-    http_version:
-  recorded_at: Thu, 10 Dec 2015 14:08:17 GMT
+      encoding: ASCII-8BIT
+      string: '{"@attributes":{"count":"1","offset":"0","limit":"1"},"Employee":{"employeeID":"1","firstName":"Jordan","lastName":"Sitkin","accessPin":"","lockOut":"false","archived":"false","timeStamp":"2016-01-14T21:39:54+00:00","contactID":"1","clockInEmployeeHoursID":"0","employeeRoleID":"4","limitToShopID":"0","lastShopID":"1","lastSaleID":"116","lastRegisterID":"1","Contact":{"contactID":"1","custom":"","noEmail":"false","noPhone":"false","noMail":"false","timeStamp":"2015-11-04T18:41:22+00:00","Addresses":"","Phones":{"ContactPhone":{"number":"555
+        555 5555","useType":"Work"}},"Emails":{"ContactEmail":{"address":"jordan@kitkraft.com","useType":"Primary"}},"Websites":""},"EmployeeRole":{"employeeRoleID":"4","name":"Owner","EmployeeRights":{"EmployeeRight":[{"employeeRightID":"4","name":"allow_login"},{"employeeRightID":"8","name":"register"},{"employeeRightID":"12","name":"register_refund"},{"employeeRightID":"16","name":"register_open"},{"employeeRightID":"20","name":"register_withdraw"},{"employeeRightID":"24","name":"register_close"},{"employeeRightID":"27","name":"register_price"},{"employeeRightID":"31","name":"register_reopen"},{"employeeRightID":"35","name":"register_catalogs"},{"employeeRightID":"39","name":"register_layaway"},{"employeeRightID":"43","name":"register_line_discount"},{"employeeRightID":"47","name":"register_transaction_discount"},{"employeeRightID":"51","name":"inventory"},{"employeeRightID":"54","name":"reports"},{"employeeRightID":"56","name":"admin"},{"employeeRightID":"58","name":"admin_shops"},{"employeeRightID":"60","name":"admin_employees"},{"employeeRightID":"62","name":"admin_purchases"},{"employeeRightID":"64","name":"admin_void_sale"},{"employeeRightID":"66","name":"admin_inventory"},{"employeeRightID":"70","name":"workbench"},{"employeeRightID":"74","name":"change_password"},{"employeeRightID":"78","name":"messages_read"},{"employeeRightID":"82","name":"messages_send"},{"employeeRightID":"86","name":"customers"},{"employeeRightID":"88","name":"inventory_import"},{"employeeRightID":"91","name":"customers_credit_limit"},{"employeeRightID":"116","name":"inventory_base"},{"employeeRightID":"117","name":"product_cost"},{"employeeRightID":"118","name":"product_edit"},{"employeeRightID":"119","name":"purchase_orders"},{"employeeRightID":"120","name":"special_orders"},{"employeeRightID":"121","name":"transfers"},{"employeeRightID":"122","name":"inventory_counts"},{"employeeRightID":"123","name":"vendor_returns"},{"employeeRightID":"126","name":"vendors"},{"employeeRightID":"127","name":"inventory_taxonomy"}]}}}}'
+    http_version: 
+  recorded_at: Sat, 13 Feb 2016 00:46:39 GMT
 recorded_with: VCR 2.9.3

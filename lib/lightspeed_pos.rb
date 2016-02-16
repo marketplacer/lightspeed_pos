@@ -1,4 +1,3 @@
-require 'typhoeus'
 require 'json'
 
 module Lightspeed

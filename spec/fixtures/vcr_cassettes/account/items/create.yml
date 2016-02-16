@@ -2,35 +2,43 @@
 http_interactions:
 - request:
     method: post
-    uri: https://api.merchantos.com/API/Account/117102/Item.json
+    uri: https://api.merchantos.com/API/Account/-/Item.json
     body:
       encoding: UTF-8
       string: '{"description":"Onesie"}'
     headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
       User-Agent:
-      - Typhoeus - https://github.com/typhoeus/typhoeus
+      - Ruby
       Authorization:
-      - OAuth test
+      - OAuth OAuth Token
   response:
     status:
       code: 200
       message: OK
     headers:
       Date:
-      - Wed, 23 Sep 2015 04:54:28 GMT
+      - Sat, 13 Feb 2016 00:47:21 GMT
       Server:
       - Apache/2.2.15 (CentOS)
       X-Powered-By:
       - PHP/5.4.44
-      Content-Encoding:
-      - none
+      X-Ls-Api-Bucket-Level:
+      - 12.351366519926/90
+      X-Ls-Oauth-Client-Id:
+      - '19570'
+      X-Ls-Acct-Id:
+      - '120645'
       Content-Length:
-      - '1021'
+      - '1058'
       Content-Type:
       - application/json
     body:
       encoding: UTF-8
-      string: '{"@attributes":{"count":"1"},"Item":{"itemID":"27","systemSku":"210000000026","defaultCost":"0","avgCost":"0","discountable":"true","tax":"true","archived":"false","itemType":"default","description":"Onesie","modelYear":"0","upc":"","ean":"","customSku":"","manufacturerSku":"","createTime":"2015-09-22T11:54:29+00:00","timeStamp":"2015-09-22T11:54:29+00:00","categoryID":"0","taxClassID":"2","departmentID":"0","itemMatrixID":"0","manufacturerID":"0","seasonID":"0","defaultVendorID":"0","itemECommerceID":"0","ItemShops":{"ItemShop":[{"itemShopID":"41","qoh":"0","backorder":"0","componentQoh":"0","componentBackorder":"0","reorderPoint":"0","reorderLevel":"0","timeStamp":"2015-09-22T11:54:29+00:00","itemID":"27","shopID":"1"},{"itemShopID":"42","qoh":"0","backorder":"0","componentQoh":"0","componentBackorder":"0","reorderPoint":"0","reorderLevel":"0","timeStamp":"2015-09-22T11:54:29+00:00","itemID":"27","shopID":"0"}]},"Prices":{"ItemPrice":[{"amount":"0","useType":"Default"},{"amount":"0","useType":"MSRP"}]}}}'
-    http_version:
-  recorded_at: Wed, 23 Sep 2015 04:54:50 GMT
+      string: '{"@attributes":{"count":"1"},"Item":{"itemID":"429","systemSku":"210000000435","defaultCost":"0","avgCost":"0","discountable":"true","tax":"true","archived":"false","itemType":"default","description":"Onesie","modelYear":"0","upc":"","ean":"","customSku":"","manufacturerSku":"","createTime":"2016-02-13T00:47:21+00:00","timeStamp":"2016-02-13T00:47:21+00:00","categoryID":"0","taxClassID":"1","departmentID":"0","itemMatrixID":"0","manufacturerID":"0","seasonID":"0","defaultVendorID":"0","itemECommerceID":"0","ItemShops":{"ItemShop":[{"itemShopID":"859","qoh":"0","backorder":"0","componentQoh":"0","componentBackorder":"0","reorderPoint":"0","reorderLevel":"0","timeStamp":"2016-02-13T00:47:21+00:00","itemID":"429","shopID":"1"},{"itemShopID":"858","qoh":"0","backorder":"0","componentQoh":"0","componentBackorder":"0","reorderPoint":"0","reorderLevel":"0","timeStamp":"2016-02-13T00:47:21+00:00","itemID":"429","shopID":"0"}]},"Prices":{"ItemPrice":[{"amount":"0","useTypeID":"1","useType":"Default"},{"amount":"0","useTypeID":"2","useType":"MSRP"}]}}}'
+    http_version: 
+  recorded_at: Sat, 13 Feb 2016 00:47:22 GMT
 recorded_with: VCR 2.9.3

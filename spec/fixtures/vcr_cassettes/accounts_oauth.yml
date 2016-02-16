@@ -2,75 +2,92 @@
 http_interactions:
 - request:
     method: get
-    uri: https://api.merchantos.com/API/Account.json?limit=1&load_relations=all
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      User-Agent:
-      - Typhoeus - https://github.com/typhoeus/typhoeus
-      Authorization:
-      - OAuth test
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Date:
-      - Thu, 24 Sep 2015 03:17:39 GMT
-      Server:
-      - Apache/2.2.15 (CentOS)
-      X-Powered-By:
-      - PHP/5.4.44
-      Content-Encoding:
-      - none
-      Content-Length:
-      - '143'
-      Content-Type:
-      - application/json
-      X-Lightspeed-Url-Whitelist:
-      - 139.130.215.166
-      - Ref:LCO-2036
-    body:
-      encoding: UTF-8
-      string: '{"@attributes":{"count":"1"},"Account":{"accountID":"117102","name":"Marketplacer
-        2","link":{"@attributes":{"href":"\/API\/Account\/117102"}}}}'
-    http_version:
-  recorded_at: Thu, 24 Sep 2015 03:17:40 GMT
-- request:
-    method: get
     uri: https://api.merchantos.com/API/Account.json?limit=1
     body:
       encoding: US-ASCII
       string: ''
     headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
       User-Agent:
-      - Typhoeus - https://github.com/typhoeus/typhoeus
+      - Ruby
       Authorization:
-      - OAuth test
+      - OAuth OAuth Token
   response:
     status:
       code: 200
       message: OK
     headers:
       Date:
-      - Thu, 24 Sep 2015 03:32:42 GMT
+      - Sat, 13 Feb 2016 00:46:37 GMT
       Server:
       - Apache/2.2.15 (CentOS)
       X-Powered-By:
       - PHP/5.4.44
-      Content-Encoding:
-      - none
+      X-Ls-Api-Bucket-Level:
+      - 75.898271799086/90
+      X-Ls-Oauth-Client-Id:
+      - '19570'
+      X-Ls-Acct-Id:
+      - '120645'
       Content-Length:
-      - '143'
+      - '146'
       Content-Type:
       - application/json
       X-Lightspeed-Url-Whitelist:
-      - 139.130.215.166
+      - 67.169.116.105
       - Ref:LCO-2036
     body:
       encoding: UTF-8
-      string: '{"@attributes":{"count":"1"},"Account":{"accountID":"117102","name":"Marketplacer
-        2","link":{"@attributes":{"href":"\/API\/Account\/117102"}}}}'
-    http_version:
-  recorded_at: Thu, 24 Sep 2015 03:32:42 GMT
+      string: '{"@attributes":{"count":"1"},"Account":{"accountID":"120645","name":"Kit
+        Kraft Sandbox","link":{"@attributes":{"href":"\/API\/Account\/120645"}}}}'
+    http_version: 
+  recorded_at: Sat, 13 Feb 2016 00:46:37 GMT
+- request:
+    method: get
+    uri: https://api.merchantos.com/API/Account.json?limit=1&load_relations=all
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Authorization:
+      - OAuth OAuth Token
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Sat, 13 Feb 2016 00:46:37 GMT
+      Server:
+      - Apache/2.2.15 (CentOS)
+      X-Powered-By:
+      - PHP/5.4.44
+      X-Ls-Api-Bucket-Level:
+      - 76.47055864334/90
+      X-Ls-Oauth-Client-Id:
+      - '19570'
+      X-Ls-Acct-Id:
+      - '120645'
+      Content-Length:
+      - '146'
+      Content-Type:
+      - application/json
+      X-Lightspeed-Url-Whitelist:
+      - 67.169.116.105
+      - Ref:LCO-2036
+    body:
+      encoding: UTF-8
+      string: '{"@attributes":{"count":"1"},"Account":{"accountID":"120645","name":"Kit
+        Kraft Sandbox","link":{"@attributes":{"href":"\/API\/Account\/120645"}}}}'
+    http_version: 
+  recorded_at: Sat, 13 Feb 2016 00:46:37 GMT
+recorded_with: VCR 2.9.3

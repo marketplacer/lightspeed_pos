@@ -7,8 +7,12 @@ http_interactions:
       encoding: US-ASCII
       string: ''
     headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
       User-Agent:
-      - Typhoeus - https://github.com/typhoeus/typhoeus
+      - Ruby
       Authorization:
       - OAuth OAuth Token
   response:
@@ -17,30 +21,28 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Fri, 04 Dec 2015 22:33:37 GMT
+      - Sat, 13 Feb 2016 00:49:27 GMT
       Server:
       - Apache/2.2.15 (CentOS)
       X-Powered-By:
       - PHP/5.4.44
       X-Ls-Api-Bucket-Level:
-      - 1/60
+      - 9.2179536819447/90
       X-Ls-Oauth-Client-Id:
       - '19570'
       X-Ls-Acct-Id:
       - '120645'
-      Content-Encoding:
-      - none
       Content-Length:
       - '146'
       Content-Type:
       - application/json
       X-Lightspeed-Url-Whitelist:
-      - 192.83.146.26
+      - 67.169.116.105
       - Ref:LCO-2036
     body:
       encoding: UTF-8
       string: '{"@attributes":{"count":"1"},"Account":{"accountID":"120645","name":"Kit
         Kraft Sandbox","link":{"@attributes":{"href":"\/API\/Account\/120645"}}}}'
     http_version: 
-  recorded_at: Fri, 04 Dec 2015 22:33:37 GMT
+  recorded_at: Sat, 13 Feb 2016 00:49:27 GMT
 recorded_with: VCR 2.9.3

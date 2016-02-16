@@ -2,13 +2,17 @@
 http_interactions:
 - request:
     method: post
-    uri: https://api.merchantos.com/API/Account/120645/Vendor.json
+    uri: https://api.merchantos.com/API/Account/-/Vendor.json
     body:
       encoding: UTF-8
-      string: '{"accountNumber":"testAccountNumber123"}'
+      string: '{"accountNumber":"testAccountNumber123","name":"Test Vendor 1A"}'
     headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
       User-Agent:
-      - Typhoeus - https://github.com/typhoeus/typhoeus
+      - Ruby
       Authorization:
       - OAuth OAuth Token
   response:
@@ -17,24 +21,25 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Wed, 04 Nov 2015 21:35:47 GMT
+      - Sat, 13 Feb 2016 00:55:17 GMT
       Server:
       - Apache/2.2.15 (CentOS)
       X-Powered-By:
       - PHP/5.4.44
+      X-Ls-Api-Bucket-Level:
+      - 47.80268406868/90
       X-Ls-Oauth-Client-Id:
       - '19570'
       X-Ls-Acct-Id:
       - '120645'
-      Content-Encoding:
-      - none
       Content-Length:
-      - '278'
+      - '293'
       Content-Type:
       - application/json
     body:
       encoding: UTF-8
-      string: '{"@attributes":{"count":"1"},"Vendor":{"vendorID":"67","name":"","archived":"false","accountNumber":"testAccountNumber123","priceLevel":"","updatePrice":"false","updateCost":"false","updateDescription":"false","shareSellThrough":"false","timeStamp":"2015-11-04T21:35:47+00:00"}}'
+      string: '{"@attributes":{"count":"1"},"Vendor":{"vendorID":"716","name":"Test
+        Vendor 1A","archived":"false","accountNumber":"testAccountNumber123","priceLevel":"","updatePrice":"false","updateCost":"false","updateDescription":"false","shareSellThrough":"false","timeStamp":"2016-02-13T00:55:17+00:00"}}'
     http_version: 
-  recorded_at: Wed, 04 Nov 2015 21:35:49 GMT
+  recorded_at: Sat, 13 Feb 2016 00:55:18 GMT
 recorded_with: VCR 2.9.3
