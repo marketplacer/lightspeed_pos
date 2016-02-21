@@ -1,12 +1,8 @@
 # Lightspeed POS
 
-[![Build Status](https://travis-ci.org/radar/lightspeed_pos.svg?branch=master)](https://travis-ci.org/radar/lightspeed_pos)
-[![Code Climate](https://codeclimate.com/github/radar/lightspeed-pos/badges/gpa.svg)](https://codeclimate.com/github/radar/lightspeed-pos)
-
-
 An _unofficial_ gem for interacting with [Lightspeed's Point of Sale API](http://www.lightspeedpos.com/retail/help/developers/api/basics/), ([documentation](http://cloud-docs.lightspeedapp.com/API/APIHelp.help)).
 
-Most definitely not production ready yet, but you can help by submitting pull requests!
+Not all endpoints are implemented yet, but you can help by submitting pull requests!
 
 ## Getting Started
 
@@ -35,11 +31,16 @@ resources share a common API. Resources that are currently supported by this lib
 
 * Accounts
 * Categories
+* Employees
 * Items
 * Item Matrices
 * Item Attribute Sets
 * Images
 * Inventories
+* Orders
+* Sales
+* Shops
+* Special Orders
 * Vendors
 
 To work with account resources, you first need to fetch an account. The examples below are for items, but will also work with other types listed above.
@@ -119,3 +120,7 @@ item.destroy
 ```
 
 For the `Item` resource, `destroy` is aliased to `archive`:
+
+## Rate Limiting
+
+This gem respects the `X-LS-API-Bucket-Level` header by pausing before a request that would otherwise overrun the API rate limit. It calls `Kernel.sleep` with the minimum number of seconds needed to avoid hitting the limit, which suspends the current thread during that time. If you need to make API calls across multiple Lightspeed accounts using this gem, its recommended to make requests against each account in a separate thread.
