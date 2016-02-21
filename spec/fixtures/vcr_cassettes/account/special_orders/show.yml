@@ -1,0 +1,47 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.merchantos.com/API/Account/-/SpecialOrder.json?limit=1&load_relations=all&specialOrderID=3
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Authorization:
+      - OAuth OAuth Token
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Sun, 21 Feb 2016 04:24:31 GMT
+      Server:
+      - Apache/2.2.15 (CentOS)
+      X-Powered-By:
+      - PHP/5.4.44
+      X-Ls-Api-Bucket-Level:
+      - 1/180
+      X-Ls-Oauth-Client-Id:
+      - '19570'
+      X-Ls-Acct-Id:
+      - '120645'
+      Vary:
+      - Accept-Encoding
+      Content-Length:
+      - '845'
+      Content-Type:
+      - application/json
+    body:
+      encoding: ASCII-8BIT
+      string: '{"@attributes":{"count":"1","offset":"0","limit":"1"},"SpecialOrder":{"specialOrderID":"3","unitQuantity":"1","contacted":"false","completed":"false","timeStamp":"2016-02-21T03:58:45+00:00","status":"Ordered","customerID":"2","shopID":"1","saleLineID":"208","orderLineID":"19","transferItemID":"0","SaleLine":{"saleLineID":"208","createTime":"2016-02-21T03:12:11+00:00","timeStamp":"2016-02-21T03:13:40+00:00","unitQuantity":"1","unitPrice":"1.1","normalUnitPrice":"0","discountAmount":"0","discountPercent":"0","avgCost":"0","fifoCost":"0","tax":"true","tax1Rate":"0","tax2Rate":"0","isLayaway":"false","isWorkorder":"false","isSpecialOrder":"true","displayableSubtotal":"1.1","displayableUnitPrice":"1.1","calcLineDiscount":"0","calcTransactionDiscount":"0","calcTotal":"1.199","calcSubtotal":"1.1","calcTax1":"0.099","calcTax2":"0","taxClassID":"1","customerID":"2","discountID":"0","employeeID":"1","itemID":"408","noteID":"0","parentSaleLineID":"0","shopID":"1","taxCategoryID":"0","saleID":"0","TaxClass":{"taxClassID":"1","name":"Item","timeStamp":"2015-11-04T18:41:22+00:00"},"Item":{"itemID":"408","systemSku":"210000000414","defaultCost":"0","avgCost":"0","discountable":"true","tax":"true","archived":"false","itemType":"default","description":"1\/16\"
+        (1.6mm) ABS Plastic H-Column","modelYear":"0","upc":"","ean":"","customSku":"303734","manufacturerSku":"","createTime":"2016-02-05T01:38:38+00:00","timeStamp":"2016-02-21T03:09:53+00:00","categoryID":"0","taxClassID":"1","departmentID":"0","itemMatrixID":"0","itemAttributesID":"0","manufacturerID":"0","noteID":"145","seasonID":"0","defaultVendorID":"704","itemECommerceID":"0","Note":{"noteID":"145","note":"","isPublic":"false","timeStamp":"2016-02-21T02:51:01+00:00"},"Prices":{"ItemPrice":[{"amount":"1.1","useTypeID":"1","useType":"Default"},{"amount":"0","useTypeID":"2","useType":"MSRP"}]}}},"OrderLine":{"orderLineID":"19","quantity":"1","price":"0","originalPrice":"0","checkedIn":"0","numReceived":"0","integrationQoh":"0","integrationOrdered":"0","integrationResponse":"","timeStamp":"2016-02-21T03:58:45+00:00","total":"0","orderID":"8","itemID":"408"}}}'
+    http_version: 
+  recorded_at: Sun, 21 Feb 2016 04:24:31 GMT
+recorded_with: VCR 2.9.3

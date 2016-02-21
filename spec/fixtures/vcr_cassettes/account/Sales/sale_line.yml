@@ -1,0 +1,48 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.merchantos.com/API/Account/-/SaleLine/2.json?load_relations=all
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Authorization:
+      - OAuth OAuth Token
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Sun, 21 Feb 2016 04:27:44 GMT
+      Server:
+      - Apache/2.2.15 (CentOS)
+      X-Powered-By:
+      - PHP/5.4.44
+      X-Ls-Api-Bucket-Level:
+      - 1/180
+      X-Ls-Oauth-Client-Id:
+      - '19570'
+      X-Ls-Acct-Id:
+      - '120645'
+      Vary:
+      - Accept-Encoding
+      Content-Length:
+      - '715'
+      Content-Type:
+      - application/json
+    body:
+      encoding: ASCII-8BIT
+      string: '{"@attributes":{"count":"1"},"SaleLine":{"saleLineID":"2","createTime":"2015-11-12T01:59:29+00:00","timeStamp":"2015-11-12T01:59:29+00:00","unitQuantity":"1","unitPrice":"13.95","normalUnitPrice":"0","discountAmount":"0","discountPercent":"0","avgCost":"0","fifoCost":"0","tax":"true","tax1Rate":"0.09","tax2Rate":"0","isLayaway":"false","isWorkorder":"false","isSpecialOrder":"false","displayableSubtotal":"13.95","displayableUnitPrice":"13.95","calcLineDiscount":"0","calcTransactionDiscount":"0","calcTotal":"15.2055","calcSubtotal":"13.95","calcTax1":"1.2555","calcTax2":"0","taxClassID":"1","customerID":"0","discountID":"0","employeeID":"1","itemID":"177","noteID":"0","parentSaleLineID":"0","shopID":"1","taxCategoryID":"1","saleID":"12","TaxClass":{"taxClassID":"1","name":"Item","timeStamp":"2015-11-04T18:41:22+00:00"},"Item":{"itemID":"177","systemSku":"210000000177","defaultCost":"0","avgCost":"0","discountable":"true","tax":"true","archived":"false","itemType":"box","description":"Antique
+        Brass ''Elbow'' Studs - 3\/4\" CasePack","modelYear":"0","upc":"","ean":"","customSku":"302683AB","manufacturerSku":"","createTime":"2015-11-06T02:28:39+00:00","timeStamp":"2015-11-24T00:06:05+00:00","categoryID":"0","taxClassID":"1","departmentID":"0","itemMatrixID":"0","itemAttributesID":"0","manufacturerID":"0","noteID":"10","seasonID":"0","defaultVendorID":"73","itemECommerceID":"0","Prices":{"ItemPrice":[{"amount":"13.95","useTypeID":"1","useType":"Default"},{"amount":"0","useTypeID":"2","useType":"MSRP"}]}},"TaxCategory":{"taxCategoryID":"1","isTaxInclusive":"false","tax1Name":"Sales
+        Tax","tax2Name":"","tax1Rate":"0.09","tax2Rate":"0","timeStamp":"2015-11-04T18:42:42+00:00"}}}'
+    http_version: 
+  recorded_at: Sun, 21 Feb 2016 04:27:44 GMT
+recorded_with: VCR 2.9.3
