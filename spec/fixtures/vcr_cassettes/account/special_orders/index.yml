@@ -1,0 +1,49 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.merchantos.com/API/Account/-/SpecialOrder.json?limit=100&load_relations=all&offset=0
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Authorization:
+      - OAuth OAuth Token
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Sun, 21 Feb 2016 04:20:56 GMT
+      Server:
+      - Apache/2.2.15 (CentOS)
+      X-Powered-By:
+      - PHP/5.4.44
+      X-Ls-Api-Bucket-Level:
+      - 1/180
+      X-Ls-Oauth-Client-Id:
+      - '19570'
+      X-Ls-Acct-Id:
+      - '120645'
+      Vary:
+      - Accept-Encoding
+      Content-Length:
+      - '1024'
+      Content-Type:
+      - application/json
+    body:
+      encoding: ASCII-8BIT
+      string: '{"@attributes":{"count":"3","offset":"0","limit":"100"},"SpecialOrder":[{"specialOrderID":"1","unitQuantity":"1","contacted":"true","completed":"true","timeStamp":"2016-02-21T03:02:28+00:00","status":"Completed","customerID":"2","shopID":"1","saleLineID":"206","orderLineID":"17","transferItemID":"0","SaleLine":{"saleLineID":"206","createTime":"2016-02-21T02:35:41+00:00","timeStamp":"2016-02-21T03:02:28+00:00","unitQuantity":"1","unitPrice":"1.1","normalUnitPrice":"0","discountAmount":"0","discountPercent":"0","avgCost":"0","fifoCost":"0","tax":"true","tax1Rate":"0","tax2Rate":"0","isLayaway":"false","isWorkorder":"false","isSpecialOrder":"true","displayableSubtotal":"1.1","displayableUnitPrice":"1.1","calcLineDiscount":"0","calcTransactionDiscount":"0","calcTotal":"1.199","calcSubtotal":"1.1","calcTax1":"0.099","calcTax2":"0","taxClassID":"1","customerID":"2","discountID":"0","employeeID":"1","itemID":"408","noteID":"0","parentSaleLineID":"0","shopID":"1","taxCategoryID":"0","saleID":"123","TaxClass":{"taxClassID":"1","name":"Item","timeStamp":"2015-11-04T18:41:22+00:00"},"Item":{"itemID":"408","systemSku":"210000000414","defaultCost":"0","avgCost":"0","discountable":"true","tax":"true","archived":"false","itemType":"default","description":"1\/16\"
+        (1.6mm) ABS Plastic H-Column","modelYear":"0","upc":"","ean":"","customSku":"303734","manufacturerSku":"","createTime":"2016-02-05T01:38:38+00:00","timeStamp":"2016-02-21T03:09:53+00:00","categoryID":"0","taxClassID":"1","departmentID":"0","itemMatrixID":"0","itemAttributesID":"0","manufacturerID":"0","noteID":"145","seasonID":"0","defaultVendorID":"704","itemECommerceID":"0","Note":{"noteID":"145","note":"","isPublic":"false","timeStamp":"2016-02-21T02:51:01+00:00"},"Prices":{"ItemPrice":[{"amount":"1.1","useTypeID":"1","useType":"Default"},{"amount":"0","useTypeID":"2","useType":"MSRP"}]}}},"OrderLine":{"orderLineID":"17","quantity":"1","price":"0","originalPrice":"0","checkedIn":"2","numReceived":"0","integrationQoh":"0","integrationOrdered":"0","integrationResponse":"","timeStamp":"2016-02-21T03:00:15+00:00","total":"0","orderID":"6","itemID":"408"}},{"specialOrderID":"2","unitQuantity":"1","contacted":"false","completed":"true","timeStamp":"2016-02-21T03:10:59+00:00","status":"Completed","customerID":"2","shopID":"1","saleLineID":"207","orderLineID":"18","transferItemID":"0","SaleLine":{"saleLineID":"207","createTime":"2016-02-21T03:04:59+00:00","timeStamp":"2016-02-21T03:10:59+00:00","unitQuantity":"1","unitPrice":"1.1","normalUnitPrice":"0","discountAmount":"0","discountPercent":"0","avgCost":"0","fifoCost":"0","tax":"true","tax1Rate":"0","tax2Rate":"0","isLayaway":"false","isWorkorder":"false","isSpecialOrder":"true","displayableSubtotal":"1.1","displayableUnitPrice":"1.1","calcLineDiscount":"0","calcTransactionDiscount":"0","calcTotal":"1.199","calcSubtotal":"1.1","calcTax1":"0.099","calcTax2":"0","taxClassID":"1","customerID":"2","discountID":"0","employeeID":"1","itemID":"408","noteID":"0","parentSaleLineID":"0","shopID":"1","taxCategoryID":"0","saleID":"126","TaxClass":{"taxClassID":"1","name":"Item","timeStamp":"2015-11-04T18:41:22+00:00"},"Item":{"itemID":"408","systemSku":"210000000414","defaultCost":"0","avgCost":"0","discountable":"true","tax":"true","archived":"false","itemType":"default","description":"1\/16\"
+        (1.6mm) ABS Plastic H-Column","modelYear":"0","upc":"","ean":"","customSku":"303734","manufacturerSku":"","createTime":"2016-02-05T01:38:38+00:00","timeStamp":"2016-02-21T03:09:53+00:00","categoryID":"0","taxClassID":"1","departmentID":"0","itemMatrixID":"0","itemAttributesID":"0","manufacturerID":"0","noteID":"145","seasonID":"0","defaultVendorID":"704","itemECommerceID":"0","Note":{"noteID":"145","note":"","isPublic":"false","timeStamp":"2016-02-21T02:51:01+00:00"},"Prices":{"ItemPrice":[{"amount":"1.1","useTypeID":"1","useType":"Default"},{"amount":"0","useTypeID":"2","useType":"MSRP"}]}}},"OrderLine":{"orderLineID":"18","quantity":"1","price":"0","originalPrice":"0","checkedIn":"1","numReceived":"0","integrationQoh":"0","integrationOrdered":"0","integrationResponse":"","timeStamp":"2016-02-21T03:09:53+00:00","total":"0","orderID":"7","itemID":"408"}},{"specialOrderID":"3","unitQuantity":"1","contacted":"false","completed":"false","timeStamp":"2016-02-21T03:58:45+00:00","status":"Ordered","customerID":"2","shopID":"1","saleLineID":"208","orderLineID":"19","transferItemID":"0","SaleLine":{"saleLineID":"208","createTime":"2016-02-21T03:12:11+00:00","timeStamp":"2016-02-21T03:13:40+00:00","unitQuantity":"1","unitPrice":"1.1","normalUnitPrice":"0","discountAmount":"0","discountPercent":"0","avgCost":"0","fifoCost":"0","tax":"true","tax1Rate":"0","tax2Rate":"0","isLayaway":"false","isWorkorder":"false","isSpecialOrder":"true","displayableSubtotal":"1.1","displayableUnitPrice":"1.1","calcLineDiscount":"0","calcTransactionDiscount":"0","calcTotal":"1.199","calcSubtotal":"1.1","calcTax1":"0.099","calcTax2":"0","taxClassID":"1","customerID":"2","discountID":"0","employeeID":"1","itemID":"408","noteID":"0","parentSaleLineID":"0","shopID":"1","taxCategoryID":"0","saleID":"0","TaxClass":{"taxClassID":"1","name":"Item","timeStamp":"2015-11-04T18:41:22+00:00"},"Item":{"itemID":"408","systemSku":"210000000414","defaultCost":"0","avgCost":"0","discountable":"true","tax":"true","archived":"false","itemType":"default","description":"1\/16\"
+        (1.6mm) ABS Plastic H-Column","modelYear":"0","upc":"","ean":"","customSku":"303734","manufacturerSku":"","createTime":"2016-02-05T01:38:38+00:00","timeStamp":"2016-02-21T03:09:53+00:00","categoryID":"0","taxClassID":"1","departmentID":"0","itemMatrixID":"0","itemAttributesID":"0","manufacturerID":"0","noteID":"145","seasonID":"0","defaultVendorID":"704","itemECommerceID":"0","Note":{"noteID":"145","note":"","isPublic":"false","timeStamp":"2016-02-21T02:51:01+00:00"},"Prices":{"ItemPrice":[{"amount":"1.1","useTypeID":"1","useType":"Default"},{"amount":"0","useTypeID":"2","useType":"MSRP"}]}}},"OrderLine":{"orderLineID":"19","quantity":"1","price":"0","originalPrice":"0","checkedIn":"0","numReceived":"0","integrationQoh":"0","integrationOrdered":"0","integrationResponse":"","timeStamp":"2016-02-21T03:58:45+00:00","total":"0","orderID":"8","itemID":"408"}}]}'
+    http_version: 
+  recorded_at: Sun, 21 Feb 2016 04:20:56 GMT
+recorded_with: VCR 2.9.3

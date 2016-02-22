@@ -1,0 +1,62 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.merchantos.com/API/Account/-/Shop/1.json?load_relations=all
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Authorization:
+      - OAuth OAuth Token
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 22 Feb 2016 19:47:45 GMT
+      Server:
+      - Apache/2.2.15 (CentOS)
+      X-Powered-By:
+      - PHP/5.4.44
+      X-Ls-Api-Bucket-Level:
+      - 1/60
+      X-Ls-Oauth-Client-Id:
+      - '19570'
+      X-Ls-Acct-Id:
+      - '120645'
+      Vary:
+      - Accept-Encoding
+      Content-Length:
+      - '1227'
+      Content-Type:
+      - application/json
+    body:
+      encoding: ASCII-8BIT
+      string: '{"@attributes":{"count":"1"},"Shop":{"shopID":"1","name":"Kit Kraft
+        Sandbox","serviceRate":"0","timeZone":"US\/Pacific","taxLabor":"false","labelTitle":"Shop
+        Name","labelMsrp":"false","archived":"false","timeStamp":"2015-11-04T20:26:24+00:00","companyRegistrationNumber":"","vatNumber":"","contactID":"2","taxCategoryID":"1","receiptSetupID":"1","ccGatewayID":"1","priceLevelID":"1","Contact":{"contactID":"2","custom":"","noEmail":"false","noPhone":"false","noMail":"false","timeStamp":"2015-11-04T18:41:54+00:00","Addresses":{"ContactAddress":{"address1":"12109
+        Ventura Pl","city":"Studio City","state":"CA","zip":"91604","country":"United
+        States"}},"Phones":{"ContactPhone":{"number":"555 555 5555","useType":"Work"}},"Emails":{"ContactEmail":{"address":"jordan@kitkraft.com","useType":"Primary"}},"Websites":""},"TaxCategory":{"taxCategoryID":"1","isTaxInclusive":"false","tax1Name":"Sales
+        Tax","tax2Name":"","tax1Rate":"0.09","tax2Rate":"0","timeStamp":"2015-11-04T18:42:42+00:00"},"ReceiptSetup":{"receiptSetupID":"1","generalMsg":"","workorderAgree":"I
+        hereby authorize the repair work hereinafter set forth to be done along with
+        the necessary material and agree that you are not responsible for loss or
+        damage to vehicle or articles left in\/on vehicle in case of fire, theft or
+        any other cause beyond your control or for any delays caused by unavailability
+        of parts or delays in parts shipments by supplier or transporter. I hereby
+        grant you and\/or your employees permission to operate the vehicle herein
+        described on the streets or elsewhere for the purpose of testing and\/or inspection.
+        An express mechanic''s lien is hereby acknowledged on above vehicle to secure
+        the amount of the repair thereto.","creditcardAgree":"I agree to pay above
+        total amount according to card issuer agreement.","hasLogo":"true","logo":"https:\/\/res.cloudinary.com\/lightspeed-retail\/image\/upload\/w_225\/hsbm9of1r2dxbuvzrnbg.png","logoWidth":"225","header":""},"CCGateway":{"ccGatewayID":"1","marketType":"2","deviceType":"5","hashValue":"","enabled":"false","testMode":"false","gateway":"","terminalNum":"","allowCredits":"false","visaPaymentTypeID":"3","masterPaymentTypeID":"3","discoverPaymentTypeID":"3","americanPaymentTypeID":"3","debitPaymentTypeID":"6"},"PriceLevel":{"priceLevelID":"1","name":"Default","type":"fixed","archived":"false"},"Registers":{"Register":{"registerID":"1","name":"Register
+        1","open":"true","openTime":"2015-11-06T01:51:35+00:00","archived":"false","openEmployeeID":"1","shopID":"1","ccTerminalID":"0"}}}}'
+    http_version: 
+  recorded_at: Mon, 22 Feb 2016 19:47:45 GMT
+recorded_with: VCR 2.9.3
