@@ -15,7 +15,7 @@ module Lightspeed
       OrderLine: :hash
     )
 
-    relationships :SaleLine
+    relationships :SaleLine, :Shop
   end
 end
 

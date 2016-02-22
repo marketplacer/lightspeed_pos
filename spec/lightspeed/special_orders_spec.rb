@@ -22,12 +22,4 @@ describe Lightspeed::SpecialOrders do
     end
   end
 
-  it "can fetch a special order's SaleLine" do
-    special_order = Lightspeed::SpecialOrder.new(context: account, attributes: { "saleLineID" => 2 })
-    VCR.use_cassette("account/Sales/sale_line") do
-      sale_line = special_order.sale_line
-      expect(sale_line).to be_a(Lightspeed::SaleLine)
-    end
-  end
-
 end
