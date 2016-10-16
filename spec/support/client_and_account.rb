@@ -4,6 +4,8 @@ module ClientAndAccount
       Lightspeed::Client.new(
         if !Lightspeed::TEST_OAUTH_TOKEN.blank?
           { oauth_token: Lightspeed::TEST_OAUTH_TOKEN }
+        elsif !Lightspeed::TEST_API_KEY.blank?
+          { api_key: Lightspeed::TEST_API_KEY }
         end
       )
     end

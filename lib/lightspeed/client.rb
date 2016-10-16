@@ -6,9 +6,10 @@ require_relative 'request_throttler'
 
 module Lightspeed
   class Client
-    attr_accessor :oauth_token, :throttler
+    attr_accessor :api_key, :oauth_token, :throttler
 
-    def initialize(oauth_token: nil)
+    def initialize(oauth_token: nil, api_key: nil)
+      @api_key = api_key
       @oauth_token = oauth_token
       @throttler = Lightspeed::RequestThrottler.new
     end
