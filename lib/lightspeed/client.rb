@@ -18,14 +18,6 @@ module Lightspeed
       @accounts ||= Lightspeed::Accounts.new(context: self)
     end
 
-    def load_json(json)
-      data = JSON.parse(json)
-      Array.wrap(data).map do |resource|
-        resource = resource_class.new(context: self, attributes: resource)
-        @resources[resource.id] = resource
-      end
-    end
-
     def get(**args)
       perform_request(args.merge(method: :get))
     end

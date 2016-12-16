@@ -39,6 +39,6 @@ describe Lightspeed::Item do
   end
 
   it "can show a JSON representation of an item" do
-    expect(subject.to_json).to eq({ "itemID" => 2 }.to_json)
+    expect(subject.to_json).to eq("{\"itemID\":2}")
   end
 end

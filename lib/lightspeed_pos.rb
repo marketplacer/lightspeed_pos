@@ -1,4 +1,4 @@
-require 'json'
+require 'yajl'
 
 module Lightspeed
 end

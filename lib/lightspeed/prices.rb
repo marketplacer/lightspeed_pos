@@ -17,7 +17,7 @@ module Lightspeed
     alias_method :to_h, :as_json
 
     def to_json
-      as_json.to_json
+      Yajl::Encoder.encode(as_json)
     end
 
     def [](key)

@@ -52,7 +52,7 @@ module Lightspeed
     private
 
     def handle_success(response)
-      json = JSON.parse(response.body)
+      json = Yajl::Parser.parse(response.body)
       pp json if self.class.verbose?
       json
     end
@@ -64,7 +64,7 @@ module Lightspeed
     end
 
     def handle_error(response)
-      data = JSON.parse(response.body)
+      data = Yajl::Parser.parse(response.body)
       error = case response.code.to_s
       when '400' then Lightspeed::Error::BadRequest
       when '401' then Lightspeed::Error::Unauthorized

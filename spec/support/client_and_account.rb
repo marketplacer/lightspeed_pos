@@ -1,11 +1,11 @@
 module ClientAndAccount
   def setup_client_and_account
     let(:client) do
-      Lightspeed::Client.new(
-        if !Lightspeed::TEST_OAUTH_TOKEN.blank?
-          { oauth_token: Lightspeed::TEST_OAUTH_TOKEN }
-        end
-      )
+      if !Lightspeed::TEST_OAUTH_TOKEN.blank?
+        Lightspeed::Client.new(oauth_token: Lightspeed::TEST_OAUTH_TOKEN)
+      else
+        Lightspeed::Client.new
+      end
     end
 
     let(:accounts) do
