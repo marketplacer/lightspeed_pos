@@ -34,7 +34,7 @@ module Lightspeed
       @raw_request = request_class.new(uri)
       @raw_request.body = body if body
       @raw_request.set_form_data(@params) if @params && @method != :get
-      @raw_request["Authorization"] = "OAuth #{client.oauth_token}" if client.oauth_token
+      @raw_request["Authorization"] = "OAuth #{client.actual_token}" if client.actual_token
     end
 
     def perform

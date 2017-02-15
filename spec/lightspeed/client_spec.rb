@@ -1,10 +1,12 @@
 require 'spec_helper'
 
 describe Lightspeed::Client do
-  it "can set an oauth token" do
-    key = 'test'
-    client = Lightspeed::Client.new(oauth_token: key)
-    expect(client.oauth_token).to eq(key)
+  describe "oauth token" do
+    it "can set an oauth token" do
+      key = 'test'
+      client = Lightspeed::Client.new(oauth_token: key)
+      expect(client.actual_token).to eq(key)
+    end
   end
 
   it "sets the oauth token up for a request" do
