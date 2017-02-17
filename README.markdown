@@ -33,6 +33,7 @@ resources share a common API. Resources that are currently supported by this lib
 
 * Accounts
 * Categories
+* Customers
 * Employees
 * Items
 * Item Matrices
