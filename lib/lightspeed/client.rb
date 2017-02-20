@@ -3,13 +3,23 @@ require 'active_support/core_ext/array/wrap'
 require_relative 'accounts'
 require_relative 'request'
 require_relative 'request_throttler'
+require_relative 'authorization_token_holder'
+require_relative 'refresh_token_holder'
 
 module Lightspeed
   class Client
-    attr_accessor :oauth_token, :throttler
+    attr_accessor :throttler
 
-    def initialize(oauth_token: nil)
-      @oauth_token = oauth_token
+    def initialize(oauth_token: nil, refresh_token: nil, client_id: nil, client_secret: nil)
+      if refresh_token.nil?
+        @token_holder = Lightspeed::AuthorizationTokenHolder.new oauth_token: oauth_token
+      else
+        @token_holder = Lightspeed::RefreshTokenHolder.new(
+          refresh_token: refresh_token,
+          client_id: client_id,
+          client_secret: client_secret
+        )
+      end
       @throttler = Lightspeed::RequestThrottler.new
     end
 
@@ -32,6 +42,10 @@ module Lightspeed
 
     def delete(**args)
       perform_request(args.merge(method: :delete))
+    end
+
+    def actual_token
+      @token_holder.token
     end
 
     private
