@@ -34,10 +34,15 @@ module Lightspeed
       @raw_request = request_class.new(uri)
       @raw_request.body = body if body
       @raw_request.set_form_data(@params) if @params && @method != :get
-      @raw_request["Authorization"] = "OAuth #{client.oauth_token}" if client.oauth_token
+      @client = client
+      set_authorization_header
     end
 
-    def perform
+    def set_authorization_header
+      @raw_request["Authorization"] = "Bearer #{@client.oauth_token}" if @client.oauth_token
+    end
+
+    def perform_raw
       response = @http.request(raw_request)
       extract_rate_limits(response)
       if response.code == "200"
@@ -45,8 +50,16 @@ module Lightspeed
       else
         handle_error(response)
       end
+    end
+
+    def perform
+      perform_raw
     rescue Lightspeed::Error::Throttled
       retry_throttled_request
+    rescue Lightspeed::Error::Unauthorized
+      @client.refresh_oauth_token
+      set_authorization_header
+      perform_raw
     end
 
     private

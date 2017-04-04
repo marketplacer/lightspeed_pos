@@ -14,7 +14,7 @@ http_interactions:
       User-Agent:
       - Ruby
       Authorization:
-      - Bearer test
+      - Bearer test_refreshed
   response:
     status:
       code: 200
@@ -59,7 +59,7 @@ http_interactions:
       User-Agent:
       - Ruby
       Authorization:
-      - Bearer test
+      - Bearer test_refreshed
   response:
     status:
       code: 200
@@ -90,4 +90,53 @@ http_interactions:
         Kraft Sandbox","link":{"@attributes":{"href":"\/API\/Account\/120645"}}}}'
     http_version: 
   recorded_at: Sat, 13 Feb 2016 00:46:37 GMT
+- request:
+    method: get
+    uri: https://api.merchantos.com/API/Account.json?limit=1
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Authorization:
+      - Bearer test
+  response:
+    status:
+      code: 401
+      message: Unauthorized
+    headers:
+      Date:
+      - Tue, 04 Apr 2017 00:49:29 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '143'
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - __cfduid=dc1d4c524ae206ff9d35312ee959ac03c1491266968; expires=Wed, 04-Apr-18
+        00:49:28 GMT; path=/; domain=.merchantos.com; HttpOnly
+      Www-Authenticate:
+      - Basic realm="MerchantOS API"
+      X-Ls-Master-Account:
+      - 'false'
+      X-Ls-Master-Catalog:
+      - 'false'
+      X-Ls-Master-System:
+      - 'false'
+      Server:
+      - cloudflare-nginx
+      Cf-Ray:
+      - 34a0449b1f011d80-MEL
+    body:
+      encoding: UTF-8
+      string: '{"httpCode":"401","httpMessage":"Unauthorized","message":"Invalid username\/password
+        or API key.","errorClass":"BadAuthenticationRequestError"}'
+    http_version: 
+  recorded_at: Tue, 04 Apr 2017 00:49:29 GMT
 recorded_with: VCR 2.9.3

@@ -9,8 +9,10 @@ Not all endpoints are implemented yet, but you can help by submitting pull reque
 First, intialize a new client:
 
 ```ruby
-client = Lightspeed::Client.new(oauth_token: "YOUR_ACCESS_TOKEN_HERE")
+client = Lightspeed::Client.new(oauth_token_holder: yourOAuthAwareObjectHere)
 ```
+
+`yourOAuthAwareObjectHere` must be an object that responds to `oauth_token` and `refresh_oauth_token`. `oauth_token` must return an access token, and `refresh_oauth_token` must handle the refreshing of expired access tokens, so that a subsequent call to `oauth_token` will return a new, unexpired access token.
 
 Next, make a request for your accounts:
 

@@ -11,6 +11,7 @@ Dir[File.expand_path('support/**/*.rb', File.dirname(__FILE__))].each do |f|
 end
 
 Lightspeed::TEST_OAUTH_TOKEN = ENV['LIGHTSPEED_OAUTH_TOKEN']
+Lightspeed::TEST_OAUTH_REFRESH_TOKEN = ENV['LIGHTSPEED_OAUTH_REFRESH_TOKEN']
 Lightspeed::TEST_ACCOUNT_ID = ENV['LIGHTSPEED_ACCOUNT_ID'].to_i
 
 VCR.configure do |config|
@@ -24,6 +25,9 @@ VCR.configure do |config|
 
   unless Lightspeed::TEST_OAUTH_TOKEN.blank?
     config.filter_sensitive_data('OAuth Token') { Lightspeed::TEST_OAUTH_TOKEN }
+  end
+  unless Lightspeed::TEST_OAUTH_REFRESH_TOKEN.blank?
+    config.filter_sensitive_data('OAuth Refresh Token') { Lightspeed::TEST_OAUTH_REFRESH_TOKEN }
   end
   unless Lightspeed::TEST_ACCOUNT_ID.blank?
     config.filter_sensitive_data('/API/Account/-') { "/API/Account/#{Lightspeed::TEST_ACCOUNT_ID}" }

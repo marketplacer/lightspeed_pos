@@ -6,11 +6,13 @@ require_relative 'request_throttler'
 
 module Lightspeed
   class Client
-    attr_accessor :oauth_token, :throttler
+    attr_accessor :throttler
 
-    def initialize(oauth_token: nil)
-      @oauth_token = oauth_token
+    def initialize(oauth_token_holder: nil, oauth_token: nil)
+      @oauth_token_holder = oauth_token_holder
       @throttler = Lightspeed::RequestThrottler.new
+
+      raise "Passing an oauth token is no longer supported. Pass a token holder instead." if oauth_token
     end
 
     # Returns a list of accounts that you have access to.
@@ -34,6 +36,14 @@ module Lightspeed
       perform_request(args.merge(method: :delete))
     end
 
+    def oauth_token
+      @oauth_token_holder.oauth_token
+    end
+
+    def refresh_oauth_token
+      @oauth_token_holder.refresh_oauth_token
+    end
+
     private
 
     def perform_request(**args)
@@ -43,6 +53,5 @@ module Lightspeed
     def request **args
       Lightspeed::Request.new(self, **args)
     end
-
   end
 end
