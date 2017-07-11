@@ -81,6 +81,7 @@ module Lightspeed
       error = case response.code.to_s
       when '400' then Lightspeed::Error::BadRequest
       when '401' then Lightspeed::Error::Unauthorized
+      when '403' then Lightspeed::Error::NotAuthorized
       when '404' then Lightspeed::Error::NotFound
       when '429' then Lightspeed::Error::Throttled
       when /5../ then Lightspeed::Error::InternalServerError
