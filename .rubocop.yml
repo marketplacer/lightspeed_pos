@@ -49,8 +49,8 @@ IndentHash:
 IndentationWidth:
   Enabled: false
 
-CaseIndentation:
-  IndentWhenRelativeTo: end
+Layout/CaseIndentation:
+  EnforcedStyle: end
 
 FormatString:
   Enabled: false
@@ -65,5 +65,8 @@ SignalException:
 DoubleNegation:
   Enabled: false
 
-TrailingComma:
+Style/TrailingCommaInLiteral:
+  Enabled: false
+
+Style/TrailingCommaInArguments:
   Enabled: false
