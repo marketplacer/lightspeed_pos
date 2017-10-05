@@ -1,0 +1,63 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.merchantos.com/API/Account/-/PriceLevel.json?limit=100&load_relations=all&offset=0
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Authorization:
+      - Bearer OAuth Token
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 05 Oct 2017 00:46:12 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '206'
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - __cfduid=d41bd751f33b7cfea2542a26835001e671507164371; expires=Fri, 05-Oct-18
+        00:46:11 GMT; path=/; domain=.merchantos.com; HttpOnly; Secure
+      X-Ls-Acct-Id:
+      - '132986'
+      X-Ls-Oauth-Client-Id:
+      - '20794'
+      X-Ls-Api-Bucket-Level:
+      - 1/90
+      X-Ls-Shard-Id:
+      - '23'
+      X-Ls-Api-Drip-Rate:
+      - '1'
+      X-Ls-Master-System:
+      - 'true'
+      X-Ls-Master-Account:
+      - 'false'
+      X-Ls-Master-Catalog:
+      - 'false'
+      Vary:
+      - Accept-Encoding
+      Server:
+      - cloudflare-nginx
+      Cf-Ray:
+      - 3a8c5cc89dcc1d92-MEL
+    body:
+      encoding: ASCII-8BIT
+      string: '{"@attributes":{"count":"5","offset":"0","limit":"100"},"PriceLevel":[{"priceLevelID":"1","name":"Default","archived":"false","canBeArchived":"false","type":"fixed","Calculation":""},{"priceLevelID":"2","name":"MSRP","archived":"false","canBeArchived":"false","type":"fixed","Calculation":""},{"priceLevelID":"3","name":"Sale
+        Price","archived":"false","canBeArchived":"true","type":"fixed","Calculation":""},{"priceLevelID":"4","name":"Online","archived":"false","canBeArchived":"false","type":"fixed","Calculation":""},{"priceLevelID":"5","name":"James
+        price","archived":"false","canBeArchived":"true","type":"fixed","Calculation":""}]}'
+    http_version: 
+  recorded_at: Thu, 05 Oct 2017 00:46:12 GMT
+recorded_with: VCR 3.0.3

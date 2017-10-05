@@ -1,0 +1,61 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.merchantos.com/API/Account/-/PriceLevel.json?limit=1&load_relations=all&priceLevelID=1
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Authorization:
+      - Bearer OAuth Token
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 05 Oct 2017 00:46:57 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '151'
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - __cfduid=d08f7da0f6621224c78ccf3cb2c2c000d1507164416; expires=Fri, 05-Oct-18
+        00:46:56 GMT; path=/; domain=.merchantos.com; HttpOnly; Secure
+      X-Ls-Acct-Id:
+      - '132986'
+      X-Ls-Oauth-Client-Id:
+      - '20794'
+      X-Ls-Api-Bucket-Level:
+      - 1/90
+      X-Ls-Shard-Id:
+      - '23'
+      X-Ls-Api-Drip-Rate:
+      - '1'
+      X-Ls-Master-System:
+      - 'true'
+      X-Ls-Master-Account:
+      - 'false'
+      X-Ls-Master-Catalog:
+      - 'false'
+      Vary:
+      - Accept-Encoding
+      Server:
+      - cloudflare-nginx
+      Cf-Ray:
+      - 3a8c5de49b555215-MEL
+    body:
+      encoding: ASCII-8BIT
+      string: '{"@attributes":{"count":"5","offset":"0","limit":"1"},"PriceLevel":{"priceLevelID":"1","name":"55a4b9a994","archived":"false","canBeArchived":"false","type":"fixed","Calculation":""}}'
+    http_version: 
+  recorded_at: Thu, 05 Oct 2017 00:46:57 GMT
+recorded_with: VCR 3.0.3
