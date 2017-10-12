@@ -21,4 +21,4 @@ if ! docker images "$IMAGE" | grep --quiet "$IMAGE"; then
   docker pull "$IMAGE"
 fi
 
-docker run --rm=true -e "PARALLEL_TEST_PROCESSORS=$REAL_CORES" -v $PWD:/source -v ~/.buildbox/be-bundle-cache:/cache -v /tmp/ramdisk:/tmp/ramdisk -t marketplacer/ci /source/script/docker_tests
+docker run --rm=true -e "PARALLEL_TEST_PROCESSORS=$REAL_CORES" -v $PWD:/source -v ~/.buildbox/be-bundle-cache:/cache -v /tmp/ramdisk:/tmp/ramdisk -t "$IMAGE" /source/script/docker_tests
