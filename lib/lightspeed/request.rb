@@ -56,10 +56,12 @@ module Lightspeed
       perform_raw
     rescue Lightspeed::Error::Throttled
       retry_throttled_request
-    rescue Lightspeed::Error::Unauthorized
+    rescue Lightspeed::Error::Unauthorized => e
+      raise e if @attempted_oauth_token_refresh
       @client.refresh_oauth_token
       set_authorization_header
-      perform_raw
+      @attempted_oauth_token_refresh = true
+      perform
     end
 
     private
