@@ -10,9 +10,8 @@ Dir[File.expand_path('support/**/*.rb', File.dirname(__FILE__))].each do |f|
   require f
 end
 
-Lightspeed::TEST_OAUTH_TOKEN = "a_test_oauth_token"
-Lightspeed::TEST_ACCOUNT_ID = 000000
-Lightspeed::TEST_API_KEY = "a_test_api_key"
+Lightspeed::TEST_OAUTH_TOKEN = ENV['LIGHTSPEED_OAUTH_TOKEN']
+Lightspeed::TEST_ACCOUNT_ID = ENV['LIGHTSPEED_ACCOUNT_ID'].to_i
 
 VCR.configure do |config|
   config.register_request_matcher :anonymised_path do |*reqs|
@@ -25,9 +24,6 @@ VCR.configure do |config|
 
   unless Lightspeed::TEST_OAUTH_TOKEN.blank?
     config.filter_sensitive_data('OAuth Token') { Lightspeed::TEST_OAUTH_TOKEN }
-  end
-  unless Lightspeed::TEST_API_KEY.blank?
-    config.filter_sensitive_data('ApiKey') { Lightspeed::TEST_API_KEY }
   end
   unless Lightspeed::TEST_ACCOUNT_ID.blank?
     config.filter_sensitive_data('/API/Account/-') { "/API/Account/#{Lightspeed::TEST_ACCOUNT_ID}" }
