@@ -1,11 +1,20 @@
 module ClientAndAccount
+  class ExampleTokenHolder
+    def initialize(token: nil, refresh_token: nil)
+      @token = token
+      @refresh_token = refresh_token
+    end
+
+    def oauth_token
+      @token
+    end
+  end
+
   def setup_client_and_account
     let(:client) do
-      Lightspeed::Client.new(
-        if !Lightspeed::TEST_OAUTH_TOKEN.blank?
-          { oauth_token: Lightspeed::TEST_OAUTH_TOKEN }
-        end
-      )
+      token = Lightspeed::TEST_OAUTH_TOKEN || nil
+      token_holder = ExampleTokenHolder.new(token: token)
+      Lightspeed::Client.new(oauth_token_holder: token_holder)
     end
 
     let(:accounts) do

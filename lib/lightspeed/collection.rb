@@ -1,7 +1,5 @@
 require 'active_support/core_ext/string'
 require 'active_support/core_ext/array/wrap'
-require 'active_support/json'
-require 'active_support/core_ext/object/json'
 
 module Lightspeed
   class Collection
@@ -20,10 +18,6 @@ module Lightspeed
 
     def unload
       @resources = {}
-    end
-
-    def load_json(json)
-      instantiate(JSON.parse(json))
     end
 
     def client
@@ -94,11 +88,11 @@ module Lightspeed
     end
 
     def create(attributes = {})
-      instantiate(post(body: attributes.to_json)).first
+      instantiate(post(body: Yajl::Encoder.encode(attributes))).first
     end
 
     def update(id, attributes = {})
-      instantiate(put(id, body: attributes.to_json)).first
+      instantiate(put(id, body: Yajl::Encoder.encode(attributes))).first
     end
 
     def destroy(id)
@@ -125,14 +119,14 @@ module Lightspeed
       "#<#{self.class.name} API#{base_path}>"
     end
 
-    def as_json(*args)
+    def as_json
       return if all_loaded.empty?
-      { resource_name => all_loaded.as_json(*args) }
+      { resource_name => all_loaded.as_json }
     end
     alias_method :to_h, :as_json
 
-    def to_json(*args)
-      as_json.to_json(*args)
+    def to_json
+      Yajl::Encoder.encode(as_json)
     end
 
     def page(n, per_page: PER_PAGE, params: {})

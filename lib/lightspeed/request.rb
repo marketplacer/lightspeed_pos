@@ -34,11 +34,15 @@ module Lightspeed
       @raw_request = request_class.new(uri)
       @raw_request.body = body if body
       @raw_request.set_form_data(@params) if @params && @method != :get
-      @raw_request["Authorization"] = "OAuth #{client.oauth_token}" if client.oauth_token
-      @raw_request.basic_auth("", "#{client.api_key}:apikey") if client.api_key
+      @client = client
+      set_authorization_header
     end
 
-    def perform
+    def set_authorization_header
+      @raw_request["Authorization"] = "Bearer #{@client.oauth_token}" if @client.oauth_token
+    end
+
+    def perform_raw
       response = @http.request(raw_request)
       extract_rate_limits(response)
       if response.code == "200"
@@ -46,14 +50,24 @@ module Lightspeed
       else
         handle_error(response)
       end
+    end
+
+    def perform
+      perform_raw
     rescue Lightspeed::Error::Throttled
       retry_throttled_request
+    rescue Lightspeed::Error::Unauthorized => e
+      raise e if @attempted_oauth_token_refresh
+      @client.refresh_oauth_token
+      set_authorization_header
+      @attempted_oauth_token_refresh = true
+      perform
     end
 
     private
 
     def handle_success(response)
-      json = JSON.parse(response.body)
+      json = Yajl::Parser.parse(response.body)
       pp json if self.class.verbose?
       json
     end
@@ -65,10 +79,11 @@ module Lightspeed
     end
 
     def handle_error(response)
-      data = JSON.parse(response.body)
+      data = Yajl::Parser.parse(response.body)
       error = case response.code.to_s
       when '400' then Lightspeed::Error::BadRequest
       when '401' then Lightspeed::Error::Unauthorized
+      when '403' then Lightspeed::Error::NotAuthorized
       when '404' then Lightspeed::Error::NotFound
       when '429' then Lightspeed::Error::Throttled
       when /5../ then Lightspeed::Error::InternalServerError

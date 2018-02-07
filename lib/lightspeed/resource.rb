@@ -1,8 +1,6 @@
 require 'bigdecimal'
 require 'active_support/core_ext/string'
 require 'active_support/core_ext/hash/slice'
-require 'active_support/json'
-require 'active_support/core_ext/object/json'
 
 require_relative 'collection'
 
@@ -74,7 +72,7 @@ module Lightspeed
     end
 
     def update(attributes = {})
-      self.attributes = put(body: attributes.to_json)[resource_name]
+      self.attributes = put(body: Yajl::Encoder.encode(attributes))[resource_name]
     end
 
     def destroy
@@ -115,12 +113,12 @@ module Lightspeed
     end
 
 
-    def to_json(*args)
-      as_json.to_json(*args)
+    def to_json
+      Yajl::Encoder.encode(as_json)
     end
 
-    def as_json(*args)
-      fields_to_h.merge(relationships_to_h).reject { |_, v| v.nil? || v == {} }.as_json(*args)
+    def as_json
+      fields_to_h.merge(relationships_to_h).reject { |_, v| v.nil? || v == {} }
     end
     alias_method :to_h, :as_json
 

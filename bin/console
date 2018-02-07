@@ -5,13 +5,31 @@ require 'dotenv'
 require 'lightspeed_pos'
 Lightspeed::Request.verbose = true
 
+class TokenHolder
+  def initialize(token: nil, refresh_token: nil)
+    @token = token
+    @refresh_token = refresh_token
+  end
+
+  def oauth_token
+    @token
+  end
+
+  def refresh_oauth_token
+    raise "Token expired, refresh not yet implemented"
+  end
+end
+
 # require "pry"
 # Pry.start
 Dotenv.load
 def client
   token = ENV['LIGHTSPEED_OAUTH_TOKEN']
+  refresh_token = ENV['LIGHTSPEED_OAUTH_REFRESH_TOKEN']
   raise 'set LIGHTSPEED_OAUTH_TOKEN as an envorinment variable to use this' unless token
-  @client ||= Lightspeed::Client.new(oauth_token: token)
+  raise 'set LIGHTSPEED_OAUTH_REFRESH_TOKEN as an envorinment variable to use this' unless refresh_token
+  token_holder = Tokenholder.new(token: token, refresh_token: refresh_token)
+  @client ||= Lightspeed::Client.new(oauth_token_holder: token_holder)
 end
 
 def account
