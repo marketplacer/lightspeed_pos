@@ -11,6 +11,7 @@ require_relative 'price_levels'
 require_relative 'sales'
 require_relative 'shops'
 require_relative 'special_orders'
+require_relative 'tax_classes'
 require_relative 'vendors'
 
 module Lightspeed
@@ -33,6 +34,7 @@ module Lightspeed
       :Sales,
       :Shops,
       :SpecialOrders,
+      :TaxClasses,
       :Vendors
     )
 
