@@ -10,7 +10,10 @@ module Lightspeed
 
     def perform_request request
       u = units request
-      sleep(u / @units_per_second) if @bucket_level + u > @bucket_max
+      # Because of concurrent processes, we always try to stay under the bucket max by a margin
+      if @bucket_level + u > @bucket_max - 20
+        sleep(u / @units_per_second)
+      end
       response = request.perform
       extract_rate_limits request
       response
