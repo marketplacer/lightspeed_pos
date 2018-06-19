@@ -41,4 +41,9 @@ describe Lightspeed::Item do
   it "can show a JSON representation of an item" do
     expect(subject.to_json).to eq("{\"itemID\":2}")
   end
+
+  # regression test - https://rollbar.com/bikeexchange/lightspeed-bridge/items/483/
+  it "does not try to set an attribute with a key that is nil" do
+    subject.attributes = nil
+  end
 end
