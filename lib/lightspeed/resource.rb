@@ -17,7 +17,7 @@ module Lightspeed
     end
 
     def attributes=(attributes)
-      @attributes = attributes
+      @attributes = attributes ||= {}
       attributes.each do |key, value|
         send(:"#{key}=", value) if self.respond_to?(:"#{key}=")
       end
