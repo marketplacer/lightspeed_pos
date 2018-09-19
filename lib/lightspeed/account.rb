@@ -8,6 +8,7 @@ require_relative 'item_attribute_sets'
 require_relative 'images'
 require_relative 'inventories'
 require_relative 'orders'
+require_relative 'order_lines'
 require_relative 'price_levels'
 require_relative 'sales'
 require_relative 'shops'
@@ -32,6 +33,7 @@ module Lightspeed
       :ItemAttributeSets,
       :Items,
       :Orders,
+      :OrderLines,
       :PriceLevels,
       :Sales,
       :Shops,
