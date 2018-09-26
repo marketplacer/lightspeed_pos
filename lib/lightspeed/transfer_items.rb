@@ -48,7 +48,6 @@ module Lightspeed
     end
 
     def post(params: {}, body:)
-      binding.pry
       client.post(
         path: collection_path(params.dig(:transferID), params.dig(:action)),
         body: body
