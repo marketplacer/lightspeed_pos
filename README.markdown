@@ -44,6 +44,8 @@ resources share a common API. Resources that are currently supported by this lib
 * Sales
 * Shops
 * Special Orders
+* TransferItems
+* Transfers
 * Vendors
 
 To work with account resources, you first need to fetch an account. The examples below are for items, but will also work with other types listed above.
@@ -123,6 +125,37 @@ item.destroy
 ```
 
 For the `Item` resource, `destroy` is aliased to `archive`:
+
+### TransferItems
+
+Since this module needs extra param to work properly, here's a short guide how to use it:
+
+* Get all TransferItems for specific transfer:
+```ruby
+account.transfer_items.all( transferID: 3 )
+```
+
+* Get single TransferItem for specific transfer:
+```ruby
+account.transfer_items.first( transferID: 3 )
+# OR
+account.transfer_items.find( transferID: 3, itemID: 40697 )
+```
+
+* Create TransferItems for specific transfer:
+```ruby
+account.transfer_items.create(transferID: 4, TransferItem: [{toSend: 10, itemID: 40697}])
+```
+
+* Update TransferItems for specific transfer:
+```ruby
+account.transfer_items.update(transferID: 4, TransferItem: [{toSend: 10, itemID: 40697}])
+```
+
+* Delete TransferItems for specific transfer:
+```ruby
+account.transfer_items.destroy(transferID: 4, TransferItem: [{itemID: 40697}])
+```
 
 ## Rate Limiting
 
