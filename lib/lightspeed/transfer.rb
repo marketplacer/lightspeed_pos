@@ -11,9 +11,9 @@ module Lightspeed
       status: :string,
       sentOn: :datetime,
       needBy: :datetime,
-      sendingShopId: :integer,
+      sendingShopID: :integer,
       sentByEmployeeID: :integer,
-      receivingShopId: :integer
+      receivingShopID: :integer
     )
 
     def base_path
