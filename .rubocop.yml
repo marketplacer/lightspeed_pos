@@ -1,3 +1,5 @@
+inherit_from: .rubocop_todo.yml
+
 AlignHash:
   EnforcedLastArgumentHashStyle: always_ignore
 
@@ -65,7 +67,7 @@ SignalException:
 DoubleNegation:
   Enabled: false
 
-Style/TrailingCommaInLiteral:
+Style/TrailingCommaInArrayLiteral:
   Enabled: false
 
 Style/TrailingCommaInArguments:
