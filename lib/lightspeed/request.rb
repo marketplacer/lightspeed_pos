@@ -79,7 +79,6 @@ module Lightspeed
     end
 
     def handle_error(response)
-      data = Yajl::Parser.parse(response.body)
       error = case response.code.to_s
       when '400' then Lightspeed::Error::BadRequest
       when '401' then Lightspeed::Error::Unauthorized
@@ -89,7 +88,14 @@ module Lightspeed
       when /5../ then Lightspeed::Error::InternalServerError
       else Lightspeed::Error
       end
-      raise error, data["message"]
+
+      # We may not get back valid JSON for a failed request
+      begin
+        data = Yajl::Parser.parse(response.body)
+        raise error, data["message"]
+      rescue Yajl::ParseError
+        raise error, response.code
+      end
     end
 
     def extract_rate_limits(response)
@@ -112,6 +118,5 @@ module Lightspeed
       when :delete then Net::HTTP::Delete
       end
     end
-
   end
 end
