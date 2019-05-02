@@ -126,3 +126,29 @@ For the `Item` resource, `destroy` is aliased to `archive`:
 ## Rate Limiting
 
 This gem respects the `X-LS-API-Bucket-Level` header by pausing before a request that would otherwise overrun the API rate limit. It calls `Kernel.sleep` with the minimum number of seconds needed to avoid hitting the limit, which suspends the current thread during that time. If you need to make API calls across multiple Lightspeed accounts using this gem, its recommended to make requests against each account in a separate thread.
+
+## Contributing
+
+### Local setup
+
+```
+$ bundle install
+```
+
+### How to run Tests
+
+```
+$ rspec
+```
+
+### How to write Tests
+
+This repository uses the [`vcr` gem](https://github.com/vcr/vcr) to record HTTP interactions and replay them during next tests runs.
+
+The following `ENV` variables are required for recording new HTTP interactions.
+
+* `LIGHTSPEED_OAUTH_TOKEN` : not expired OAuth token
+* `LIGHTSPEED_OAUTH_REFRESH_TOKEN` : the OAuth refresh token
+* `LIGHTSPEED_ACCOUNT_ID` : a Ligthspeed account id
+
+**Be careful with the data you set as real API calls will be performed.**
