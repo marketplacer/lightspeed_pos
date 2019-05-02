@@ -44,6 +44,7 @@ resources share a common API. Resources that are currently supported by this lib
 * Shops
 * Special Orders
 * Vendors
+* Customers
 
 To work with account resources, you first need to fetch an account. The examples below are for items, but will also work with other types listed above.
 
