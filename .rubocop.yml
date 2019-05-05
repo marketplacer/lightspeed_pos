@@ -44,7 +44,7 @@ PredicateName:
     - is_
     - have_
 
-IndentHash:
+IndentFirstHashElement:
   EnforcedStyle: consistent
 
 # breaks using if blocks with assignments
