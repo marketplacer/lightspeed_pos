@@ -49,7 +49,7 @@ module Lightspeed
         when :id then value.to_i
         when :datetime then DateTime.parse(value)
         when :boolean then value == 'true'
-        when :decimal then BigDecimal.new(value)
+        when :decimal then BigDecimal(value)
         when :hash then Hash.new(value)
         else
           raise ArgumentError, "Could not transform value #{value} to a #{kind}"

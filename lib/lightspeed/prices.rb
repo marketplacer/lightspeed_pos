@@ -8,7 +8,7 @@ module Lightspeed
     end
 
     def prices
-      @prices ||= @attributes["ItemPrice"].map { |v| [v["useType"].parameterize.underscore.to_sym, BigDecimal.new(v["amount"])] }.to_h
+      @prices ||= @attributes["ItemPrice"].map { |v| [v["useType"].parameterize.underscore.to_sym, BigDecimal(v["amount"])] }.to_h
     end
 
     def as_json
