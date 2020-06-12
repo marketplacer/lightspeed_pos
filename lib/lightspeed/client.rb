@@ -21,19 +21,19 @@ module Lightspeed
     end
 
     def get(**args)
-      perform_request(args.merge(method: :get))
+      perform_request(**args, method: :get)
     end
 
     def post(**args)
-      perform_request(args.merge(method: :post))
+      perform_request(**args, method: :post)
     end
 
     def put(**args)
-      perform_request(args.merge(method: :put))
+      perform_request(**args, method: :put)
     end
 
     def delete(**args)
-      perform_request(args.merge(method: :delete))
+      perform_request(**args, method: :delete)
     end
 
     def oauth_token
