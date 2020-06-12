@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Lightspeed
   class RequestThrottler
     attr_accessor :bucket_level, :bucket_max, :units_per_second

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module ClientAndAccount
   class ExampleTokenHolder
     def initialize(token: nil, refresh_token: nil)

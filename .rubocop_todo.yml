@@ -68,12 +68,6 @@ Layout/EmptyLinesAroundClassBody:
     - 'lib/lightspeed/sale_line.rb'
     - 'lib/lightspeed/vendor.rb'
 
-# Offense count: 1
-# Cop supports --auto-correct.
-Layout/LeadingBlankLines:
-  Exclude:
-    - 'lib/lightspeed/item.rb'
-
 # Offense count: 3
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyle, IndentationWidth.
@@ -108,7 +102,7 @@ Layout/SpaceInsideHashLiteralBraces:
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyle.
 # SupportedStyles: final_newline, final_blank_line
-Layout/TrailingBlankLines:
+Layout/TrailingEmptyLines:
   Exclude:
     - 'lib/lightspeed/customer.rb'
     - 'lib/lightspeed/customers.rb'
@@ -174,7 +168,7 @@ Metrics/BlockLength:
 # Offense count: 2
 # Configuration parameters: MinNameLength, AllowNamesEndingInNumbers, AllowedNames, ForbiddenNames.
 # AllowedNames: io, id, to, by, on, in, at, ip, db
-Naming/UncommunicativeMethodParamName:
+Naming/MethodParameterName:
   Exclude:
     - 'lib/lightspeed/accounts.rb'
     - 'lib/lightspeed/collection.rb'
@@ -198,14 +192,6 @@ Style/Alias:
     - 'lib/lightspeed/sales.rb'
     - 'lib/lightspeed/vendor.rb'
     - 'lib/lightspeed/vendors.rb'
-
-# Offense count: 1
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle.
-# SupportedStyles: braces, no_braces, context_dependent
-Style/BracesAroundHashParameters:
-  Exclude:
-    - 'spec/lightspeed/sales_spec.rb'
 
 # Offense count: 1
 # Cop supports --auto-correct.

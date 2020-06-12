@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'bigdecimal'
 require 'active_support/core_ext/string'
 require 'active_support/core_ext/hash/slice'
@@ -32,6 +34,7 @@ module Lightspeed
     def self.fields(fields = {})
       @fields ||= []
       attr_writer(*fields.keys)
+
       fields.each do |name, klass|
         @fields << define_method(name) do
           get_transformed_value(name, klass)
