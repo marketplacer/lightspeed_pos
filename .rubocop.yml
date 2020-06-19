@@ -1,70 +1,70 @@
 inherit_from: .rubocop_todo.yml
 
-AlignHash:
+AllCops:
+  NewCops: enable
+
+Layout/HashAlignment:
   EnforcedLastArgumentHashStyle: always_ignore
 
-AlignParameters:
+Layout/ParameterAlignment:
   Enabled: false
 
-LineLength:
+Layout/LineLength:
   Max: 180
 
-ClassLength:
+Metrics/ClassLength:
   Enabled: true
   Severity: refactor
   Max: 300
 
-MethodLength:
+Metrics/MethodLength:
   Enabled: true
   Max: 30
   Severity: refactor
 
-CyclomaticComplexity:
+Metrics/CyclomaticComplexity:
   Max: 10
   Severity: refactor
 
-EndAlignment:
+Layout/EndAlignment:
   Enabled: false
 
-StringLiterals:
+Style/StringLiterals:
   Enabled: false
 
-Documentation:
+Style/Documentation:
   Enabled: false
 
-PercentLiteralDelimiters:
+Style/PercentLiteralDelimiters:
   PreferredDelimiters:
     '%w': '{}'
 
-MethodDefParentheses:
+Style/MethodDefParentheses:
   Enabled: false
 
-PredicateName:
-  NamePrefixBlacklist:
+Naming/PredicateName:
+  ForbiddenPrefixes:
     - is_
     - have_
 
-IndentFirstHashElement:
+Layout/FirstHashElementIndentation:
   EnforcedStyle: consistent
 
 # breaks using if blocks with assignments
-IndentationWidth:
+Layout/IndentationWidth:
   Enabled: false
 
 Layout/CaseIndentation:
   EnforcedStyle: end
 
-FormatString:
-  Enabled: false
-
-ActionFilter:
+Style/FormatString:
   Enabled: false
 
 # different methods calls that do exactly the same thing are a smell, regardless of semantics
-SignalException:
+Style/SignalException:
   EnforcedStyle: only_raise
 
-DoubleNegation:
+Style/DoubleNegation:
   Enabled: false
 
 Style/TrailingCommaInArrayLiteral:

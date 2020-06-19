@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'bigdecimal'
 require 'active_support/core_ext/string'
 require 'active_support/core_ext/hash/slice'
@@ -32,6 +34,7 @@ module Lightspeed
     def self.fields(fields = {})
       @fields ||= []
       attr_writer(*fields.keys)
+
       fields.each do |name, klass|
         @fields << define_method(name) do
           get_transformed_value(name, klass)
@@ -49,7 +52,7 @@ module Lightspeed
         when :id then value.to_i
         when :datetime then DateTime.parse(value)
         when :boolean then value == 'true'
-        when :decimal then BigDecimal.new(value)
+        when :decimal then BigDecimal(value)
         when :hash then Hash.new(value)
         else
           raise ArgumentError, "Could not transform value #{value} to a #{kind}"

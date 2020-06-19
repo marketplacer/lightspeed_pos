@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'active_support/core_ext/string'
 
 $LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
@@ -6,7 +8,7 @@ Dotenv.load
 require 'lightspeed_pos'
 require 'webmock/rspec'
 require 'vcr'
-Dir[File.expand_path('support/**/*.rb', File.dirname(__FILE__))].each do |f|
+Dir[File.expand_path('support/**/*.rb', File.dirname(__FILE__))].sort.each do |f|
   require f
 end
 

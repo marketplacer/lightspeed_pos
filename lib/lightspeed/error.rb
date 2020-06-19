@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Lightspeed
   class Error < Exception
     class BadRequest < Lightspeed::Error; end # 400
