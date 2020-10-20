@@ -50,6 +50,7 @@ module Lightspeed
       ItemShelfLocations: :hash,
       ItemVendorNums: :hash,
       CustomFieldValues: :hash,
+      publishToEcom: :boolean,
       Prices: :hash,
       Tags: :hash
     )
