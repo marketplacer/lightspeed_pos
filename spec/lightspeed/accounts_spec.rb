@@ -9,7 +9,7 @@ describe Lightspeed::Accounts do
         key = 'test'
         token_holder = ExampleTokenHolder.new(token: key)
         client = Lightspeed::Client.new(oauth_token_holder: token_holder)
-        expect { client.accounts.all }.not_to raise_error ArgumentError
+        expect { client.accounts.all }.not_to raise_error
       end
     end
   end
