@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ExampleTokenHolder
   def initialize(token: nil, refresh_token: nil)
     @token = token
@@ -12,4 +14,3 @@ class ExampleTokenHolder
     @token = "#{@token}_refreshed"
   end
 end
-
