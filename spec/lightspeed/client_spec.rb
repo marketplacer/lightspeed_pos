@@ -13,7 +13,7 @@ class ExampleTokenHolder
   end
 
   def refresh_oauth_token
-    @token = @token + "_refreshed"
+    @token = "#{@token}_refreshed"
   end
 end
 

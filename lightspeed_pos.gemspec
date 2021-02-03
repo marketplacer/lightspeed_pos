@@ -20,6 +20,8 @@ Gem::Specification.new do |spec|
   spec.require_paths = ["lib"]
   spec.license       = "MIT"
 
+  spec.required_ruby_version = '>= 2.5'
+
   spec.add_dependency "activesupport"
   spec.add_dependency "yajl-ruby"
 

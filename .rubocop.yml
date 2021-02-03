@@ -2,6 +2,9 @@ inherit_from: .rubocop_todo.yml
 
 AllCops:
   NewCops: enable
+  SuggestExtensions:
+    rubocop-rake: false
+    rubocop-rspec: false
 
 Layout/HashAlignment:
   EnforcedLastArgumentHashStyle: always_ignore
