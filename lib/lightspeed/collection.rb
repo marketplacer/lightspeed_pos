@@ -176,7 +176,7 @@ module Lightspeed
       params = { load_relations: load_relations_default }
         .merge(context_params)
         .merge(params)
-        .reject { |_, v| v.nil? }
+        .compact
       client.get(
         path: collection_path,
         params: params

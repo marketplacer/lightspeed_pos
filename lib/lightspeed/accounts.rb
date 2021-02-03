@@ -13,7 +13,7 @@ module Lightspeed
       first_loaded || first
     end
 
-    def page(n, *args)
+    def page(n, **args)
       # turns out lightspeed doesn't respect pagination for accounts.
       # so page(1) is identical to page(0).
       # they should be different, thus.

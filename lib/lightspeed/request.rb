@@ -108,7 +108,7 @@ module Lightspeed
 
     def uri
       uri = self.class.base_path + @path
-      uri += "?" + URI.encode_www_form(@params) if @params && @method == :get
+      uri += "?#{URI.encode_www_form(@params)}" if @params && @method == :get
       uri
     end
 
