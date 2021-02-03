@@ -8,7 +8,7 @@ require_relative 'collection'
 
 module Lightspeed
   class ID < Integer; end
-  class Link; end
+  class Link; end # rubocop:disable Lint/EmptyClass
   class Resource
     attr_accessor :id, :attributes, :client, :context, :account
 
@@ -48,8 +48,7 @@ module Lightspeed
       if value.is_a?(String)
         case kind
         when :string then value
-        when :integer then value.to_i
-        when :id then value.to_i
+        when :id, :integer then value.to_i
         when :datetime then DateTime.parse(value)
         when :boolean then value == 'true'
         when :decimal then BigDecimal(value)
