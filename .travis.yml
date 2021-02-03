@@ -4,6 +4,8 @@ rvm:
   - 2.6
   - 2.7
   - 3.0
+before_install:
+  - gem install bundler --version $(ruby -e "puts File.read(File.join(Dir.pwd, 'Gemfile.lock')).scan /BUNDLED WITH\n\s*([\d.]+)$/")
 script:
   - 'bundle exec rubocop'
   - 'bundle exec rspec spec'
