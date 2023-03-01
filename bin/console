@@ -4,6 +4,7 @@
 require 'bundler/setup'
 require 'dotenv'
 require 'lightspeed_pos'
+
 Lightspeed::Request.verbose = true
 
 class TokenHolder
@@ -25,10 +26,13 @@ end
 # Pry.start
 Dotenv.load
 def client
-  token = ENV['LIGHTSPEED_OAUTH_TOKEN']
-  refresh_token = ENV['LIGHTSPEED_OAUTH_REFRESH_TOKEN']
+  token = ENV.fetch('LIGHTSPEED_OAUTH_TOKEN', nil)
+  refresh_token = ENV.fetch('LIGHTSPEED_OAUTH_REFRESH_TOKEN', nil)
+
   raise 'set LIGHTSPEED_OAUTH_TOKEN as an envorinment variable to use this' unless token
+
   raise 'set LIGHTSPEED_OAUTH_REFRESH_TOKEN as an envorinment variable to use this' unless refresh_token
+
   token_holder = Tokenholder.new(token: token, refresh_token: refresh_token)
   @client ||= Lightspeed::Client.new(oauth_token_holder: token_holder)
 end

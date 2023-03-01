@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-require 'pp'
 require 'net/http'
 
 module Lightspeed
@@ -14,7 +13,7 @@ module Lightspeed
     end
 
     def self.verbose?
-      !! @verbose
+      !!@verbose
     end
 
     def self.base_host
@@ -60,6 +59,7 @@ module Lightspeed
       retry_throttled_request
     rescue Lightspeed::Error::Unauthorized => e
       raise e if @attempted_oauth_token_refresh
+
       @client.refresh_oauth_token
       set_authorization_header
       @attempted_oauth_token_refresh = true
@@ -101,9 +101,9 @@ module Lightspeed
     end
 
     def extract_rate_limits(response)
-      if bucket_headers = response["X-LS-API-Bucket-Level"]
-        @bucket_level, @bucket_max = bucket_headers.split("/").map(&:to_f)
-      end
+      return unless bucket_headers = response["X-LS-API-Bucket-Level"]
+
+      @bucket_level, @bucket_max = bucket_headers.split("/").map(&:to_f)
     end
 
     def uri
