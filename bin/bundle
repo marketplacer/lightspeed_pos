@@ -1,0 +1,5 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+require File.expand_path("../config/boot.rb", __dir__)
+load Gem.bin_path("bundler", "bundle")

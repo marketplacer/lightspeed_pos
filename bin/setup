@@ -1,7 +1,27 @@
 #!/bin/bash
+# Prepares the system to run the application.
+#
+#   1. Ensures Bundler is installed
+#   2. Installs RubyGem dependencies to vendor/bundle
+#
 set -euo pipefail
 IFS=$'\n\t'
 
-bundle install
 
-# Do any other automated setup that you need to do here
+# Determines if a RubyGem is installed
+is_gem_installed() {
+  local name="$1"
+
+  gem list "$name" | grep --quiet "$name"
+}
+
+# Ensure Bundler is installed
+if ! is_gem_installed bundler; then
+  gem install bundler
+fi
+
+# Install bundle
+(
+  cd "$(dirname "${BASH_SOURCE[0]}")/..";
+  bin/bundle check || bin/bundle install;
+)

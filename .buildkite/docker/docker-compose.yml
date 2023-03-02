@@ -1,0 +1,8 @@
+version: '3'
+
+services:
+  test:
+    build:
+      dockerfile: '.buildkite/docker/Dockerfile'
+      context: '../../'
+    command: ["bin/rake"]
