@@ -1,0 +1,10 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+root = File.expand_path("..", __dir__)
+require File.expand_path("config/boot.rb", root)
+Bundler.setup
+require "rake"
+
+Dir.chdir root
+Rake.application.run

@@ -9,8 +9,11 @@ require_relative 'collection'
 module Lightspeed
   class ID < Integer; end
   class Link; end # rubocop:disable Lint/EmptyClass
+
   class Resource
-    attr_accessor :id, :attributes, :client, :context, :account
+    attr_reader :attributes
+    attr_writer :account, :client
+    attr_accessor :id, :context
 
     def initialize(client: nil, context: nil, attributes: {})
       self.client = client
@@ -24,7 +27,6 @@ module Lightspeed
         send(:"#{key}=", value) if self.respond_to?(:"#{key}=")
       end
       self.id = send(self.class.id_field)
-      attributes
     end
 
     def account
@@ -122,7 +124,7 @@ module Lightspeed
     def as_json
       fields_to_h.merge(relationships_to_h).reject { |_, v| v.nil? || v == {} }
     end
-    alias_method :to_h, :as_json
+    alias to_h as_json
 
     def base_path
       if context.is_a?(Lightspeed::Collection)
@@ -151,11 +153,11 @@ module Lightspeed
     private
 
     def fields_to_h
-      self.class.fields.map { |f| [f, send(f)] }.to_h
+      self.class.fields.to_h { |f| [f, send(f)] }
     end
 
     def relationships_to_h
-      self.class.relationships.map { |r| [r.to_s.camelize, send(r).to_h] }.to_h
+      self.class.relationships.to_h { |r| [r.to_s.camelize, send(r).to_h] }
     end
 
     def collection_class

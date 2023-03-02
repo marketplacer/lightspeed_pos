@@ -10,13 +10,13 @@ module Lightspeed
     end
 
     def prices
-      @prices ||= @attributes["ItemPrice"].map { |v| [v["useType"].parameterize.underscore.to_sym, BigDecimal(v["amount"])] }.to_h
+      @prices ||= @attributes["ItemPrice"].to_h { |v| [v["useType"].parameterize.underscore.to_sym, BigDecimal(v["amount"])] }
     end
 
     def as_json
       attributes
     end
-    alias_method :to_h, :as_json
+    alias to_h as_json
 
     def to_json
       Yajl::Encoder.encode(as_json)
@@ -40,6 +40,10 @@ module Lightspeed
       else
         super
       end
+    end
+
+    def respond_to_missing?(method, *)
+      prices.keys.include?(method) || super
     end
   end
 end

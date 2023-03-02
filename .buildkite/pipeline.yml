@@ -1,5 +1,37 @@
 steps:
-  - command: "script/buildkite"
-    label: "Tests"
+  - name: ':ruby: 2.7 tests'
     agents:
       queue: default
+    plugins:
+      - docker-compose#v3.7.0:
+          config: .buildkite/docker/docker-compose.yml
+          run: test
+          args:
+            RUBY_VERSION=2.7
+  - name: ':ruby: 3.0 tests'
+    agents:
+      queue: default
+    plugins:
+      - docker-compose#v3.7.0:
+          config: .buildkite/docker/docker-compose.yml
+          run: test
+          args:
+            RUBY_VERSION=3.0
+  - name: ':ruby: 3.1 tests'
+    agents:
+      queue: default
+    plugins:
+      - docker-compose#v3.7.0:
+          config: .buildkite/docker/docker-compose.yml
+          run: test
+          args:
+            RUBY_VERSION=3.1
+  - name: ':ruby: 3.2 tests'
+    agents:
+      queue: default
+    plugins:
+      - docker-compose#v3.7.0:
+          config: .buildkite/docker/docker-compose.yml
+          run: test
+          args:
+            RUBY_VERSION=3.2
