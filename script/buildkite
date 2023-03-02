@@ -17,7 +17,6 @@ REAL_CORES=`cat /proc/cpuinfo | grep "core id" | sort | uniq | wc -l`
 
 # Pull image if we don't have a locally cached version
 if ! docker images "$IMAGE" | grep --quiet "$IMAGE"; then
-  eval $(aws --region "$REGION" ecr get-login)
   docker pull "$IMAGE"
 fi
 

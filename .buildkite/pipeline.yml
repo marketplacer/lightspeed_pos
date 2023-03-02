@@ -1,0 +1,5 @@
+steps:
+  - command: "script/buildkite"
+    label: "Tests"
+    agents:
+      queue: default
